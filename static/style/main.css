@@ -1,0 +1,139 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+*:after,
+*:before {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input,
+textarea {
+  outline: 0;
+  resize: none;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+textarea,
+select {
+  -webkit-appearance: none;
+  border: 1px solid #d7d7d7;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+button {
+  -webkit-appearance: none;
+}
+a,
+a:visited {
+  text-decoration: none;
+  -webkit-touch-callout: none;
+  color: inherit;
+  font-size: inherit;
+}
+em,
+i,
+strong,
+b {
+  font-style: normal;
+  font-weight: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: .12rem;
+  font-weight: normal;
+}
+img {
+  vertical-align: top;
+  border: none;
+  max-width: 100%;
+}
+html {
+  font-size: 100px;
+  width: 100%;
+  height: 100%;
+  color: #808080;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  line-height: 1;
+  background: #eee;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: .12rem;
+}
+@media (min-width: 320px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 112.5px;
+  }
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 125px;
+  }
+}
+.clear_fix:after {
+  content: " ";
+  clear: both;
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.container {
+  width: 100%;
+  min-width: 300px;
+  max-width: 640px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: #eee;
+  position: relative;
+}
