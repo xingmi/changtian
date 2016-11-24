@@ -1,0 +1,43 @@
+.register{
+    padding: 0 10px;
+}
+.register li{
+    padding:14px 0;
+    border-bottom: 1px solid #adadad;
+    font-size: .14rem;
+}
+.register li label{
+    width: 100%;
+    display: block;
+}
+.register li span{
+    display: inline-block;
+    width: 50px;
+    color: #030303;
+}
+.register li input{
+    height: 20px;
+    font-size: .14rem;
+}
+.register li .code{
+    float: right;
+    width: 100px;
+    border:1px solid #a0a0a0;
+    height: 24px;
+    line-height: 24px;
+    border-radius:10px;
+    text-align: center;
+    color: #6bb4c5;
+}
+
+.register_btn{
+    display: block;
+    margin: 30px auto;
+    width: 150px;
+    height: 30px;
+    background: #1c93bf;
+    color: #FFF;
+    font-size: .12rem;
+    text-align: center;
+    line-height: 30px;
+}

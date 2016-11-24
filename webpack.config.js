@@ -3,7 +3,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    searchList : './res/controllers/searchList.js'
+    searchList : './res/controllers/searchList.js',
+    register   : './res/controllers/register.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
