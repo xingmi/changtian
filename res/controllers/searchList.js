@@ -2,8 +2,9 @@
     @description 首页列表
 */
 
-var Vue = require('vue')
+var Vue      = require('vue')
 var Seachbar = require('../components/Searchbar.vue');
+var Footbar  = require('../components/Footbar.vue');
 
 function getLocation(callback){
     if(navigator.geolocation){
@@ -19,12 +20,13 @@ function getLocation(callback){
 }
 
 new Vue({
-    el : '.seach_list',
+    el : '.search_list',
     data : {
         usercity : "上海"
     },
     components: {
-        'search-bar': Seachbar
+        'search-bar': Seachbar,
+        'foot-bar'  : Footbar
     },
     created : function(){
         getLocation()

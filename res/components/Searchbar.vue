@@ -25,9 +25,7 @@ module.exports = {
 
 .select_model{
     background: #839fa9;
-    padding: 10px 10%;
-
-
+    padding: 10px 5%;
 }
 .select_model .select{
     width: 80%;
@@ -35,7 +33,6 @@ module.exports = {
     position: relative;
     padding-right: 70px;
     height: 30px;
-
 }
 .select_model .select input{
     height: 30px;
@@ -60,6 +57,9 @@ module.exports = {
 .select_model .address{
     width: 20%;
     float: left;
+    text-align: center;
+    color: #FFF;
+    line-height: 30px;
 }
 
 </style>

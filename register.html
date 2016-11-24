@@ -30,7 +30,7 @@
             <label>
                 <span>验证码</span>
                 <input v-model.number="user.code"/>
-                <span class="code" @click="sendCode" v-cloak>{{codeMsg}}</span>
+                <button class="code" @click="sendCode" v-cloak>{{codeMsg}}</button>
             </label>
         </li>
     </ul>
