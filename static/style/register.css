@@ -1,5 +1,7 @@
 .register{
-    padding: 0 10px;
+}
+.register ul{
+        padding: 0 10px;
 }
 .register li{
     padding:14px 0;
@@ -32,13 +34,15 @@
 }
 
 .register_btn{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     display: block;
-    margin: 30px auto;
-    width: 150px;
-    height: 30px;
-    background: #1c93bf;
+    height: 50px;
+    background: #f2955c;
     color: #FFF;
-    font-size: .12rem;
+    font-size: .16rem;
     text-align: center;
-    line-height: 30px;
+    line-height: 50px;
 }

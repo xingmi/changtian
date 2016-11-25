@@ -4,6 +4,7 @@
 
 var Vue      = require('vue')
 var Seachbar = require('../components/Searchbar.vue');
+var SearchList  = require('../components/SearchList.vue');
 var Footbar  = require('../components/Footbar.vue');
 
 function getLocation(callback){
@@ -26,9 +27,10 @@ new Vue({
     },
     components: {
         'search-bar': Seachbar,
-        'foot-bar'  : Footbar
+        'foot-bar'  : Footbar,
+        'search-list': SearchList
     },
     created : function(){
-        getLocation()
+        // getLocation()
     }
 })
