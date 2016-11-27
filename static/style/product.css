@@ -1,0 +1,83 @@
+.product{
+background: #dbdbdb;
+}
+.product .product_title{
+    padding: 10px;
+    background: #FFF;
+}
+.product .product_title .product_img{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    float: left;
+    margin-right: 10px;
+}
+.product .product_title .product_img img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.product .product_title .product_name{
+    float: left;
+}
+.product .product_title .product_name h2{
+    font-size: .14rem;
+    margin: 5px 0 10px 0;
+    color: #000;
+}
+.product .product_title .product_name h2 span{
+    font-size: .10rem;
+    border:1px solid #ad6d22;
+    color: #ad6d22;
+}
+.product_model{
+    margin-top: 10px;
+}
+.product_model h3{
+    background: #FFF;
+    padding: 10px;
+    font-size: .14rem;
+    border-bottom: 1px solid #aeadad;
+    color: #000;
+}
+.product_model>div{
+    padding: 10px;
+    background: #FFF;
+}
+
+.product .prodcut_footer{
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.product .prodcut_footer .collect{
+    float: left;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    display: block;
+    background: #FFF;
+}
+.product .prodcut_footer .collect i{
+    background: url('../images/collect.jpg') no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 19px;
+    display: block;
+    margin: 5px auto;
+
+}
+.product .prodcut_footer .apply{
+    width: 80%;
+    height: 100%;
+    background: #f2955c;
+    color: #000;
+    text-align: center;
+    display: block;
+    float: left;
+    line-height: 50px;
+    font-size: .14rem;
+
+}

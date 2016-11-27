@@ -141,3 +141,7 @@ body {
 [v-cloak]{
     display: none  !important;
 }
+
+input[placeholder], [placeholder], *[placeholder] { 
+color:#FFF !important; 
+} 
