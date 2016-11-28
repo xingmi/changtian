@@ -20,6 +20,7 @@
 .register li input{
     height: 20px;
     font-size: .14rem;
+    width: 100px;
 }
 .register li .code{
     float: right;

@@ -141,7 +141,9 @@ body {
 [v-cloak]{
     display: none  !important;
 }
-
-input[placeholder], [placeholder], *[placeholder] { 
-color:#FFF !important; 
-} 
+input::-webkit-input-placeholder{
+  color: #FFF;
+}
+input{
+  color: #FFF;
+}
