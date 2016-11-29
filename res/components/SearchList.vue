@@ -11,154 +11,13 @@
         <p class="search_total">共有30个结果</p>
         <div class="product_list">
             <ul>
-                <li class="clear_fix">
-                    <a href="">
+                <li class="clear_fix" v-for="product in productlist">
+                    <a :href="'/product.html?id='+product.id">
                         <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
+                            <img :src="product.icon">
                         </div>
                         <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i> <span>展开全文</span></h2>
-                            <p>额度:5-30万</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
-                        </div>
-                    </a>
-                </li><li class="clear_fix">
-                    <a href="">
-                        <div class="product_img">
-                            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
-                        </div>
-                        <div class="product_module">
-                            <h2>平安-新一代 <i>信用贷</i><span>展开全文</span></h2>
+                            <h2>{{product.name}} <i>信用贷</i> <span>展开全文</span></h2>
                             <div>额度：5-30W</div>
                             <div>月息：0.56%</div>
                             <div>还款方式：等额本息</div>
@@ -174,6 +33,10 @@
 </template>
 
 <script>
+
+module.exports = {
+    props : ['productlist']
+}
 
 </script>
 
