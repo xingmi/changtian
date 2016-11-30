@@ -18,7 +18,7 @@
                         </div>
                         <div class="product_module">
                             <h2>{{product.name}} <i>信用贷</i> <span>展开全文</span></h2>
-                            <div>额度：5-30W</div>
+                            <div>额度：{{minAmount}}-{{maxAmount}}W</div>
                             <div>月息：0.56%</div>
                             <div>还款方式：等额本息</div>
                             <div>放款速度：3天</div>
