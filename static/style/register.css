@@ -14,13 +14,17 @@
 }
 .register li span{
     display: inline-block;
-    width: 60px;
+    width: 78px;
     color: #030303;
 }
 .register li input{
     height: 20px;
     font-size: .14rem;
     width: 100px;
+}
+.register li  img{
+    float: right;
+    margin-top: -8px;
 }
 .register li .code{
     float: right;

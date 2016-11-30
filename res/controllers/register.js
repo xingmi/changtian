@@ -2,11 +2,9 @@
     @description 极速申请
 */
 
-var Vue = require('../lib/vue');
+var Vue      = require('vue');
 var VueResource = require('../lib/vue-resource');
-var Config = require('../config/env');
-
-Vue.use(VueResource);
+var Config = require('../config/globalMain');
 
 new Vue({
     el : '.register',
@@ -14,10 +12,15 @@ new Vue({
         isSend : true,
         codeMsg : "发送验证码",
         countdown : 5,
+        imageCode : "",
         user : {
             name : "12313",
-            phone : ""
+            phone : "",
+            imageCodeValue : ""
         }
+    },
+    created : function(){
+        this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid=1232"
     },
     methods : {
         postData : function(){
@@ -26,6 +29,9 @@ new Vue({
             },function(res){
 
             });
+        },
+        resetImageCode : function(){
+            this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid=3453455&data=" + new Date().getTime()
         },
         sendCode : function(){
             var self = this;
@@ -46,6 +52,8 @@ new Vue({
         }
     }
 });
+
+
 
 
 

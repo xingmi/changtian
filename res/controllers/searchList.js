@@ -7,8 +7,7 @@ var VueResource = require('../lib/vue-resource');
 var Seachbar = require('../components/Searchbar.vue');
 var SearchList  = require('../components/SearchList.vue');
 var Footbar  = require('../components/Footbar.vue');
-var Config = require('../config/env');
-
+var Config = require('../config/globalMain');
 
 
 function getLocation(callback){
@@ -19,7 +18,6 @@ function getLocation(callback){
                 callback(p.coords.latitude, p.coords.longitude);
             },
             function(e){
-
                //  var msg = e.code + "\n" + e.message;
                // alert(msg)
             }
@@ -40,7 +38,6 @@ new Vue({
     },
     created : function(){
         var that = this;
-
         // getLocation(function(lat,lng){
             that.$http.get(Config.api+ 'products.json').then(function(res){
                 that.usercity = "上海"
@@ -51,3 +48,4 @@ new Vue({
         // })
     }
 })
+

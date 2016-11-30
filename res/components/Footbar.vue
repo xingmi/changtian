@@ -26,6 +26,7 @@
         height: 35px;
         background: #839fa9;
         padding: 5px 0;
+        z-index: 1
     }
     .foot_bar>ul>li{
         width: 33.33%;

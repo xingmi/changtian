@@ -8,7 +8,7 @@
             </ul>
         </div>
         <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" class="banner">
-        <p class="search_total">共有30个结果</p>
+        <p class="search_total">共有{{productlist.length}}个结果</p>
         <div class="product_list">
             <ul>
                 <li class="clear_fix" v-for="product in productlist">
@@ -17,11 +17,11 @@
                             <img :src="product.icon">
                         </div>
                         <div class="product_module">
-                            <h2>{{product.name}} <i>信用贷</i> <span>展开全文</span></h2>
-                            <div>额度：{{minAmount}}-{{maxAmount}}W</div>
-                            <div>月息：0.56%</div>
-                            <div>还款方式：等额本息</div>
-                            <div>放款速度：3天</div>
+                            <h2>{{product.name}} <i>{{product.type | loanValue}}</i> <span>展开全文</span></h2>
+                            <div>额度：{{product.minAmount | moneyFormat}}-{{product.maxAmount | moneyFormat}}</div>
+                            <div>月息：{{product.interest}}%</div>
+                            <div>还款方式：{{ product.refundType | refundsValue}}</div>
+                            <div>放款速度：{{product.lendingDate}}天</div>
                         </div>
                     </a>
                 </li>
