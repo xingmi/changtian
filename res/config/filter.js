@@ -1,6 +1,7 @@
 var Vue  = require('vue');
 var Cookie = require('../lib/cookie');
 var Lodash = require('../lib/lodash');
+var getData = require('./getData');
 
 var mapData = JSON.parse(Cookie('mapData'));
 
