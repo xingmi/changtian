@@ -1,13 +1,13 @@
 <template>
     <section class="search_list">
-        <div class="pulldown_search">
+        <div class="pulldown_search" v-if="listconfig.search_bar">
             <ul>
                 <li>贷款人群<i></i></li>
                 <li>资产贷款<i></i></li>
                 <li>信用贷<i></i></li>
             </ul>
         </div>
-        <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" class="banner">
+        <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" class="banner" v-if="listconfig.img">
         <p class="search_total">共有{{productlist.length}}个结果</p>
         <div class="product_list">
             <ul>
@@ -35,7 +35,7 @@
 <script>
 
 module.exports = {
-    props : ['productlist']
+    props : ['productlist','listconfig']
 }
 
 </script>

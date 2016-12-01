@@ -7,20 +7,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="/static/style/main.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/search_list.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/search_result.css">
     
 </head>
 <body>
 
-<div class="container search_list">
-    <search-bar :usercity="usercity"></search-bar>
-
-    <search-list :productlist="product_list" :listconfig="{search_bar:true,img:true}"></search-list>
-
-    <foot-bar></foot-bar>
+<div class="container search_result">
+    <search-list :productlist="product_list" :listconfig="{search_bar:false,img:false}"></search-list>
 </div>
 
-
-<script type="text/javascript"  src="/dist/searchList.js"></script>
+<script type="text/javascript"  src="/dist/searchResult.js"></script>
 </body>
 </html>

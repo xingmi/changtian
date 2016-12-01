@@ -3,7 +3,6 @@
 */
 
 var Vue      = require('vue');
-var VueResource = require('../lib/vue-resource');
 var Seachbar = require('../components/Searchbar.vue');
 var SearchList  = require('../components/SearchList.vue');
 var Footbar  = require('../components/Footbar.vue');
@@ -39,7 +38,11 @@ new Vue({
     created : function(){
         var that = this;
         // getLocation(function(lat,lng){
-            that.$http.get(Config.api+ 'products.json').then(function(res){
+            that.$http.get(Config.api+ 'products.json',{
+                params : {
+                    
+                }
+            }).then(function(res){
                 that.usercity = "上海"
                 that.product_list = res.body.data;
             },function(res){

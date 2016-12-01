@@ -4,7 +4,8 @@ var webpack = require('webpack');
 module.exports = {
   entry: {
     searchList : './res/controllers/searchList.js',
-    register   : './res/controllers/register.js'
+    register   : './res/controllers/register.js',
+    searchResult   : './res/controllers/searchResult.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),

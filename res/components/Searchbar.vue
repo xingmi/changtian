@@ -1,8 +1,8 @@
 <template>   
     <section class="select_model clear_fix">
         <div class="select">
-            <input placeholder="请输入贷款金额"/>
-            <span>快速申请</span>
+            <input placeholder="请输入贷款金额" v-model="amount"/>
+            <span @click='fastSearch'>快速申请</span>
         </div>
         <div class="address">
             <i></i>
@@ -14,7 +14,18 @@
 <script>
 
 module.exports = {
-    props : ['usercity']
+    props : ['usercity'],
+    data : function(){
+        return {
+            amount : ''
+        }
+    },
+    methods : {
+        fastSearch : function(){
+            window.location.href = "/searchResult.html?amount=" + this.amount
+        }
+    }
+
 }
 
 
@@ -39,6 +50,7 @@ module.exports = {
     width: 100%;
     background: #60a7c1;
     padding-left: 10px;
+    color: #FFF;
 }
 
 .select_model .select span{
