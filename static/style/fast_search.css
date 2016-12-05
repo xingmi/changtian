@@ -1,0 +1,160 @@
+.fast_search{
+
+}
+.fast_search .search_keyword {
+    padding: 10px;
+    border-bottom: 5px solid #aeadad;
+}
+.fast_search .search_keyword .keyword_title{
+    float: left;
+    width: 30%;
+    line-height: 36px;
+    padding-right: 10px;
+    text-align: center;
+    color:#000;
+}
+.fast_search .search_keyword .keyword_input{
+    float: left;
+    width: 70%;
+    border:1px solid #aeadad;
+    border-radius: 10px;
+    height: 36px;
+    padding: 0 65px 0 5px;
+    overflow: hidden;
+    position: relative;
+}
+.fast_search .search_keyword .keyword_input input{
+    height: 30px;
+    margin-top: 3px;
+    width: 100%;
+}
+.fast_search .search_keyword .keyword_input::-webkit-input-placeholder{
+  color: #b6b3b3;
+}
+.fast_search .search_keyword .keyword_input .search_btn{
+    background: #718d97;
+    color: #FFF;
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 36px;
+    right: 0;
+    top: 0;
+    line-height: 34px;
+}
+
+.fast_search .search_keyword .keyword_prompt{
+    color: #b8b8b8;
+    margin: 5px;
+    margin-top: 15px;
+}
+.fast_search .search_keyword .keyword_example span{
+    width: 33.33%;
+    float: left;
+    color: #b8b8b8;
+    padding: 5px;
+}
+.fast_search .search_params {
+    padding: 10px;
+}
+.fast_search .search_params .search_price .price_title{
+    float: left;
+    width: 30%;
+    line-height: 36px;
+    padding-right: 10px;
+    color:#000;
+}
+
+.fast_search .search_params .search_price .keyword_input{
+    float: left;
+    width: 70%;
+    border:1px solid #aeadad;
+    border-radius: 10px;
+    height: 36px;
+    padding: 0 65px 0 5px;
+    overflow: hidden;
+    position: relative;
+}
+.fast_search .search_params .search_price .keyword_input input{
+    height: 30px;
+    margin-top: 3px;
+    width: 100%;
+    text-align: center;
+    font-size: .14rem;
+}
+.fast_search .search_params .search_price .keyword_input::-webkit-input-placeholder{
+  color: #b6b3b3;
+}
+.fast_search .search_params .search_price .keyword_input .search_btn{
+    color: #000;
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 36px;
+    right: 0;
+    top: 0;
+    line-height: 34px;
+}
+.fast_search .search_params dl{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #aeadad;
+}
+.fast_search .search_params dl dt{
+    color: #424242;
+    padding: 10px 0;
+    font-size: .14rem;
+}
+.fast_search .search_params dl dd{
+    border-bottom: 1px solid #aeadad;
+    padding-bottom: 10px;
+}
+.fast_search .search_params dl dd label{
+    width: 25%;
+    float: left;
+    margin-top: 10px;
+}
+.fast_search .search_params dl dd label span{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #d5d5d5;
+    border-radius: 4px;
+    color: #000;
+}
+.fast_search .search_params dl dd input{
+    position: absolute;
+    opacity: 0;
+}
+.fast_search .search_params dl dd input:checked + span{
+    background: #718d97;
+    color: #FFF;
+}
+.fast_search .foot_btn{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 38px;
+}
+.fast_search .foot_btn span{
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 100%;
+    font-size: .14rem;
+    line-height: 36px;
+}
+.fast_search .foot_btn span.reset{
+    background: #FFF;
+    color: #b2b2b2;
+    border-top:1px solid #718d97;
+}
+.fast_search .foot_btn span.search{
+    border-top:1px solid #718d97;
+    background: #718d97;
+    color: #FFF;
+}
