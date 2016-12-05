@@ -1,10 +1,26 @@
 <template>
     <section class="search_list">
         <div class="pulldown_search" v-if="listconfig.search_bar">
-            <ul>
-                <li>贷款人群<i></i></li>
-                <li>资产贷款<i></i></li>
-                <li>信用贷<i></i></li>
+            <ul class="pull_ul">
+                <li class="pull_li" @click="btn.showperson = !btn.showperson">
+                贷款人群<i></i>
+                    <ul class="pull_subul" v-if="btn.showperson" transition="fade">
+                        <li class="pull_subli" v-for="people in datas.peoples">{{people.text}}</li>
+                    </ul>
+               
+                </li>
+                <li class="pull_li" @click="btn.showassets = !btn.showassets">
+                资产贷款<i></i>
+                    <ul class="pull_subul" v-if="btn.showassets">
+                        <li class="pull_subli" v-for="asset in datas.assets">{{asset.text}}</li>
+                    </ul>
+                </li>
+                <li class="pull_li" @click="btn.showcredis = !btn.showcredis">
+                信用贷<i></i>
+                    <ul class="pull_subul" v-if="btn.showcredis">
+                        <li class="pull_subli" v-for="credit in datas.credits">{{credit.text}}</li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" class="banner" v-if="listconfig.img">
@@ -33,10 +49,23 @@
 </template>
 
 <script>
+var Cookie = require('../lib/cookie');
 
+console.log(JSON.parse(Cookie('mapData')))
 module.exports = {
-    props : ['productlist','listconfig']
+    props : ['productlist','listconfig'],
+    data : function(){
+        return {
+            btn : {
+                showperson : false,
+                showassets : false,
+                showcredis : false
+            },
+            datas : JSON.parse(Cookie('mapData'))
+        }
+    }
 }
+
 
 </script>
 
@@ -66,16 +95,24 @@ module.exports = {
     display: inline-block;
     margin-left: 5px;
 }
-.search_list .pulldown_search>ul>li{
+.search_list .pulldown_search .pull_ul .pull_li{
     border-right:1px solid #000;
     float: left;
     width: 33.33%;
     text-align: center;
     font-size: .14rem;
     line-height: 30px;
+    position: relative;
 }
-.search_list .pulldown_search>ul>li:last-child{
+.search_list .pulldown_search .pull_ul .pull_li:last-child{
     border-right:0;
+}
+.search_list .pulldown_search .pull_ul .pull_li .pull_subul{
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    background: #FFF;
 }
 .search_list .product_list{
     padding: 0 10px;
@@ -132,6 +169,15 @@ module.exports = {
     width: 50%;
     float: left;
     height: 20px;
+}
+
+.fade-transition {
+    transition: all .5s ease;
+    overflow: hidden;
+}
+.fade-enter, .fade-leave {
+    opacity: 0;
+    height: 0;
 }
 </style>
 

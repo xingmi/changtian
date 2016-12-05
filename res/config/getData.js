@@ -15,10 +15,12 @@ var Ajax={
     }
 }
 
+
 // 过期时间为一天
 if(!Cookie('mapData')){
     Ajax.get(env.api+'constants.json',function(datas){
         var datas = JSON.parse(datas);
+        console.log(datas)
         Cookie('mapData',datas.data,{ expires: 1});
     })
 }
