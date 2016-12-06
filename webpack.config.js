@@ -7,6 +7,7 @@ module.exports = {
     register   : './res/controllers/register.js',
     searchResult   : './res/controllers/searchResult.js',
     fastSearch : './res/controllers/fastSearch.js',
+    getBaseData : './res/controllers/getBaseData.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),

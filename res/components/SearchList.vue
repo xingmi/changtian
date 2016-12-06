@@ -2,24 +2,44 @@
     <section class="search_list">
         <div class="pulldown_search" v-if="listconfig.search_bar">
             <ul class="pull_ul">
-                <li class="pull_li" @click="btn.showperson = !btn.showperson">
-                贷款人群<i></i>
-                    <ul class="pull_subul" v-if="btn.showperson" transition="fade">
-                        <li class="pull_subli" v-for="people in datas.peoples">{{people.text}}</li>
+                <li class="pull_li" >
+                <span @click="btn.showPerson = !btn.showPerson">贷款人群<i></i></span>
+                <transition name="fade">
+                    <ul class="pull_subul" v-if="btn.showPerson" transition="fade">
+                        <li class="pull_subli" v-for="people in datas.peoples">
+                            <label>
+                                <input type="radio" :value="people.value" v-model="temPeople"/>
+                                <span>{{people.text}}</span>
+                            </label>
+                        </li>
                     </ul>
-               
+                </transition>
                 </li>
-                <li class="pull_li" @click="btn.showassets = !btn.showassets">
-                资产贷款<i></i>
-                    <ul class="pull_subul" v-if="btn.showassets">
-                        <li class="pull_subli" v-for="asset in datas.assets">{{asset.text}}</li>
+                <li class="pull_li">
+                <span @click="btn.showAssets = !btn.showAssets">资产贷款<i></i></span>
+                <transition name="fade">
+                    <ul class="pull_subul" v-if="btn.showAssets">
+                        <li class="pull_subli" v-for="asset in datas.assets">
+                            <label>
+                                <input type="radio" :value="asset.value" v-model="temAssets"/>
+                                <span>{{asset.text}}</span>
+                            </label>
+                        </li>
                     </ul>
+                </transition>
                 </li>
-                <li class="pull_li" @click="btn.showcredis = !btn.showcredis">
-                信用贷<i></i>
-                    <ul class="pull_subul" v-if="btn.showcredis">
-                        <li class="pull_subli" v-for="credit in datas.credits">{{credit.text}}</li>
+                <li class="pull_li">
+                <span @click="btn.showCredis = !btn.showCredis">信用贷<i></i></span>
+                <transition name="fade">
+                    <ul class="pull_subul" v-if="btn.showCredis">
+                        <li class="pull_subli" v-for="credit in datas.credits">
+                            <label>
+                                <input type="checkbox" :value="credit.value" v-model="temCredit"/>
+                                <span>{{credit.text}}</span>
+                            </label>
+                        </li>
                     </ul>
+                </transition>
                 </li>
             </ul>
         </div>
@@ -50,18 +70,62 @@
 
 <script>
 var Cookie = require('../lib/cookie');
+var Config = require('../config/globalMain');
+var Lodash = require('../lib/lodash');
 
-console.log(JSON.parse(Cookie('mapData')))
 module.exports = {
-    props : ['productlist','listconfig'],
+    props : ['listconfig'],
+    created : function(){
+        this.getData();
+    },
     data : function(){
         return {
             btn : {
-                showperson : false,
-                showassets : false,
-                showcredis : false
+                showPerson : false,
+                showAssets : false,
+                showCredis : false
             },
-            datas : JSON.parse(Cookie('mapData'))
+            datas : JSON.parse(Cookie('mapData')),
+            productlist : [],
+            temParams : {
+                "city" : 1
+            },
+            temPeople : [],
+            temAssets : [],
+            temCredit : []
+        }
+    },
+    watch : {
+        temPeople : function(newValue){
+            this.temParams.peoples = newValue;
+            this.getData();
+        },
+        temAssets : function(newValue){
+            this.temParams.assets = newValue;
+            this.getData();
+        },
+        temCredit : function(newValue){
+            this.temParams.credis = eval(newValue.join('+'));
+            this.getData();
+        }
+    },
+    methods : {
+        getData : function(){
+            var that = this;
+            that.$http.get(Config.api+ 'products.json',{
+                params : that.temParams
+            }).then(function(res){
+                that.productlist = res.body.data;
+                that.temParams.city = 2;
+                setTimeout(function(){
+                    that.btn.showPerson = false;
+                    that.btn.showAssets =false;
+                    that.btn.showCredis = false;
+                },200)
+                
+            },function(res){
+
+            });
         }
     }
 }
@@ -103,6 +167,18 @@ module.exports = {
     font-size: .14rem;
     line-height: 30px;
     position: relative;
+}
+.search_list .pulldown_search .pull_ul .pull_li label{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.search_list .pulldown_search .pull_ul .pull_li input{
+    position: absolute;
+    display: none;
+}
+.search_list .pulldown_search .pull_ul .pull_li input:checked + span{
+    color: red;
 }
 .search_list .pulldown_search .pull_ul .pull_li:last-child{
     border-right:0;
@@ -171,13 +247,11 @@ module.exports = {
     height: 20px;
 }
 
-.fade-transition {
-    transition: all .5s ease;
-    overflow: hidden;
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
 }
-.fade-enter, .fade-leave {
-    opacity: 0;
-    height: 0;
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>
 

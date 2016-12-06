@@ -1,8 +1,9 @@
 <template>
     <section class="foot_bar">
         <ul class="clear_fix">
-            <li><a href="/register.html"><i></i>极速办理</a></li>
+            <li><a href="/register.html"><i class="first"></i>极速办理</a></li>
             <li @click="show = !show">
+                <i class="second"></i>
                 高效申请
                 <transition name="fade">
                 <ul v-if="show">
@@ -11,7 +12,7 @@
                 </ul>
                 </transition>
             </li>
-            <li><a href="/fastSearch.html">快速匹配</a></li>
+            <li><a href="/fastSearch.html"><i class="third"></i>快速匹配</a></li>
         </ul>
 
     </section>
@@ -43,6 +44,25 @@
         width: 100%;
         height: 100%;
     }
+    .foot_bar>ul>li i{
+        background: url(/static/images/search_foot_icon.png) no-repeat;
+        width: 23px;
+        height: 25px;
+        display: inline-block;
+        background-size: 69px 26px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    .foot_bar>ul>li i.first{
+        background-position: left top;
+    }
+    .foot_bar>ul>li i.second{
+        background-position: center top;
+    }
+    .foot_bar>ul>li i.third{
+        background-position: right top;
+    }
+
     .foot_bar>ul>li:last-child{
         border-right: 0;
     }
@@ -58,7 +78,7 @@
     }
 
     .fade-enter-active, .fade-leave-active {
-      /*transition: opacity .5s*/
+      transition: opacity .5s
     }
     .fade-enter, .fade-leave-active {
       opacity: 0
