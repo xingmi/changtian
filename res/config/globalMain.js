@@ -4,10 +4,16 @@ var Cookie = require('../lib/cookie');
 var Filter = require('./filter');
 var env    = require('./env');
 
+
+if(!Cookie('mapDataExpires') || !localStorage['mapData']){
+    window.location.href= "/getBaseData.html?redirect="+ window.location.href
+}
+
 Vue.use(VueResource);
 
 Vue.http.options.emulateJSON = true;
 
 module.exports = {
-    api : env.api
+    api : env.api,
+    mapData : JSON.parse(localStorage['mapData'])
 }

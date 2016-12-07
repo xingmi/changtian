@@ -3,6 +3,7 @@
 */
 
 var Vue = require('../lib/vue');
+var Config = require('../config/globalMain');
 
 new Vue({
     data : {

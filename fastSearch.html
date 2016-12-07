@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div class="container fast_search">
+<div class="container fast_search" v-cloak>
     <div class="search_keyword">
         <div class="clear_fix">
             <span class="keyword_title">关键词搜索</span>   
@@ -46,39 +46,25 @@
         <dl>
             <dt>贷款期限</dt>
             <dd class="clear_fix">
-                <label>
-                    <input type="checkbox">
-                    <span class="button">不限</span>
-                </label>
-                <label>
-                    <input type="checkbox">
-                    <span class="button">不限</span>
-                </label>
-                <label>
-                    <input type="checkbox">
-                    <span class="button">不限</span>
-                </label>
-                <label>
-                    <input type="checkbox">
-                    <span class="button">不限</span>
-                </label>
-                <label>
-                    <input type="checkbox">
-                    <span class="button">不限</span>
-                </label>
-                <label>
-                    <input type="checkbox">
-                    <span class="button">不限</span>
-                </label>
-                <label>
-                    <input type="checkbox">
-                    <span class="button">不限</span>
+                <label v-for="data in temparams.terms">
+                    <input type="checkbox" :value="data.value" v-model="paramsTerms">
+                    <span class="button">{{data.text}}</span>
                 </label>
             </dd>
             <dt>还款方式</dt>
-            <dd></dd>
+            <dd class="clear_fix">
+                <label v-for="data in temparams.refunds">
+                    <input type="radio" :value="data.value" v-model="paramsRefunds">
+                    <span class="button">{{data.text}}</span>
+                </label>
+            </dd>
             <dt>机构类型</dt>
-            <dd></dd>
+            <dd class="clear_fix">
+                <label v-for="data in temparams.institutions">
+                    <input type="radio" :value="data.value" v-model="paramsInstitutions">
+                    <span class="button">{{data.text}}</span>
+                </label>
+            </dd>
         </dl>
     </div>
     <div class="foot_btn">

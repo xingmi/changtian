@@ -1,7 +1,7 @@
 <template>
     <section class="search_list">
         <div class="pulldown_search" v-if="listconfig.search_bar">
-            <ul class="pull_ul">
+            <ul class="pull_ul clear_fix">
                 <li class="pull_li" >
                 <span @click="btn.showPerson = !btn.showPerson">贷款人群<i></i></span>
                 <transition name="fade">
@@ -85,7 +85,7 @@ module.exports = {
                 showAssets : false,
                 showCredis : false
             },
-            datas : JSON.parse(Cookie('mapData')),
+            datas : Config.mapData,
             productlist : [],
             temParams : {
                 "city" : 1
@@ -146,7 +146,6 @@ module.exports = {
     padding: 10px;
 }
 .search_list .pulldown_search{
-    height: 30px;
     background: #FFF;
     padding: 5px 0;
 }
@@ -166,6 +165,7 @@ module.exports = {
     text-align: center;
     font-size: .14rem;
     line-height: 30px;
+    height: 30px;
     position: relative;
 }
 .search_list .pulldown_search .pull_ul .pull_li label{

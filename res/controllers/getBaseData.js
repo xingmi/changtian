@@ -30,14 +30,16 @@ function getLocation(callback){
         );
     }
 }
-if(!Cookie('mapData')){
+
+if(!Cookie('mapDataExpires') || !localStorage['mapData']){
     var lat = 11;
     var lng = 22;
     // getLocation(function(lat,lng){
         Ajax.get(env.api+'constants.json?lat='+lat + "&lng="+lng,function(datas){
             var datas = JSON.parse(datas);
-            console.log(datas);
-            Cookie('mapData',datas.data,{ expires: 1});
+            Cookie('mapDataExpires',true,{ expires: 1});
+            localStorage['mapData'] = JSON.stringify(datas.data);
+            
             window.location.href= utility.getUrlParam('redirect')
         })
     // })
