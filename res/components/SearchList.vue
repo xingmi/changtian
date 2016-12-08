@@ -88,7 +88,7 @@ module.exports = {
             datas : Config.mapData,
             productlist : [],
             temParams : {
-                "city" : 1
+                // "city" : 1
             },
             temPeople : [],
             temAssets : [],
@@ -116,7 +116,7 @@ module.exports = {
                 params : that.temParams
             }).then(function(res){
                 that.productlist = res.body.data;
-                that.temParams.city = 2;
+                // that.temParams.city = 2;
                 setTimeout(function(){
                     that.btn.showPerson = false;
                     that.btn.showAssets =false;
@@ -189,6 +189,7 @@ module.exports = {
     top: 30px;
     left: 0;
     background: #FFF;
+    z-index: 1;
 }
 .search_list .product_list{
     padding: 0 10px;

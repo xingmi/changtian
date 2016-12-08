@@ -19,12 +19,16 @@ new Vue({
     },
     created : function(){
         var that = this;
+        var searchParams = JSON.parse(utility.getUrlParam('searchParams'));
+        var temParams = {};
+
+        _.each(searchParams,function(value,key){
+            if(!!value) temParams[key] = value;
+        })
+
         that.$http.get(Config.api+ 'products.json',{
-            params : {
-                amount : utility.getUrlParam('amount')
-            }
-        }).then(function(res){
-            
+            params : temParams
+        }).then(function(res){  
             that.product_list = res.body.data;
         },function(res){
 

@@ -1,8 +1,8 @@
 var Vue  = require('vue');
 var Cookie = require('../lib/cookie');
 var Lodash = require('../lib/lodash');
-var Config = require('../config/globalMain');
 
+var mapData = JSON.parse(localStorage['mapData'])
 
 // 格式化金钱
 Vue.filter('moneyFormat',function(money){
@@ -12,7 +12,7 @@ Vue.filter('moneyFormat',function(money){
 // 还款类型    
 Vue.filter('refundsValue',function(typeId){
     if(_.isNumber(typeId)){
-        return _.result(_.find(Config.mapData.refunds,{'value': typeId.toString()}),'text')
+        return _.result(_.find(mapData.refunds,{'value': typeId.toString()}),'text')
     }else{
         return '未知';
     }
@@ -21,7 +21,7 @@ Vue.filter('refundsValue',function(typeId){
 // 贷款类型
 Vue.filter('loanValue',function(typeId){
     if(_.isNumber(typeId)){
-        return _.result(_.find(Config.mapData.loanType,{'value': typeId.toString()}),'text')
+        return _.result(_.find(mapData.loanType,{'value': typeId.toString()}),'text')
     }else{
         return '未知';
     }
