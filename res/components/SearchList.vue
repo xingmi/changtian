@@ -7,8 +7,8 @@
                 <transition name="fade">
                     <ul class="pull_subul" v-if="btn.showPerson" transition="fade">
                         <li class="pull_subli" v-for="people in datas.peoples">
-                            <label>
-                                <input type="radio" :value="people.value" v-model="temPeople"/>
+                            <label @change="selectPeople(people.value)">
+                                <input type="checkbox" :value="people.value" v-model="temPeople"/>
                                 <span>{{people.text}}</span>
                             </label>
                         </li>
@@ -20,8 +20,8 @@
                 <transition name="fade">
                     <ul class="pull_subul" v-if="btn.showAssets">
                         <li class="pull_subli" v-for="asset in datas.assets">
-                            <label>
-                                <input type="radio" :value="asset.value" v-model="temAssets"/>
+                            <label @change="selectAssets(asset.value)">
+                                <input type="checkbox" :value="asset.value" v-model="temAssets"/>
                                 <span>{{asset.text}}</span>
                             </label>
                         </li>
@@ -96,14 +96,6 @@ module.exports = {
         }
     },
     watch : {
-        temPeople : function(newValue){
-            this.temParams.peoples = newValue;
-            this.getData();
-        },
-        temAssets : function(newValue){
-            this.temParams.assets = newValue;
-            this.getData();
-        },
         temCredit : function(newValue){
             this.temParams.credis = eval(newValue.join('+'));
             this.getData();
@@ -126,6 +118,20 @@ module.exports = {
             },function(res){
 
             });
+        },
+        selectPeople : function(value){
+            if(this.temPeople.length > 1){
+                this.temPeople.shift();
+            }
+            this.temParams.peoples = this.temPeople[0];
+            this.getData();
+        },
+        selectAssets : function(value){
+            if(this.temAssets.length > 1){
+                this.temAssets.shift();
+            }
+            this.temParams.peoples = this.temAssets[0];
+            this.getData();
         }
     }
 }
