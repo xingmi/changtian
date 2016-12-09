@@ -32,6 +32,15 @@ Vue.filter('creditRegistriesValue',function(typeId){
     if(typeId){
         return _.result(_.find(mapData.credit_registries,{'value': typeId.toString()}),'text')
     }else{
-        return '未知';
+        return '请选择';
+    }
+})
+
+//期望融资时间
+Vue.filter('expectedValue',function(typeId){
+    if(typeId){
+        return _.result(_.find(mapData.expected,{'value': typeId.toString()}),'text')
+    }else{
+        return '请选择';
     }
 })

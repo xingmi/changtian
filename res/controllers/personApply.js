@@ -10,15 +10,26 @@ new Vue({
     el : '.apply_form',
     data : {
         params : {
-
+            name : '',
+            amount : '',
+            usage : '',
+            assets : [],
+            identity : '',
+            salary : '',
+            social : '',
+            accu : '',
+            monthly : '',
+            credit : '',
+            expected : '',
+            mobile : ''
         },
         configParams : Config.mapData,
         temCredit_registries : [],
-        temExpected : []
+        temExpected : [],
     },
     watch : {
         temCredit_registries : function(value){
-            this.params.credit_registries = value;
+            this.params.credit = value;
         },
         temExpected : function(value){
             this.params.expected = value;
@@ -28,8 +39,30 @@ new Vue({
         
     },
     methods : {
-        select : function(){
+        applyBtn : function(){
+            var postData = JSON.parse(JSON.stringify(this.params));
+            postData.assets = eval(this.params.assets.join('+'));
 
+            for(key in postData){
+
+                if(!postData[key] || postData[key]  == undefined ){
+                    console.log(key + "---------" + postData[key])
+                    alert('请检查所有数据是否填写完整');
+                    return false;
+                };
+            }
+
+            this.$http.post(Config.api+ 'products.json',{
+                params : postData
+            }).then(function(res){
+                if(res.body.code == 0){
+                    alert('提交成功')
+                }else{
+                    alert(res.body.message)
+                }
+            },function(){
+
+            })
         }
     }
 })

@@ -51,13 +51,15 @@
     width: 25%;
 }
 .apply_form .apply dd input[type=text],
-.apply_form .apply dd input[type=number]{
+.apply_form .apply dd input[type=number],
+.apply_form .apply dd .analog_input{
     border: 1px solid #f7bd99;
     width: 100%;
     height: 26px;
     line-height: 26px;
     margin: 4px 0;
     box-shadow: 1px 1px 5px #f7bd99,1px 1px 5px #f7bd99 inset;
+    padding-left: 10px;
 }
 
 .apply_form .apply dd input[type=radio]{
@@ -95,11 +97,12 @@
 }
 
 .apply_form .select_option{
-    opacity: 0;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
     height: 30px;
+    opacity: 0;
 }
+

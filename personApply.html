@@ -34,7 +34,7 @@
             <dt>4. 固定资产情况（可多选）<i>*</i></dt>
             <dd class="clear_fix">
                 <label class="w25" v-for="fixed_assets in configParams.fixed_assets">
-                    <input type="checkbox" name="fixed_assets" :value="fixed_assets.value" v-model="params.fixed_assets"/>
+                    <input type="checkbox" name="fixed_assets" :value="fixed_assets.value" v-model="params.assets"/>
                     <i></i>
                     {{fixed_assets.text}}
                 </label>
@@ -91,23 +91,23 @@
                 <select class="select_option" v-model="temCredit_registries">
                     <option v-for="option in configParams.credit_registries" :value="option.value">{{ option.text }}</option>
                 </select>
-                <input type="text" v-model="params.credit_registries" disabled/>
+                <div class="analog_input">{{params.credit | creditRegistriesValue}}</div>
             </dd>
             <dt>9. 期望融资办理时间<i>*</i></dt>
             <dd class="clear_fix">
                 <select class="select_option" v-model="temExpected">
                     <option v-for="option in configParams.expected" :value="option.value">{{ option.text }}</option>
                 </select>
-                <input type="text" v-model="params.expected" disabled/>
+                <div class="analog_input">{{params.expected | expectedValue}}</div>
             </dd>
             <dt>10. 联系方式<i>*</i></dt>
             <dd class="clear_fix">
-                 <input type="text" v-model="params.mobile" />
+                 <input type="number" placeholder="请输入手机号码" v-model="params.mobile" />
             </dd>
         </dl>
     </section>
 
-    <span class="apply_btn">申请</span>
+    <span class="apply_btn" @click="applyBtn()">申请</span>
 </div>
 <script type="text/javascript"  src="/dist/personApply.js"></script>
 </body>
