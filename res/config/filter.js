@@ -11,7 +11,7 @@ Vue.filter('moneyFormat',function(money){
 
 // 还款类型    
 Vue.filter('refundsValue',function(typeId){
-    if(_.isNumber(typeId)){
+    if(typeId){
         return _.result(_.find(mapData.refunds,{'value': typeId.toString()}),'text')
     }else{
         return '未知';
@@ -20,8 +20,17 @@ Vue.filter('refundsValue',function(typeId){
 
 // 贷款类型
 Vue.filter('loanValue',function(typeId){
-    if(_.isNumber(typeId)){
+    if(typeId){
         return _.result(_.find(mapData.loanType,{'value': typeId.toString()}),'text')
+    }else{
+        return '未知';
+    }
+})
+
+//征信情况
+Vue.filter('creditRegistriesValue',function(typeId){
+    if(typeId){
+        return _.result(_.find(mapData.credit_registries,{'value': typeId.toString()}),'text')
     }else{
         return '未知';
     }

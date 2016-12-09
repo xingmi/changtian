@@ -1,0 +1,105 @@
+.apply_form {
+    padding-bottom: 60px;
+}
+.apply_form h2{
+    font-size: .15rem;
+    padding: 10px;
+    border-bottom: 1px solid #aeadad;
+}
+.apply_form .apply_btn{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: .16rem;
+    text-align: center;
+    background: #85bbcf;
+    color: #FFF;
+    letter-spacing: 10px;
+}
+.apply_form .apply{
+    padding: 0 10px;
+}
+.apply_form .apply dt{
+    color: #6191a6;
+    font-size: .14rem;
+    margin: 15px 0 5px 0;
+}
+.apply_form .apply i{
+    color: #f5ac7f;
+    margin-left: 5px;
+}
+.apply_form .apply dd{
+    overflow: hidden;
+    position: relative;
+}
+.apply_form .apply dd .demo{
+    font-size: .11rem;
+    margin: 4px 0;
+}
+.apply_form .apply dd label{
+    display: block;
+}
+.apply_form .apply dd label.db{
+    display: block;
+    margin: 5px 0;
+}
+.apply_form .apply dd label.w25{
+    float: left;
+    width: 25%;
+}
+.apply_form .apply dd input[type=text],
+.apply_form .apply dd input[type=number]{
+    border: 1px solid #f7bd99;
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    margin: 4px 0;
+    box-shadow: 1px 1px 5px #f7bd99,1px 1px 5px #f7bd99 inset;
+}
+
+.apply_form .apply dd input[type=radio]{
+    position: absolute;
+    display: none;
+}
+.apply_form .apply dd input[type=radio] + i{
+    background: url('../images/apply_radio_image.png') no-repeat;
+    background-size: 34px 17px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    vertical-align: -4px;
+}
+.apply_form .apply dd input[type=radio]:checked + i{
+    background-position: right top;
+}
+.apply_form .apply dd .yesorno_model{
+    margin-top: 10px;
+}
+.apply_form .apply dd .yesorno_model h3{
+    color: #FFF;
+    background: #f7bd99;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 3px;
+}
+.apply_form .apply dd .yesorno_model div{
+    line-height: 30px;
+    border:1px solid #f6b58d;
+    padding-left: 5px;
+}
+.apply_form .apply dd .yesorno_model div:last-child{
+    border-top: 0;
+}
+
+.apply_form .select_option{
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 30px;
+}

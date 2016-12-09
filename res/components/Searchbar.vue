@@ -17,12 +17,14 @@ module.exports = {
     props : ['usercity'],
     data : function(){
         return {
-            amount : ''
+            amount : '',
+            searchParams : {}
         }
     },
     methods : {
         fastSearch : function(){
-            window.location.href = "/searchResult.html?amount=" + this.amount
+            this.searchParams.amount = this.amount;
+            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         }
     }
 

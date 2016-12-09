@@ -10,6 +10,7 @@ if(!Cookie('mapDataExpires') || !localStorage['mapData']){
     window.location.href= "/getBaseData.html?redirect="+ window.location.href
 }
 
+console.log(JSON.parse(localStorage['mapData']))
 
 Vue.use(VueResource);
 

@@ -46,6 +46,11 @@ new Vue({
             this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid=3453455&data=" + new Date().getTime()
         },
         sendCode : function(){
+            if(!this.imageCodeValue){
+                alert('请填写图片验证码');
+                return;
+            }
+
             var self = this;
             function settime() {
                 if (self.countdown == 0) {    

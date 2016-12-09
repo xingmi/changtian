@@ -71,12 +71,25 @@
 <script>
 var Cookie = require('../lib/cookie');
 var Config = require('../config/globalMain');
-var Lodash = require('../lib/lodash');
+var utility = require('../config/utility');
 
 module.exports = {
     props : ['listconfig'],
     created : function(){
-        this.getData();
+        var that = this;
+        if(window.location.href.indexOf('searchList') > 0){
+        }else{
+            var searchParams = JSON.parse(utility.getUrlParam('searchParams'));
+            var temParams = {};
+
+            _.each(searchParams,function(value,key){
+                if(!!value) temParams[key] = value;
+            })
+            that.temParams = temParams;   
+        }
+        that.getData();
+        
+       
     },
     data : function(){
         return {
@@ -108,6 +121,7 @@ module.exports = {
                 params : that.temParams
             }).then(function(res){
                 that.productlist = res.body.data;
+
                 // that.temParams.city = 2;
                 setTimeout(function(){
                     that.btn.showPerson = false;

@@ -18,21 +18,21 @@ new Vue({
         'search-list': SearchList
     },
     created : function(){
-        var that = this;
-        var searchParams = JSON.parse(utility.getUrlParam('searchParams'));
-        var temParams = {};
+        // var that = this;
+        // var searchParams = JSON.parse(utility.getUrlParam('searchParams'));
+        // var temParams = {};
 
-        _.each(searchParams,function(value,key){
-            if(!!value) temParams[key] = value;
-        })
+        // _.each(searchParams,function(value,key){
+        //     if(!!value) temParams[key] = value;
+        // })
 
-        that.$http.get(Config.api+ 'products.json',{
-            params : temParams
-        }).then(function(res){  
-            that.product_list = res.body.data;
-        },function(res){
+        // that.$http.get(Config.api+ 'products.json',{
+        //     params : temParams
+        // }).then(function(res){  
+        //     that.product_list = res.body.data;
+        // },function(res){
 
-        });
+        // });
         
     }
 })

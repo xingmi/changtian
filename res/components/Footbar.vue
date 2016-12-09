@@ -7,7 +7,7 @@
                 高效申请
                 <transition name="fade">
                 <ul v-if="show">
-                    <li><a href="">个人贷款申请表</a></li>
+                    <li><a href="/personApply.html">个人贷款申请表</a></li>
                     <li><a href="">企业贷款申请表</a></li>
                 </ul>
                 </transition>
