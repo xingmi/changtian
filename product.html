@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/static/style/product.css">
 </head>
 <body>
-<div class="container product">
+<div class="container product" v-cloak>
     <section class="product_title clear_fix">
         <div class="product_img">
             <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
@@ -47,7 +47,7 @@
     </section>
 
     <section class="prodcut_footer">
-        <span class="collect">
+        <span class="collect" @click="collectBtn()">
             <i></i>
             收藏
         </span>

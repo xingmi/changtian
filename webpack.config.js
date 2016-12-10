@@ -8,7 +8,9 @@ module.exports = {
     searchResult   : './res/controllers/searchResult.js',
     fastSearch : './res/controllers/fastSearch.js',
     getBaseData : './res/controllers/getBaseData.js',
-    personApply : './res/controllers/personApply.js'
+    personApply : './res/controllers/personApply.js',
+    companyApply : './res/controllers/companyApply.js',
+    product    : './res/controllers/product.js',
   },
   output: {
     path: path.resolve(__dirname, './dist'),

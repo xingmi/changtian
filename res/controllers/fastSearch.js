@@ -21,7 +21,7 @@ new Vue({
     },
     watch : {
         paramsTerms : function(newValue){
-            // this.searchParams.terms = newValue
+            this.searchParams.terms = newValue
         }
     },
     methods : {
@@ -30,7 +30,8 @@ new Vue({
             window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         },
         paramsSearch : function(){
-            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
+            console.log(this.searchParams)
+            //window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         },
         resetParams : function(){
             this.searchParams = {};

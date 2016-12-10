@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>企业贷款申请表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/apply_form.css">
+</head>
+<body>
+<div class="container apply_form" v-cloak>
+    <h2>企业贷款在线申请</h2>
+    <section class="clear_fix apply" >
+        <dl>
+            <dt>1. 称呼<i>*</i></dt>
+            <dd class="clear_fix">
+                <p class="demo">例：X先生 / X女士</p>
+                <input type="text" v-model="params.name" />
+            </dd>
+
+            <dt>2. 所属行业<i>*</i></dt>
+            <dd class="clear_fix">
+                <select class="select_option" v-model="temTrade">
+                    <option v-for="option in configParams.trade" :value="option.value">{{ option.text }}</option>
+                </select>
+                <div class="analog_input">{{params.trade | tradeValue}}</div>
+            </dd>
+            <dt>3. 预融资额度（万元为单位）<i>*</i></dt>
+            <dd class="clear_fix">
+                <input type="number" v-model="params.quota" />
+            </dd>
+            <dt>4. 企业年开票额<i>*</i></dt>
+            <dd class="clear_fix">
+                <label class="db" v-for="invoice in configParams.invoice">
+                    <input type="radio" name="invoice" :value="invoice.value" v-model="params.invoice"/>
+                    <i></i>
+                    {{invoice.text}}
+                </label>
+            </dd>
+            <dt>5. 企业及个人名下负债<i>*</i></dt>
+            <dd class="clear_fix">
+                <label class="db" v-for="liabilities in configParams.liabilities">
+                    <input type="radio" name="liabilities" :value="liabilities.value" v-model="params.liabilities"/>
+                    <i></i>
+                    {{liabilities.text}}
+                </label>
+            </dd>
+            <dt>6. 企业及个人名下负债<i>*</i></dt>
+            <dd class="clear_fix">
+                <div class="yesorno_model">
+                    <h3>是否有打卡工资</h3>
+                    <div v-for="yesorno in configParams.yesorno">
+                        <label>
+                        <input type="radio" name="yesorno1" :value="yesorno.value" v-model="params.salary">
+                        <i></i>
+                        {{yesorno.text}}
+                        </label>
+                    </div>
+                </div>
+            </dd>
+            <dt>7. 企业应收账款额<i>*</i></dt>
+            <dd class="clear_fix">
+                <p class="demo">付款方须是大型企业，如：央企、国企、上市公司、政府平台</p>
+                <label class="db" v-for="receivables in configParams.receivables">
+                    <input type="radio" name="receivables" :value="receivables.value" v-model="params.receivables"/>
+                    <i></i>
+                    {{receivables.text}}
+                </label>
+            </dd>
+            <dt>8. 征信情况 <i>*</i></dt>
+            <dd class="clear_fix">
+                <select class="select_option" v-model="temCredit_registries">
+                    <option v-for="option in configParams.credit_registries" :value="option.value">{{ option.text }}</option>
+                </select>
+                <div class="analog_input">{{params.credit | creditRegistriesValue}}</div>
+            </dd>
+            <dt>9. 联系方式<i>*</i></dt>
+            <dd class="clear_fix">
+                 <input type="number" placeholder="请输入手机号码" v-model="params.mobile" />
+            </dd>
+        </dl>
+    </section>
+
+    <span class="apply_btn" @click="applyBtn()">申请</span>
+</div>
+<script type="text/javascript"  src="/dist/companyApply.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /**
-    @description 个人申请
+    @description 企业申请
 */
 
 var Vue    = require('vue');
@@ -11,28 +11,23 @@ new Vue({
     data : {
         params : {
             name : '',
-            amount : '',
-            usage : '',
-            assets : [],
-            identity : '',
-            salary : '',
-            social : '',
-            accu : '',
-            monthly : '',
-            credit : '',
-            expected : '',
-            mobile : ''
+            trade : '',
+            quota : '',
+            invoice : '',
+            liabilities : '',
+            mobile : '',
+            credit : ''
         },
         configParams : Config.mapData,
+        temTrade : [],
         temCredit_registries : [],
-        temExpected : [],
     },
     watch : {
+        temTrade : function(value){
+            this.params.trade = value;
+        },
         temCredit_registries : function(value){
             this.params.credit = value;
-        },
-        temExpected : function(value){
-            this.params.expected = value;
         }
     },
     created : function(){    
@@ -41,7 +36,7 @@ new Vue({
     methods : {
         applyBtn : function(){
             var postData = JSON.parse(JSON.stringify(this.params));
-            postData.assets = eval(this.params.assets.join('+'));
+            // postData.assets = eval(this.params.assets.join('+'));
 
             for(key in postData){
 

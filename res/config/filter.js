@@ -44,3 +44,12 @@ Vue.filter('expectedValue',function(typeId){
         return '请选择';
     }
 })
+
+//所属行业
+Vue.filter('tradeValue',function(typeId){
+    if(typeId){
+        return _.result(_.find(mapData.trade,{'value': typeId.toString()}),'text')
+    }else{
+        return '请选择';
+    }
+})
