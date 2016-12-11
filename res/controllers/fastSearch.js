@@ -1,3 +1,8 @@
+/**
+    @description 快速匹配
+*/
+
+
 var Vue = require('vue');
 var Cookie = require('../lib/cookie');
 var Config = require('../config/globalMain');
@@ -12,7 +17,8 @@ new Vue({
         temparams:{
             institutions : Config.mapData.institutions,
             refunds : Config.mapData.refunds,
-            terms : Config.mapData.terms
+            terms : Config.mapData.terms,
+            amount : ''
         },
         paramsTerms : [],
         paramsRefunds : [],
@@ -24,12 +30,16 @@ new Vue({
             this.searchParams.terms = newValue
         }
     },
+    created : function(){
+
+    },
     methods : {
         keywordSearch : function(){
             this.searchParams.keyword = this.keyword
             window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         },
         paramsSearch : function(){
+            this.searchParams.amount = this.amountCoupute;
             console.log(this.searchParams)
             //window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         },
@@ -50,6 +60,11 @@ new Vue({
                 this.paramsInstitutions.shift();
             }
             this.searchParams.institutions = this.paramsInstitutions[0];
+        }
+    },
+    computed : {
+        amountCoupute : function(){
+            return this.temparams.amount*10000;
         }
     }
 }); 

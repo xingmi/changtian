@@ -1,7 +1,11 @@
 <template>   
     <section class="select_model clear_fix">
         <div class="select">
-            <input placeholder="请输入贷款金额" v-model="amount"/>
+            <i class="search_icon"></i>
+            <div class="input_model">
+                <input placeholder="请输入贷款金额" v-model="amount"/>
+                <i class="search_price">万</i>
+            </div>
             <span @click='fastSearch'>快速申请</span>
         </div>
         <div class="address">
@@ -23,7 +27,7 @@ module.exports = {
     },
     methods : {
         fastSearch : function(){
-            this.searchParams.amount = this.amount;
+            this.searchParams.amount = this.amount*10000;
             window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         }
     }
@@ -47,11 +51,17 @@ module.exports = {
     padding-right: 70px;
     height: 30px;
 }
-.select_model .select input{
+.select_model .select .input_model{
     height: 30px;
     width: 100%;
     background: #60a7c1;
-    padding-left: 10px;
+    padding-left: 26px;
+    color: #FFF;
+}
+.select_model .select .input_model input{
+    width: 95px;
+    background: none;
+    margin-top: 7px;
     color: #FFF;
 }
 
@@ -67,6 +77,22 @@ module.exports = {
     font-size: .12rem;
     text-align: center;
     line-height: 30px;
+}
+.select_model .select .search_icon{
+    width: 15px;
+    height: 13px;
+    background: url(/static/images/search_icon.png) no-repeat;
+    background-size: 100%;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 6px;
+}
+.select_model .select .search_price{
+    width: 15px;
+    height: 13px;
+    color: #FFF;
+    margin-left: 18px;
 }
 .select_model .address{
     width: 20%;

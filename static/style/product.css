@@ -22,7 +22,7 @@ background: #dbdbdb;
 }
 .product .product_title .product_name h2{
     font-size: .14rem;
-    margin: 5px 0 10px 0;
+    margin: 5px 0 12px 0;
     color: #000;
 }
 .product .product_title .product_name h2 span{
@@ -78,7 +78,7 @@ background: #dbdbdb;
     display: block;
     float: left;
     line-height: 50px;
-    font-size: .14rem;
+    font-size: .16rem;
     position: relative;
 }
 .product .prodcut_footer .apply .apply_list{
