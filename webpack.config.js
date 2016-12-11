@@ -11,6 +11,7 @@ module.exports = {
     personApply : './res/controllers/personApply.js',
     companyApply : './res/controllers/companyApply.js',
     product    : './res/controllers/product.js',
+    collectList : './res/controllers/collectList.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),

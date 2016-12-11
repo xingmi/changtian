@@ -9,7 +9,8 @@ var utility = require('../config/utility');
 new Vue({
     el : '.product',
     data : {
-
+        show : false,
+        productDetail : {}
     },
     created : function(){
         this.$http.post(Config.api + 'product/'+utility.getUrlParam('id')+'.json',{

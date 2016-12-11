@@ -57,13 +57,17 @@
                             <div>额度：{{product.minAmount | moneyFormat}}-{{product.maxAmount | moneyFormat}}</div>
                             <div>月息：{{product.interest}}%</div>
                             <div>还款方式：{{ product.refundType | refundsValue}}</div>
-                            <div>放款速度：{{product.lendingDate}}天</div>
+                            <div>放款速度：{{product.lendintDate}}天</div>
                         </div>
                     </a>
                 </li>
             </ul>
         </div>
 
+        <a class="collect_icon" href="/collectList.html">
+            <i></i>
+            收藏
+        </a>
     </section>
 
 </template>
@@ -273,6 +277,27 @@ module.exports = {
 }
 .fade-enter, .fade-leave-active {
   opacity: 0
+}
+
+.collect_icon{
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border:  1px solid #7b7b7b;
+    background: #FFF;
+    z-index: 2px;
+    text-align: center;
+}
+.collect_icon i{
+    background: url(/static/images/collect.jpg) no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 19px;
+    display: block;
+    margin: 5px auto;
 }
 </style>
 

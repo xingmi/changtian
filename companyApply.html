@@ -47,17 +47,42 @@
                     {{liabilities.text}}
                 </label>
             </dd>
-            <dt>6. 企业及个人名下负债<i>*</i></dt>
+            <dt>6. 固定资产情况<i>*</i></dt>
             <dd class="clear_fix">
-                <div class="yesorno_model">
-                    <h3>是否有打卡工资</h3>
-                    <div v-for="yesorno in configParams.yesorno">
-                        <label>
-                        <input type="radio" name="yesorno1" :value="yesorno.value" v-model="params.salary">
-                        <i></i>
-                        {{yesorno.text}}
-                        </label>
-                    </div>
+                <div class="table_model">
+                    <ul class="clear_fix row_title">
+                        <li></li>
+                        <li>全靠</li>
+                        <li>按揭/租赁</li>
+                        <li>无此类资产</li>
+                    </ul>
+                    <ul class="clear_fix">
+                        <li>个人房产</li>
+                        <li v-for="assets_options in configParams.assets_options" class="clear_fix">
+                            <label class="db" >
+                                <input type="radio" name="house" :value="assets_options.value" v-model="params.house"/>
+                                <i></i>
+                            </label>
+                        </li>
+                    </ul>
+                    <ul class="clear_fix">
+                        <li>汽车</li>
+                        <li v-for="assets_options in configParams.assets_options" class="clear_fix">
+                            <label class="db" >
+                                <input type="radio" name="car" :value="assets_options.value" v-model="params.car"/>
+                                <i></i>
+                            </label>
+                        </li>
+                    </ul>
+                    <ul class="clear_fix">
+                        <li>设备</li>
+                        <li v-for="assets_options in configParams.assets_options" class="clear_fix">
+                            <label class="db" >
+                                <input type="radio" name="device" :value="assets_options.value" v-model="params.device"/>
+                                <i></i>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
             </dd>
             <dt>7. 企业应收账款额<i>*</i></dt>

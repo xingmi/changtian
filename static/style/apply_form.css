@@ -106,3 +106,21 @@
     opacity: 0;
 }
 
+.apply_form .table_model {
+    border-top: 1px solid #f6b58d;
+    border-left: 1px solid #f6b58d;
+    color: #6191a6;
+}
+.apply_form .table_model ul li{
+    width: 25%;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 1px solid #f6b58d;
+    border-right: 1px solid #f6b58d;
+}
+.apply_form .table_model ul.row_title{
+    background: #f7bd99;
+    color: #FFF;
+}

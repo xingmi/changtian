@@ -13,11 +13,11 @@
 <div class="container product" v-cloak>
     <section class="product_title clear_fix">
         <div class="product_img">
-            <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
+            <img :src="productDetail.icon">
         </div>
         <div class="product_name">
-            <h2>平安-宅二代 <span>房屋抵押</span></h2>
-            <p>月息：0.81% / 5天放款</p>
+            <h2>{{productDetail.name}} <span>{{productDetail.type | loanValue}}</span></h2>
+            <p>月息：{{productDetail.interest}}% / {{productDetail.lendingDate}}天放款</p>
         </div>
     </section>
     <section class="product_content">
@@ -51,10 +51,16 @@
             <i></i>
             收藏
         </span>
-        <span class="apply">
+        <span class="apply" @click="show = !show">
             立即申请
-            <ul></ul>
+            <transition name="fade">
+            <ul class="apply_list" v-if="show">
+                <li><a href="/personApply.html">个人贷款申请表</a></li>
+                <li><a href="/companyApply.html">企业贷款申请表</a></li>
+            </ul>
+            </transition>
         </span>
+
     </section>
 </div>
 <script type="text/javascript"  src="/dist/product.js"></script>

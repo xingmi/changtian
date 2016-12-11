@@ -10,13 +10,17 @@ new Vue({
     el : '.apply_form',
     data : {
         params : {
-            name : '',
-            trade : '',
-            quota : '',
-            invoice : '',
-            liabilities : '',
-            mobile : '',
-            credit : ''
+            name : '', // 称呼
+            trade : '', // 行业
+            quota : '', //融资额度
+            invoice : '', // 企业年开票额
+            liabilities : '', // 企业及个人名下负债
+            mobile : '', // 联系方式
+            credit : '', //信用情况
+            house : '', // 房产
+            car : '', // 汽车
+            device : '', // 设备
+            receivables : '' //企业应收账款额
         },
         configParams : Config.mapData,
         temTrade : [],

@@ -79,5 +79,28 @@ background: #dbdbdb;
     float: left;
     line-height: 50px;
     font-size: .14rem;
+    position: relative;
+}
+.product .prodcut_footer .apply .apply_list{
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+}
+.product .prodcut_footer .apply .apply_list li{
+    color: #000;
+    background: #839fa9;
+    border-bottom: 2px solid #FFF;
+    height: 40px;
+    line-height: 40px;
+}
+.product .prodcut_footer .apply .apply_list li a{
+    display: block;
+    height: 100%;
+}
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
