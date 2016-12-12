@@ -11,7 +11,12 @@ new Vue({
     el : '.product',
     data : {
         show : false,
-        productDetail : {}
+        productDetail : {},
+        selectParams : {
+            amount : '',
+            term : ''
+        },
+        term : []
     },
     created : function(){
         this.$http.get(Config.api + 'product/'+utility.getUrlParam('id')+'.json',{
@@ -21,10 +26,20 @@ new Vue({
         }).then(function(res){
             if(res.body.code == 0){
                 this.productDetail = res.body.data;
+                this.selectParams.amount = this.productDetail.minAmount/10000;
+                this.selectParams.term = this.productDetail.minTerm;
+
+                this.getInterestsDetail()
             }
         },function(){
 
-        })
+        });
+    },
+    watch : {
+        term : function(value){
+            this.selectParams.term = value;
+            this.getInterestsDetail();
+        }
     },
     methods : {
         collectBtn : function(){
@@ -53,6 +68,29 @@ new Vue({
                 }else{
                     alert(res.body.message)
                 }
+            },function(){
+
+            })
+        },
+        changeAmount : function(){
+            this.getInterestsDetail();
+        },
+        getInterestsDetail : function(){
+            // if(!this.selectParams.amount){
+            //     alert('请输入金额');
+            //     return;
+            // }
+            // if(this.selectParams.amount < this.productDetail.minAmount || this.selectParams.amount > this.productDetail.maxAmount){
+            //     alert('请输入正确的金额');
+            //     return;
+            // }
+
+            this.$http.post(Config.api + 'product/'+utility.getUrlParam('id')+'/interests.json',{
+                id : utility.getUrlParam('id'),
+                amount : this.selectParams.amount*10000,
+                term : this.selectParams.term
+            }).then(function(){
+
             },function(){
 
             })

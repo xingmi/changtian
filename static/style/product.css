@@ -1,5 +1,6 @@
 .product{
 background: #dbdbdb;
+padding-bottom: 60px;
 }
 .product .product_title{
     padding: 10px;
@@ -29,7 +30,137 @@ background: #dbdbdb;
     font-size: .10rem;
     border:1px solid #ad6d22;
     color: #ad6d22;
+    margin-left: 10px;
+    padding: 0 2px;
 }
+.product .product_content{
+    padding:0 10px;
+    background: #FFF;
+    padding-bottom: 10px;
+}
+.product .product_content .input_model>div{
+    width: 50%;
+    float: left;
+}
+.product .product_content .input_model .amount{
+    font-size: .14rem;
+    position: relative;
+}
+.product .product_content .input_model .amount .input{
+    width: 100px;
+    border:1px solid #bab9b9;
+    border-radius: 10px;
+    height: 30px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.product .product_content .input_model .amount input{
+    width: 70px;
+    text-align: center;
+    height: 26px;
+    line-height: 26px;
+    margin-left: 4px;
+    border-radius: 10px;
+    margin-top: 2px;
+    color: #1c93bf;
+    font-size: .14rem;
+}
+.product .product_content .input_model .amount p,
+.product .product_content .input_model .time p{
+    font-size: .12rem;
+}
+
+.product .product_content .input_model .time{
+    font-size: .14rem;
+}
+.product .product_content .input_model .time .input{
+    width: 100px;
+    border:1px solid #bab9b9;
+    border-radius: 10px;
+    height: 30px;
+    display: inline-block;
+    margin-bottom: 5px;
+    position: relative;
+}
+.product .product_content .input_model .time .term{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 30px;
+    color: #1c93bf;
+}
+.product .product_content .input_model .time .input select{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.product .product_content .price_progress {
+    margin-top: 10px;
+}
+.product .product_content .price_progress .progress{
+    position: relative;
+    height: 36px;
+}
+.product .product_content .price_progress .progress span{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.product .product_content .price_progress .progress div{
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.product .product_content .price_progress .progress span.daikuan{
+    background: #85bbcf;
+}
+.product .product_content .price_progress  .progress_title{
+    margin-top: 10px;
+}
+.product .product_content .price_progress  .progress_title li{
+    width: 50%;
+    float: left;
+    line-height: 20px;
+    font-size: .11rem;
+}
+
+.product .product_content h3{
+    background: #FFF;
+    font-size: .14rem;
+    color: #000;
+    margin: 10px 0;
+}
+.product .product_content p.text{
+    line-height: .14rem;
+}
+
+.product .product_content .table1 td,
+.product .product_content .table1 th{
+    border:1px solid #020100; margin-left:-1px; margin-top:-1px;
+    text-align: center;
+}
+.product .product_content .table1 th{
+    font-size: .12rem;
+}
+.product .product_content .table1 th:nth-child(1){
+    width: 30%
+}
+.product .product_content .table1 th:nth-child(2){
+    width: 25%
+}
+.product .product_content .table1 th:nth-child(3){
+    width: 25%
+}
+.product .product_content .table1 th:nth-child(4){
+    width: 20%
+}
+
+
+
 .product_model{
     margin-top: 10px;
 }

@@ -21,7 +21,79 @@
         </div>
     </section>
     <section class="product_content">
-        
+        <div class="input_model clear_fix">
+            <div class="amount">
+                金额
+                <div class="input"><input v-model="selectParams.amount"  @change="changeAmount()"/><span>万</span></div>
+                <p>额度范围 {{productDetail.minAmount/10000}}-{{productDetail.maxAmount | moneyFormat}}</p>
+            </div>
+            <div class="time">
+                期限
+                <div class="input">
+                    <span class="term">{{selectParams.term}}个月</span>
+                    <select v-model="term" >
+                        <option v-for="n in productDetail.maxTerm" v-if="n >= productDetail.minTerm">{{n}}</option>
+                    </select>
+                </div>
+                <p>期限范围：{{productDetail.minTerm}}-{{productDetail.maxTerm}}个月</p>
+            </div>
+        </div>
+        <div class="price_progress">
+            <div class="progress">
+                <span class="daikuan"></span>
+                <div>
+                    <span class="lixi" style="width:10%"></span>
+                    <span class="feiyong" style="width:15%"></span>
+                    <span class="yici" style="width:7%"></span>
+                </div>
+            </div>
+            <ul class="progress_title clear_fix">
+                <li>贷款&nbsp;&nbsp;{{selectParams.amount*10000 | moneyFormat}}/{{selectParams.term}}个月</li>
+                <li>费用&nbsp;&nbsp;14580元（0.81%月）</li>
+                <li>利息&nbsp;&nbsp;0元（0%/月）</li>
+                <li>一次&nbsp;&nbsp;4500元（3%月）</li>
+            </ul>
+        </div>
+        <div>
+            <h3>利率说明</h3>
+            <table class="table1">
+                <thead>
+                    <tr>
+                        <th>贷款期限（月）</th>
+                        <th>还款方式</th>
+                        <th>一次性手续费</th>
+                        <th>月手续费率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>利率说明</h3>
+            <p class="text">可提前还款，没有违约金。</p>
+
+            <h3>几种费用有什么区别</h3>
+            <p class="text">
+                利息：按剩余本金计算，随每月剩余本金变少减少；<br/>
+                费用：按贷款金额计算，不随剩余本金变化而减少；<br/>
+                一次性：按贷款全额计算，再放宽时一次性收取；<br/>
+                举例：贷款1万  12个月  分期还款<br/>
+                1%月利息（共600元），1%月费用（共1200），1%一次性<br/>
+                （共100元），总利息共计1900元。<br/>
+            </p>
+        </div>
     </section>
     <section class="product_model product_flow">
         <h3>办理流程（门店办理）</h3>

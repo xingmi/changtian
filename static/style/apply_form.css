@@ -38,6 +38,7 @@
 .apply_form .apply dd .demo{
     font-size: .11rem;
     margin: 5px 0 10px 0;
+    line-height: .14rem;
 }
 .apply_form .apply dd label{
     display: block;
@@ -77,6 +78,24 @@
 .apply_form .apply dd input[type=radio]:checked + i{
     background-position: right top;
 }
+
+.apply_form .apply dd input[type=checkbox]{
+    position: absolute;
+    display: none;
+}
+.apply_form .apply dd input[type=checkbox] + i{
+    background: url('../images/apply_checkbox.png') no-repeat;
+    background-size: 34px 17px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    vertical-align: -4px;
+}
+.apply_form .apply dd input[type=checkbox]:checked + i{
+    background-position: right top;
+}
+
+
 .apply_form .apply dd .yesorno_model{
     margin-top: 10px;
 }
