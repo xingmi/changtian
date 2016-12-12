@@ -13,9 +13,12 @@ console.log(JSON.parse(localStorage['mapData']))
 
 Vue.use(VueResource);
 
+// Vue.http.options.emulateHTTP = true;
 Vue.http.options.emulateJSON = true;
 
 module.exports = {
     api : env.api,
-    mapData : JSON.parse(localStorage['mapData'])
+    mapData : JSON.parse(localStorage['mapData']),
+    openId : '333',
+    currentCity : JSON.parse(localStorage['mapData']).current
 }

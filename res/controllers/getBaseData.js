@@ -32,15 +32,16 @@ function getLocation(callback){
 }
 
 if(!Cookie('mapDataExpires') || !localStorage['mapData']){
-    var lat = 11;
-    var lng = 22;
+    var lat = 31;
+    var lng = 121;
     // getLocation(function(lat,lng){
         Ajax.get(env.api+'constants.json?lat='+lat + "&lng="+lng,function(datas){
             var datas = JSON.parse(datas);
             Cookie('mapDataExpires',true,{ expires: 1});
             localStorage['mapData'] = JSON.stringify(datas.data);
-            
             window.location.href= utility.getUrlParam('redirect')
         })
     // })
+}else{
+    window.location.href= utility.getUrlParam('redirect')
 }

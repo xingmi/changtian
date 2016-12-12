@@ -17,12 +17,14 @@
 
 <script>
 
+var Config = require('../config/globalMain');
 module.exports = {
-    props : ['usercity'],
+    // props : ['usercity'],
     data : function(){
         return {
             amount : '',
-            searchParams : {}
+            searchParams : {},
+            usercity : Config.currentCity.text
         }
     },
     methods : {
@@ -100,6 +102,14 @@ module.exports = {
     text-align: center;
     color: #FFF;
     line-height: 30px;
+}
+.select_model .address i{
+    width: 13px;
+    height: 14px;
+    display: inline-block;
+    background: url(/static/images/address.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
 }
 
 </style>

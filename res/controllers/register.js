@@ -14,38 +14,47 @@ new Vue({
         imageCode : "",
         imageCodeValue : "",
         user : {
-            name : "12313",
+            name : "",
             phone : "",
             code : '',
             
         }
     },
     created : function(){
-        this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid=1232"
+        this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid=" + Config.openId
     },
     methods : {
         postData : function(){
             var self = this;
             self.$http.post(Config.api+ 'quick/personal',{
-                    'openid' : '',
+                    'openid' : Config.openId,
                     'mobile' : self.user.phone,
                     'code'   : self.user.code,
                     'name'   : self.user.name,
                     'amount' : 10000
                 }).then(function(res){
                     if(res.body.code == 0){
-                        alert('提交成功')
+                        alert('提交成功');
+                        window.location.href= "/searchList.html"
                     }else{
                         alert(res.body.message)  
                     }
                 },function(res){
-                    alert('提交失败')
+                    alert('提交失败');
                 });
         },
         resetImageCode : function(){
-            this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid=3453455&data=" + new Date().getTime()
+            this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid="+Config.openId+"&data=" + new Date().getTime()
         },
         sendCode : function(){
+            if(!this.user.name){
+                alert('请填写姓名');
+                return;
+            }
+            if(!this.user.phone){
+                alert('请填写手机号码');
+                return;
+            }
             if(!this.imageCodeValue){
                 alert('请填写图片验证码');
                 return;
@@ -70,7 +79,7 @@ new Vue({
             }
 
             this.$http.post(Config.api + 'message/sms',{
-                openid : '2222',
+                openid : Config.openId,
                 mobile : self.user.phone,
                 code   : self.imageCodeValue
             },{
@@ -80,6 +89,7 @@ new Vue({
             }).then(function(res){
                 if(res.body.code == 0){
                     settime();
+                    alert('验证码正飞往您的手机')
                 }else{
                     self.isSend = true; 
                     alert(res.body.message);

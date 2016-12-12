@@ -26,9 +26,9 @@ new Vue({
         
     },
     watch : {
-        paramsTerms : function(newValue){
-            this.searchParams.terms = newValue
-        }
+        // paramsTerms : function(newValue){
+        //     this.searchParams.terms = newValue
+        // }
     },
     created : function(){
 
@@ -40,8 +40,8 @@ new Vue({
         },
         paramsSearch : function(){
             this.searchParams.amount = this.amountCoupute;
-            console.log(this.searchParams)
-            //window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
+            this.searchParams.terms = this.termsCoupute;
+            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         },
         resetParams : function(){
             this.searchParams = {};
@@ -65,6 +65,14 @@ new Vue({
     computed : {
         amountCoupute : function(){
             return this.temparams.amount*10000;
+        },
+        termsCoupute : function(){
+            if(this.paramsTerms.length == 1){
+                return this.paramsTerms[0];
+            }else if(this.paramsTerms.length >= 2){
+                return Math.min.apply(null,this.paramsTerms) + "," + Math.max.apply(null,this.paramsTerms)
+            }
+            
         }
     }
 }); 

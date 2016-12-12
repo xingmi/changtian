@@ -18,16 +18,16 @@
         <div class="product_list">
             <ul>
                 <li class="clear_fix" v-for="product in productlist">
-                    <a :href="'/product.html?id='+product.id">
+                    <a :href="'/product.html?id='+product.product.id">
                         <div class="product_img">
-                            <img :src="product.icon">
+                            <img :src="product.product.icon">
                         </div>
                         <div class="product_module">
-                            <h2>{{product.name}} <i>{{product.type | loanValue}}</i> <span>展开全文</span></h2>
-                            <div>额度：{{product.minAmount | moneyFormat}}-{{product.maxAmount | moneyFormat}}</div>
-                            <div>月息：{{product.interest}}%</div>
-                            <div>还款方式：{{ product.refundType | refundsValue}}</div>
-                            <div>放款速度：{{product.lendintDate}}天</div>
+                            <h2>{{product.product.name}} <i>{{product.product.type | loanValue}}</i> <span>展开全文</span></h2>
+                            <div>额度：{{product.product.minAmount | moneyFormat}}-{{product.product.maxAmount | moneyFormat}}</div>
+                            <div>月息：{{product.product.interest}}%</div>
+                            <div>还款方式：{{ product.product.refundType | refundsValue}}</div>
+                            <div>放款速度：{{product.product.lendintDate}}天</div>
                         </div>
                     </a>
                 </li>

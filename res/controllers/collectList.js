@@ -14,7 +14,7 @@ new Vue({
     created : function(){
         this.$http.get(Config.api + 'favorites.json',{
             params :{
-                openid : '333'
+                openid : Config.openId
             }
         }).then(function(res){
             this.productlist = res.body.data;

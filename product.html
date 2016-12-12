@@ -29,22 +29,26 @@
     </section>
     <section class="product_model product_condition">
         <h3>申请条件</h3>
-        <div>
-            {{{productDetail.requirements}}}
+        <div v-html="parserRequirements">
         </div>
     </section>
     <section class="product_model">
         <h3>所需材料</h3>
-        <div>
-            {{productDetail.materials}}
+        <div v-html="parserMaterials">
         </div>
     </section>
 
     <section class="prodcut_footer">
-        <span class="collect" @click="collectBtn()">
+
+        <span class="collect has_favorite" @click="cancelCollectBtn()" v-if="productDetail.favorite">
+            <i></i>
+            已收藏
+        </span>
+        <span class="collect" @click="collectBtn()" v-else="productDetail.favorite">
             <i></i>
             收藏
         </span>
+
         <span class="apply" @click="show = !show">
             立即申请
             <transition name="fade">

@@ -82,9 +82,10 @@ module.exports = {
     created : function(){
         var that = this;
         if(window.location.href.indexOf('searchList') > 0){
+
         }else{
             var searchParams = JSON.parse(utility.getUrlParam('searchParams'));
-            var temParams = {};
+            var temParams = _.extend(this.temParams,searchParams);
 
             _.each(searchParams,function(value,key){
                 if(!!value) temParams[key] = value;
@@ -92,8 +93,6 @@ module.exports = {
             that.temParams = temParams;   
         }
         that.getData();
-        
-       
     },
     data : function(){
         return {
@@ -105,7 +104,7 @@ module.exports = {
             datas : Config.mapData,
             productlist : [],
             temParams : {
-                // "city" : 1
+                "city" : Config.currentCity.value
             },
             temPeople : [],
             temAssets : [],
@@ -126,7 +125,6 @@ module.exports = {
             }).then(function(res){
                 that.productlist = res.body.data;
 
-                // that.temParams.city = 2;
                 setTimeout(function(){
                     that.btn.showPerson = false;
                     that.btn.showAssets =false;

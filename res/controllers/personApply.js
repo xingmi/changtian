@@ -42,7 +42,7 @@ new Vue({
         applyBtn : function(){
             var postData = JSON.parse(JSON.stringify(this.params));
             postData.assets = eval(this.params.assets.join('+'));
-
+            postData.openid = Config.openId;
             for(key in postData){
 
                 if(!postData[key] || postData[key]  == undefined ){
@@ -52,9 +52,7 @@ new Vue({
                 };
             }
 
-            this.$http.post(Config.api+ 'products.json',{
-                params : postData
-            }).then(function(res){
+            this.$http.post(Config.api+ 'loan/personal',postData).then(function(res){
                 if(res.body.code == 0){
                     alert('提交成功')
                 }else{

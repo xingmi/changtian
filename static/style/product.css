@@ -67,8 +67,12 @@ background: #dbdbdb;
     height: 19px;
     display: block;
     margin: 5px auto;
-
 }
+.product .prodcut_footer .collect.has_favorite i{
+    background: url('../images/collected.jpg') no-repeat;
+    background-size: 100%;
+}
+
 .product .prodcut_footer .apply{
     width: 80%;
     height: 100%;
