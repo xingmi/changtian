@@ -10,7 +10,7 @@ var Config = require('../config/globalMain');
 
 
 new Vue({
-    el : '.search_list',
+    el : '.search_list_container',
     data : {
         usercity : "定位中...",
         product_list : []

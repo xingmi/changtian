@@ -8,29 +8,53 @@
             </div>
             <span @click='fastSearch'>快速申请</span>
         </div>
-        <div class="address">
+        <div class="address" @click="showCity()">
             <i></i>
             {{usercity}}
         </div>
+
+        <div class="city_list city_actionsheet">
+            <div class="" @click="hideCity()"></div>
+            <ul>
+                <li style="text-align:center">请选择城市</li>
+                <li v-for="(city,index) in cities" @click="selectCity(index)">{{city.text}}</li>
+            </ul>
+        </div>
+            
     </section>
 </template>
 
 <script>
 
 var Config = require('../config/globalMain');
+import $ from '../lib/zepto';
+
 module.exports = {
     // props : ['usercity'],
     data : function(){
         return {
             amount : '',
             searchParams : {},
-            usercity : Config.currentCity.text
+            usercity : Config.currentCity.text,
+            cities : Config.mapData.cities
         }
     },
     methods : {
         fastSearch : function(){
             this.searchParams.amount = this.amount*10000;
             window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
+        },
+        showCity : function(){
+            $('.city_list').addClass('city_actionsheet_toggle')
+        },
+        hideCity : function(){
+            $('.city_list').removeClass('city_actionsheet_toggle')
+        },
+        selectCity : function(index){
+            _.extend(Config.mapData.current,Config.mapData.cities[index]);
+            localStorage['mapData'] = JSON.stringify(Config.mapData);
+            window.location.reload();
+
         }
     }
 
@@ -59,12 +83,17 @@ module.exports = {
     background: #60a7c1;
     padding-left: 26px;
     color: #FFF;
+    padding-top:5px;
 }
 .select_model .select .input_model input{
-    width: 95px;
+    width: 100px;
     background: none;
-    margin-top: 7px;
     color: #FFF;
+    height: 20px;
+    vertical-align: middle;
+    line-height: 20px;
+    padding-top: 2px;
+    font-size: .12rem;
 }
 
 .select_model .select span{
@@ -94,14 +123,15 @@ module.exports = {
     width: 15px;
     height: 13px;
     color: #FFF;
-    margin-left: 18px;
+    margin-left: 13px;
+    vertical-align: middle;
 }
 .select_model .address{
     width: 20%;
     float: left;
     text-align: center;
     color: #FFF;
-    line-height: 30px;
+    padding-top: 8px;
 }
 .select_model .address i{
     width: 13px;
@@ -109,7 +139,64 @@ module.exports = {
     display: inline-block;
     background: url(/static/images/address.png) no-repeat;
     background-size: 100%;
-    vertical-align: middle;
+    vertical-align: text-bottom;
 }
 
+.city_model{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: none;
+}
+
+
+.city_actionsheet {
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translate(100%, 0);
+  -webkit-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  -moz-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform .3s;
+}
+.city_actionsheet_toggle {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+}
+.city_actionsheet div{
+    float: left;
+    height: 100%;
+    width: 70%;
+    background-color: rgba(0,0,0,.5);
+}
+.city_actionsheet ul{
+    float: left;
+    padding: 0 2px;
+    width: 30%;
+    height: 100%;
+    background-color: #eee;
+}
+.city_actionsheet ul li{
+    line-height: 30px;
+    border-bottom: 1px solid  #8e8e8e;
+    padding-left: 5px;
+}
 </style>

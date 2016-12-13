@@ -13,6 +13,7 @@
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
+
 }
 *:after,
 *:before {
@@ -103,6 +104,8 @@ body {
   height: 100%;
   position: relative;
   font-size: .12rem;
+  -webkit-user-select:none;
+  user-select:none;
 }
 @media (min-width: 320px) {
   html {

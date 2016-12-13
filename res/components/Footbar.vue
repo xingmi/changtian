@@ -24,9 +24,9 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 35px;
+        height: 40px;
         background: #839fa9;
-        padding: 5px 0;
+        padding: 6px 0;
         z-index: 1
     }
     .foot_bar>ul>li{
@@ -35,7 +35,7 @@
         float: left;
         text-align: center;
         border-right: 1px solid #FFF;
-        line-height: 26px;
+        line-height: 28px;
         color: #FFF;
         position: relative;
     }
@@ -69,16 +69,19 @@
     .foot_bar>ul>li>ul{
         position: absolute;
         width: 100%;
-        bottom: 30px;
+        bottom: 34px;
+        z-index: 1;
     }
     .foot_bar>ul>li>ul>li{
         color: #000;
         background: #839fa9;
         border-bottom:2px solid #FFF;
+        height: 30px;
+        line-height: 30px;
     }
 
     .fade-enter-active, .fade-leave-active {
-      transition: opacity .5s
+      transition: opacity .2s
     }
     .fade-enter, .fade-leave-active {
       opacity: 0

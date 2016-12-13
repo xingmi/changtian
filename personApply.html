@@ -89,6 +89,7 @@
             <dt>8. 征信情况 <i>*</i></dt>
             <dd class="clear_fix">
                 <select class="select_option" v-model="temCredit_registries">
+                    <option value="">请选择</option>
                     <option v-for="option in configParams.credit_registries" :value="option.value">{{ option.text }}</option>
                 </select>
                 <div class="analog_input">{{params.credit | creditRegistriesValue}}</div>
@@ -96,6 +97,7 @@
             <dt>9. 期望融资办理时间<i>*</i></dt>
             <dd class="clear_fix">
                 <select class="select_option" v-model="temExpected">
+                    <option value="">请选择</option>
                     <option v-for="option in configParams.expected" :value="option.value">{{ option.text }}</option>
                 </select>
                 <div class="analog_input">{{params.expected | expectedValue}}</div>

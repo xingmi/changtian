@@ -55,7 +55,7 @@
                         <div class="product_module">
                             <h2>{{product.name}} <i>{{product.type | loanValue}}</i> <span>展开全文</span></h2>
                             <div>额度：{{product.minAmount | moneyFormat}}-{{product.maxAmount | moneyFormat}}</div>
-                            <div>月息：{{product.interest}}%</div>
+                            <div>月息：<span style="color:#536aba">{{product.interest}}%</span></div>
                             <div>还款方式：{{ product.refundType | refundsValue}}</div>
                             <div>放款速度：{{product.lendingDate}}天</div>
                         </div>
@@ -181,7 +181,7 @@ module.exports = {
     margin-left: 5px;
 }
 .search_list .pulldown_search .pull_ul .pull_li{
-    border-right:1px solid #000;
+    border-right:1px solid #adadad;
     float: left;
     width: 33.33%;
     text-align: center;
@@ -223,6 +223,11 @@ module.exports = {
     position: relative;
     height: 80px;
 }
+.search_list .product_list li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .search_list .product_list li:last-child{
     border-bottom: 0;
 }
@@ -260,9 +265,10 @@ module.exports = {
     border: 1px solid #ba8445;
     color: #ba8445;
     display: inline-block;
-    font-size: .12rem;
+    font-size: .11rem;
     margin-left: 5px;
     padding: 2px 4px;
+    vertical-align: middle;
 }
 .search_list .product_list li .product_module div{
     width: 50%;
@@ -271,7 +277,7 @@ module.exports = {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .1s
 }
 .fade-enter, .fade-leave-active {
   opacity: 0
@@ -279,7 +285,7 @@ module.exports = {
 
 .collect_icon{
     position: fixed;
-    bottom: 40px;
+    bottom: 50px;
     right: 10px;
     width: 45px;
     height: 45px;

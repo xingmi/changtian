@@ -1,20 +1,9 @@
 var Cookie = require('../lib/cookie');
 var env = require('../config/env');
 var utility = require('../config/utility');
+var Ajax = require('../config/ajax');
 
 // vue-resource 不支持同步调用 用原生代替
-var Ajax={
-    get: function (url,fn){
-        var obj=new XMLHttpRequest();  // XMLHttpRequest对象用于在后台与服务器交换数据          
-        obj.open('GET',url,false);
-        obj.onreadystatechange=function(){
-            if (obj.readyState == 4 && obj.status == 200 || obj.status == 304) { // readyState==4说明请求已完成
-                fn.call(this, obj.responseText);  //从服务器获得数据
-            }
-        };
-        obj.send(null);
-    }
-}
 
 // 获取用户定位
 function getLocation(callback){
@@ -24,6 +13,7 @@ function getLocation(callback){
                 callback(p.coords.latitude, p.coords.longitude);
             },
             function(e){
+                callback(31,121)
                //  var msg = e.code + "\n" + e.message;
                // alert('定位失败')
             }
@@ -32,16 +22,21 @@ function getLocation(callback){
 }
 
 if(!Cookie('mapDataExpires') || !localStorage['mapData']){
-    var lat = 31;
-    var lng = 121;
-    // getLocation(function(lat,lng){
+    // var lat = 31;
+    // var lng = 121;
+    getLocation(function(lat,lng){
         Ajax.get(env.api+'constants.json?lat='+lat + "&lng="+lng,function(datas){
             var datas = JSON.parse(datas);
             Cookie('mapDataExpires',true,{ expires: 1});
             localStorage['mapData'] = JSON.stringify(datas.data);
-            window.location.href= utility.getUrlParam('redirect')
+            window.location.href= utility.getUrlParam('page_ref')
         })
-    // })
+    })
 }else{
-    window.location.href= utility.getUrlParam('redirect')
+    window.location.href= utility.getUrlParam('page_ref')
 }
+
+
+
+
+
