@@ -13,6 +13,7 @@ module.exports = {
     product    : './res/controllers/product.js',
     collectList : './res/controllers/collectList.js',
     wechat  : './res/controllers/wechat.js',
+    index : './res/controllers/index.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
