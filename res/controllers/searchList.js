@@ -22,9 +22,6 @@ new Vue({
     },
     created : function(){
         var that = this;
-        // getLocation(function(lat,lng){
-            
-        // })
     }
 })
 

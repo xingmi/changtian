@@ -53,7 +53,7 @@ module.exports = {
         selectCity : function(index){
             _.extend(Config.mapData.current,Config.mapData.cities[index]);
             localStorage['mapData'] = JSON.stringify(Config.mapData);
-            window.location.reload();
+            window.location.replace("/searchList.html?newDate=" + new Date().getTime());
 
         }
     }
@@ -83,7 +83,7 @@ module.exports = {
     background: #60a7c1;
     padding-left: 26px;
     color: #FFF;
-    padding-top:5px;
+    padding-top:6px;
 }
 .select_model .select .input_model input{
     width: 100px;
@@ -92,7 +92,6 @@ module.exports = {
     height: 20px;
     vertical-align: middle;
     line-height: 20px;
-    padding-top: 2px;
     font-size: .12rem;
 }
 
