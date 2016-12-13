@@ -1,3 +1,5 @@
+'use strict';
+
 /**
     @description 快速匹配
 */
@@ -34,7 +36,8 @@ new Vue({
     },
     methods : {
         keywordSearch : function(){
-            this.searchParams.keyword = this.keyword
+            this.searchParams.keyword = this.keyword;
+            // console.log(JSON.stringify(this.searchParams))
             window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         },
         paramsSearch : function(){

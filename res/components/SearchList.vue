@@ -90,7 +90,8 @@ module.exports = {
             _.each(searchParams,function(value,key){
                 if(!!value) temParams[key] = value;
             })
-            that.temParams = temParams;   
+            that.temParams = temParams;
+  
         }
         that.getData();
     },
