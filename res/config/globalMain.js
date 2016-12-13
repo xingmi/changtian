@@ -19,6 +19,6 @@ Vue.http.options.emulateJSON = true;
 module.exports = {
     api : env.api,
     mapData : JSON.parse(localStorage['mapData']),
-    openId : '333',
+    openId : '444',
     currentCity : JSON.parse(localStorage['mapData']).current
 }

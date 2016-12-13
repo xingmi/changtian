@@ -61,6 +61,19 @@
     margin: 4px 0;
     box-shadow: 1px 1px 5px #f7bd99,1px 1px 5px #f7bd99 inset;
     padding-left: 10px;
+    position: relative;
+}
+
+.apply_form .apply dd .analog_input::after{
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 8px solid #333333;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
 }
 
 .apply_form .apply dd input[type=radio]{

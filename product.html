@@ -50,7 +50,7 @@
             <ul class="progress_title clear_fix">
                 <li>贷款&nbsp;&nbsp;{{selectParams.amount*10000 | moneyFormat}}/{{selectParams.term}}个月</li>
                 <li>费用&nbsp;&nbsp;14580元（0.81%月）</li>
-                <li>利息&nbsp;&nbsp;0元（0%/月）</li>
+                <li>月供&nbsp;&nbsp;0元（0%/月）</li>
                 <li>一次&nbsp;&nbsp;4500元（3%月）</li>
             </ul>
         </div>
@@ -66,16 +66,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
+                    <tr v-for="item in productDetail.interests">
+                        <td v-if="item.minTerm == item.maxTerm">
+                            {{item.minTerm}}
+                        </td>
+                        <td v-else>
+                            {{item.minTerm}} ~ {{item.maxTerm}}
+                        </td>
+                        <td>{{item.refundType | refundsValue}}</td>
+                        <td>{{item.fee}}</td>
                         <td>4</td>
                     </tr>
                 </tbody>

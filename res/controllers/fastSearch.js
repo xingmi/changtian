@@ -7,7 +7,6 @@ var Vue = require('vue');
 var Cookie = require('../lib/cookie');
 var Config = require('../config/globalMain');
 
-console.log(Config.mapData)
 new Vue({
     el : '.fast_search',
     data : {

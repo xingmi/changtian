@@ -51,7 +51,7 @@ new Vue({
                     Toast.show('收藏成功');
                     this.productDetail.favorite = true;
                 }else{
-                    alert(res.body.message)
+                    Toast.show(res.body.message)
                 }
             },function(){
 
@@ -66,7 +66,7 @@ new Vue({
                     Toast.show('取消收藏成功');
                     this.productDetail.favorite = false;
                 }else{
-                    alert(res.body.message)
+                    Toast.show(res.body.message)
                 }
             },function(){
 

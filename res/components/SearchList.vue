@@ -57,7 +57,7 @@
                             <div>额度：{{product.minAmount | moneyFormat}}-{{product.maxAmount | moneyFormat}}</div>
                             <div>月息：{{product.interest}}%</div>
                             <div>还款方式：{{ product.refundType | refundsValue}}</div>
-                            <div>放款速度：{{product.lendintDate}}天</div>
+                            <div>放款速度：{{product.lendingDate}}天</div>
                         </div>
                     </a>
                 </li>
@@ -200,7 +200,7 @@ module.exports = {
     display: none;
 }
 .search_list .pulldown_search .pull_ul .pull_li input:checked + span{
-    color: red;
+    color: #60a7c1;
 }
 .search_list .pulldown_search .pull_ul .pull_li:last-child{
     border-right:0;
@@ -281,8 +281,8 @@ module.exports = {
     position: fixed;
     bottom: 40px;
     right: 10px;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50px;
     border:  1px solid #7b7b7b;
     background: #FFF;
@@ -295,7 +295,7 @@ module.exports = {
     width: 20px;
     height: 19px;
     display: block;
-    margin: 5px auto;
+    margin: 2px auto;
 }
 </style>
 

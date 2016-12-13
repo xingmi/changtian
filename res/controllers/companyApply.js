@@ -4,7 +4,7 @@
 
 var Vue    = require('vue');
 var Config = require('../config/globalMain');
-
+var Toast = require('../widget/toast');
 
 new Vue({
     el : '.apply_form',
@@ -46,17 +46,16 @@ new Vue({
             for(key in postData){
 
                 if(!postData[key] || postData[key]  == undefined ){
-                    console.log(key + "---------" + postData[key])
-                    alert('请检查所有数据是否填写完整');
+                    Toast.show('请检查所有数据是否填写完整',1000);
                     return false;
                 };
             }
 
             this.$http.post(Config.api+ 'loan/enterprise',postData).then(function(res){
                 if(res.body.code == 0){
-                    alert('提交成功')
+                    Toast.show('提交成功')
                 }else{
-                    alert(res.body.message)
+                    Toast.show(res.body.message)
                 }
             },function(){
 

@@ -137,7 +137,9 @@ padding-bottom: 60px;
 .product .product_content p.text{
     line-height: .14rem;
 }
-
+.product .product_content .table1{
+    width: 100%;
+}
 .product .product_content .table1 td,
 .product .product_content .table1 th{
     border:1px solid #020100; margin-left:-1px; margin-top:-1px;

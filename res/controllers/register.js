@@ -4,6 +4,7 @@
 
 var Vue      = require('vue');
 var Config = require('../config/globalMain');
+var Toast = require('../widget/toast');
 
 new Vue({
     el : '.register',
@@ -25,6 +26,10 @@ new Vue({
     },
     methods : {
         postData : function(){
+            if(!this.user.code){
+                Toast.show('请填写手机验证码',1000);
+                return;
+            }
             var self = this;
             self.$http.post(Config.api+ 'quick/personal',{
                     'openid' : Config.openId,
@@ -34,13 +39,14 @@ new Vue({
                     'amount' : 10000
                 }).then(function(res){
                     if(res.body.code == 0){
-                        alert('提交成功');
-                        window.location.href= "/searchList.html"
+                        Toast.show('提交成功',2000,function(){
+                            window.location.href= "/searchList.html"
+                        });
                     }else{
-                        alert(res.body.message)  
+                        Toast.show(res.body.message)  
                     }
                 },function(res){
-                    alert('提交失败');
+                    Toast.show('提交失败');
                 });
         },
         resetImageCode : function(){
@@ -48,15 +54,15 @@ new Vue({
         },
         sendCode : function(){
             if(!this.user.name){
-                alert('请填写姓名');
+                Toast.show('请填写姓名',1000);
                 return;
             }
             if(!this.user.phone){
-                alert('请填写手机号码');
+                Toast.show('请填写手机号码',1000);
                 return;
             }
             if(!this.imageCodeValue){
-                alert('请填写图片验证码');
+                Toast.show('请填写图片验证码',1000);
                 return;
             }
 
@@ -89,14 +95,14 @@ new Vue({
             }).then(function(res){
                 if(res.body.code == 0){
                     settime();
-                    alert('验证码正飞往您的手机')
+                    Toast.show('验证码正飞往您的手机')
                 }else{
                     self.isSend = true; 
-                    alert(res.body.message);
+                    Toast.show(res.body.message);
                 }
             },function(){
                 self.isSend = true; 
-                alert('发送失败');
+                Toast.show('发送失败');
                 
             })
 
