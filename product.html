@@ -48,10 +48,11 @@
                 </div>
             </div>
             <ul class="progress_title clear_fix">
+                <li>总利息&nbsp;&nbsp;{{interest.interest}}元</li>
                 <li>贷款&nbsp;&nbsp;{{selectParams.amount*10000 | moneyFormat}}/{{selectParams.term}}个月</li>
-                <li>费用&nbsp;&nbsp;14580元（0.81%月）</li>
-                <li>月供&nbsp;&nbsp;0元（0%/月）</li>
-                <li>一次&nbsp;&nbsp;4500元（3%月）</li>
+                
+                <li>月供&nbsp;&nbsp;{{interest.monthly}}元</li>
+                <li>一次性费用&nbsp;&nbsp;{{interest.fee}}元</li>
             </ul>
         </div>
         <div>
@@ -75,7 +76,7 @@
                         </td>
                         <td>{{item.refundType | refundsValue}}</td>
                         <td>{{item.fee}}</td>
-                        <td>4</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>

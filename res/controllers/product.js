@@ -12,6 +12,7 @@ new Vue({
     data : {
         show : false,
         productDetail : {},
+        interest : {},
         selectParams : {
             amount : '',
             term : ''
@@ -76,6 +77,7 @@ new Vue({
             this.getInterestsDetail();
         },
         getInterestsDetail : function(){
+            var that = this;
             // if(!this.selectParams.amount){
             //     alert('请输入金额');
             //     return;
@@ -89,8 +91,10 @@ new Vue({
                 id : utility.getUrlParam('id'),
                 amount : this.selectParams.amount*10000,
                 term : this.selectParams.term
-            }).then(function(){
-
+            }).then(function(res){
+                if(res.body.code == 0){
+                    that.interest = res.body.data
+                }
             },function(){
 
             })

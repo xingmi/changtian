@@ -32,9 +32,12 @@ if(!Cookie('mapDataExpires') || !localStorage['mapData']){
             window.location.href= utility.getUrlParam('page_ref')
         })
     })
+    console.log(utility.getUrlParam('page_ref'))
 }else{
+    console.log(utility.getUrlParam('page_ref'))
     window.location.href= utility.getUrlParam('page_ref')
 }
+
 
 
 
