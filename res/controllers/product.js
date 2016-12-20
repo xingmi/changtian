@@ -11,7 +11,9 @@ new Vue({
     el : '.product',
     data : {
         show : false,
-        productDetail : {},
+        productDetail : {
+            favorite : false
+        },
         interest : {},
         selectParams : {
             amount : '',
@@ -26,7 +28,8 @@ new Vue({
             }
         }).then(function(res){
             if(res.body.code == 0){
-                this.productDetail = res.body.data;
+                _.extend(this.productDetail,res.body.data);
+
                 this.selectParams.amount = this.productDetail.minAmount/10000;
                 this.selectParams.term = this.productDetail.minTerm;
 
