@@ -22,8 +22,6 @@ function getLocation(callback){
 }
 
 if(!Cookie('mapDataExpires') || !localStorage['mapData']){
-    // var lat = 31;
-    // var lng = 121;
     getLocation(function(lat,lng){
         Ajax.get(env.api+'constants.json?lat='+lat + "&lng="+lng,function(datas){
             var datas = JSON.parse(datas);
@@ -32,9 +30,7 @@ if(!Cookie('mapDataExpires') || !localStorage['mapData']){
             window.location.href= utility.getUrlParam('page_ref')
         })
     })
-    console.log(utility.getUrlParam('page_ref'))
 }else{
-    console.log(utility.getUrlParam('page_ref'))
     window.location.href= utility.getUrlParam('page_ref')
 }
 
