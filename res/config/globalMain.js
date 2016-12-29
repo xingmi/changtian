@@ -25,6 +25,7 @@ var Vue      = require('vue');
 var VueResource = require('../lib/vue-resource');
 var env    = require('./env');
 var Filter = require('./filter');
+var io = require('../lib/growingio')
 
 Vue.use(VueResource);
 // Vue.http.options.emulateHTTP = true;
