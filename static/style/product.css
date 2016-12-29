@@ -126,7 +126,32 @@ padding-bottom: 60px;
     float: left;
     line-height: 20px;
     font-size: .11rem;
+    position: relative;
+    padding-left: 16px;
 }
+.product .product_content .price_progress  .progress_title li::after{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    content: "";
+    background: #000;
+    left:5px;
+    top: 7px;
+}
+.product .product_content .price_progress  .progress_title li:nth-child(1)::after{
+    background: #7ab4cc;
+}
+.product .product_content .price_progress  .progress_title li:nth-child(2)::after{
+    background: #f2d95b;
+}
+.product .product_content .price_progress  .progress_title li:nth-child(3)::after{
+    background: #ee8f55;
+}
+.product .product_content .price_progress  .progress_title li:nth-child(4)::after{
+    background: #4c707c;
+}
+
 
 .product .product_content h3{
     background: #FFF;
