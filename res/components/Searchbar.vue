@@ -6,7 +6,7 @@
                 <input placeholder="请输入贷款金额" v-model="amount"/>
                 <i class="search_price">万</i>
             </div>
-            <span @click='fastSearch'>搜索</span>
+            <span @click='fastSearch'>搜&nbsp;&nbsp;索</span>
         </div>
         <div class="address" @click="showCity()">
             <i></i>
@@ -74,7 +74,7 @@ module.exports = {
     width: 80%;
     float: left;
     position: relative;
-    padding-right: 70px;
+    padding-right: 60px;
     height: 30px;
 }
 .select_model .select .input_model{
@@ -99,7 +99,7 @@ module.exports = {
     position: absolute;
     top: 0;
     right: 0;
-    width: 70px;
+    width: 60px;
     height: 30px;
     display: block;
     background: #1c93bf;
