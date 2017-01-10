@@ -39,9 +39,7 @@ new Vue({
                     'amount' : 10000
                 }).then(function(res){
                     if(res.body.code == 0){
-                        Toast.show('提交成功',2000,function(){
-                            window.location.href= "/searchList.html"
-                        });
+                        window.location.href= "/applySuccess.html"
                     }else{
                         Toast.show(res.body.message)  
                     }

@@ -45,7 +45,7 @@
 }
 .apply_form .apply dd label.db{
     display: block;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 .apply_form .apply dd label.w25{
     float: left;
@@ -56,8 +56,8 @@
 .apply_form .apply dd .analog_input{
     border: 1px solid #f7bd99;
     width: 100%;
-    height: 26px;
-    line-height: 26px;
+    height: 30px;
+    line-height: 30px;
     margin: 4px 0;
     box-shadow: 1px 1px 5px #f7bd99,1px 1px 5px #f7bd99 inset;
     padding-left: 10px;

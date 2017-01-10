@@ -26,7 +26,7 @@
     float: right;
     margin-top: -8px;
 }
-.register li .code{
+.register li .code{co
     float: right;
     width: 100px;
     border:1px solid #a0a0a0;
@@ -38,6 +38,18 @@
     background: #FFF;
 }
 
+.register .tel_style{
+    background: #f68946;
+    color: #FFF;
+    margin: 20px 10px;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: .16rem;
+    border-radius: 5px;
+
+}
 .register_btn{
     position: fixed;
     bottom: 0;
@@ -50,4 +62,27 @@
     font-size: .16rem;
     text-align: center;
     line-height: 50px;
+}
+
+.apply_success .success_model{
+    position: relative;
+}
+.apply_success .success_model .tel_link{
+    position: absolute;
+    top: 54%;
+    left: 53%;
+    width: 21%;
+    height: 10%;
+}
+.apply_success .link_model{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.apply_success .logo{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }

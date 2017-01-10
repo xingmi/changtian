@@ -12,28 +12,33 @@ new Vue({
     data : {
         show : false,
         productDetail : {
-            favorite : false
+            favorite : false,
+            requirements : '',
+            materials : ''
         },
         interest : {},
         selectParams : {
             amount : '',
             term : ''
         },
+        widthCalculateInterest : 0,
+        widthCalculateFee : 0,
         term : []
     },
     created : function(){
+        var that = this;
         this.$http.get(Config.api + 'product/'+utility.getUrlParam('id')+'.json',{
             params : {
                 openid : Config.openId
             }
         }).then(function(res){
             if(res.body.code == 0){
-                _.extend(this.productDetail,res.body.data);
+                _.extend(that.productDetail,res.body.data);
 
-                this.selectParams.amount = this.productDetail.minAmount/10000;
-                this.selectParams.term = this.productDetail.minTerm;
+                that.selectParams.amount = that.productDetail.minAmount/10000;
+                that.selectParams.term = that.productDetail.minTerm;
 
-                this.getInterestsDetail()
+                that.getInterestsDetail()
             }
         },function(){
 
@@ -47,13 +52,14 @@ new Vue({
     },
     methods : {
         collectBtn : function(){
+            var that = this;
             this.$http.post(Config.api + 'favorite',{
                 openid : Config.openId,
                 pid : utility.getUrlParam('id')
             }).then(function(res){
                 if(res.body.code == 0){
                     Toast.show('收藏成功');
-                    this.productDetail.favorite = true;
+                    that.productDetail.favorite = true;
                 }else{
                     Toast.show(res.body.message)
                 }
@@ -62,13 +68,14 @@ new Vue({
             })
         },
         cancelCollectBtn : function(){
+            var that = this;
             this.$http.post(Config.api + 'favorite/delete',{
                 openid : Config.openId,
                 pid : utility.getUrlParam('id')
             }).then(function(res){
                 if(res.body.code == 0){
                     Toast.show('取消收藏成功');
-                    this.productDetail.favorite = false;
+                    that.productDetail.favorite = false;
                 }else{
                     Toast.show(res.body.message)
                 }
@@ -110,9 +117,24 @@ new Vue({
             }
         },
         parserMaterials : function(){
-            if(this.productDetail.requirements){
+            if(this.productDetail.materials){
                 return this.productDetail.materials.replace(/&lt;br&gt;/g,'<br/><hr style="height:10px;">')
             }
+        },
+        widthCalculateInterest : function(){
+            if(this.interest.interest){
+                return Math.round((this.interest.interest/(this.selectParams.amount*10000))*100)
+            }else{
+                return 0;
+            }
+        },
+        widthCalculateFee : function(){
+            if(this.interest.fee){
+                return Math.round((this.interest.fee/(this.selectParams.amount*10000))*100)
+            }else{
+                return 0;
+            }
+            
         }
     }
 

@@ -6,7 +6,7 @@
                 <input placeholder="请输入贷款金额" v-model="amount"/>
                 <i class="search_price">万</i>
             </div>
-            <span @click='fastSearch'>快速申请</span>
+            <span @click='fastSearch'>搜索</span>
         </div>
         <div class="address" @click="showCity()">
             <i></i>

@@ -42,9 +42,8 @@
             <div class="progress">
                 <span class="daikuan"></span>
                 <div>
-                    <span class="lixi" style="width:10%"></span>
-                    <span class="feiyong" style="width:15%"></span>
-                    <span class="yici" style="width:7%"></span>
+                    <span class="lixi" :style="{width: widthCalculateInterest + '%'}"></span>
+                    <span class="feiyong" :style="{width: widthCalculateFee + '%'}"></span>
                 </div>
             </div>
             <ul class="progress_title clear_fix">
@@ -121,14 +120,8 @@
             收藏
         </span>
 
-        <span class="apply" @click="show = !show">
+        <a href="/register.html" class="apply">
             立即申请
-            <transition name="fade">
-            <ul class="apply_list" v-if="show">
-                <li><a href="/personApply.html">个人贷款申请表</a></li>
-                <li><a href="/companyApply.html">企业贷款申请表</a></li>
-            </ul>
-            </transition>
         </span>
 
     </section>

@@ -108,15 +108,23 @@ padding-bottom: 60px;
 .product .product_content .price_progress .progress span{
     width: 100%;
     height: 100%;
-    display: block;
+    float: left;
 }
 .product .product_content .price_progress .progress div{
     position: absolute;
     top:0;
     left: 0;
+    width: 100%;
+    height: 100%;
+}
+.product .product_content .price_progress .progress span.lixi{
+    background: #ee8f55;
 }
 .product .product_content .price_progress .progress span.daikuan{
     background: #85bbcf;
+}
+.product .product_content .price_progress .progress span.feiyong{
+    background: #4c707c;
 }
 .product .product_content .price_progress  .progress_title{
     margin-top: 10px;
@@ -131,22 +139,22 @@ padding-bottom: 60px;
 }
 .product .product_content .price_progress  .progress_title li::after{
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     content: "";
     background: #000;
     left:5px;
-    top: 7px;
+    top: 6px;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(1)::after{
-    background: #7ab4cc;
+    background: #ee8f55;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(2)::after{
     background: #f2d95b;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(3)::after{
-    background: #ee8f55;
+    background: #c0edff;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(4)::after{
     background: #4c707c;
