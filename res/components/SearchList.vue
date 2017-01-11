@@ -43,7 +43,21 @@
                 </li>
             </ul>
         </div>
-        <img src="/static/images/index/banner01.jpg" class="banner" v-if="listconfig.img">
+
+        <section class="slider_wrap touch_slider" style="-webkit-transform-style: preserve-3d;" v-if="listconfig.img">
+            <ul class="slider_inner">
+                <li class="slider_item" v-for="swiper in swiperArray">
+                    <a :href="swiper.url ? swiper.url : 'javascript:void(0)'">
+                        <img :src="swiper.image">
+                       <!--  <img src="http://i1.ucaiyuan.com/h5_activity/201701zhekouji/h5zhekouji.jpg?uwidth=750&uheight=428"> -->
+                    </a>
+                </li>
+            </ul>
+            <div class="dots">
+                <span v-for="swiper in swiperArray"></span>
+            </div>
+        </section>
+
         <p class="search_total">共有{{productlist.length}}个结果</p>
         <div class="product_list">
             <ul>
@@ -53,7 +67,13 @@
                             <img :src="product.icon">
                         </div>
                         <div class="product_module">
-                            <h2>{{product.name}} <i>{{product.type | loanValue}}</i> <span>展开全文</span></h2>
+                            <h2>
+                                <span class="title_model">
+                                    {{product.name}}
+                                    <i>{{product.type | loanValue}}</i>
+                                </span>
+                                <span class="link">展开全文</span>
+                            </h2>
                             <div>额度：{{product.minAmount | moneyFormat}}-{{product.maxAmount | moneyFormat}}</div>
                             <div>月息：<span style="color:#536aba">{{product.interest}}%</span></div>
                             <div>还款方式：{{ product.refundType | refundsValue}}</div>
@@ -77,6 +97,9 @@ var Cookie = require('../lib/cookie');
 var Config = require('../config/globalMain');
 var utility = require('../config/utility');
 
+require("expose-loader?$!../lib/zepto");
+require('../lib/swipeSlide');
+
 module.exports = {
     props : ['listconfig'],
     created : function(){
@@ -94,6 +117,11 @@ module.exports = {
   
         }
         that.getData();
+
+        if(this.listconfig.img){
+            that.getSwiper();
+        }
+        
     },
     data : function(){
         return {
@@ -109,7 +137,8 @@ module.exports = {
             },
             temPeople : [],
             temAssets : [],
-            temCredit : []
+            temCredit : [],
+            swiperArray : []
         }
     },
     watch : {
@@ -135,6 +164,27 @@ module.exports = {
             },function(res){
 
             });
+        },
+        getSwiper : function(){
+            var that = this;
+            that.$http.get(Config.api + 'banners')
+                .then(function(res){
+                    that.swiperArray = res.body.data;
+
+                    setTimeout(function(){
+                        $('.touch_slider').swipeSlide({
+                            lazyLoad: true,
+                            continuousScroll: true,
+                            transitionType: 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
+                            firstCallback: function (i, sum, me) {
+                                me.find('.dots').children().first().addClass('active');
+                            },
+                            callback: function (i, sum, me) {
+                                me.find('.dots').children().eq(i).addClass('active').siblings().removeClass('active');
+                            }
+                        });
+                    },0)
+                })
         },
         selectPeople : function(value){
             if(this.temPeople.length > 1){
@@ -212,7 +262,13 @@ module.exports = {
     top: 30px;
     left: 0;
     background: #FFF;
-    z-index: 1;
+    z-index: 2;
+}
+.search_list .pulldown_search .pull_ul .pull_li .pull_subul .pull_subli{
+    border-bottom: 1px solid #000;
+}
+.search_list .pulldown_search .pull_ul .pull_li .pull_subul .pull_subli:last-child{
+    border-bottom: 0;
 }
 .search_list .product_list{
     padding: 0 10px;
@@ -256,11 +312,23 @@ module.exports = {
     font-size: .16rem;
     width: 100%;
     margin-bottom: 5px;
+    position: relative;
+    padding-right: .5rem;
 }
-.search_list .product_list li .product_module h2 span{
+.search_list .product_list li .product_module h2 span.title_model{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.search_list .product_list li .product_module h2 span.link{
     float: right;
     font-size: .10rem;
     margin-top: 4px;
+    width: .50rem;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .search_list .product_list li .product_module h2 i{
     border: 1px solid #ba8445;
@@ -303,6 +371,52 @@ module.exports = {
     height: 19px;
     display: block;
     margin: 2px auto;
+}
+.slider_wrap {
+    overflow: hidden;
+    position: relative;
+}
+.slider_wrap:after {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 56.375%;
+}
+.slider_wrap .slider_inner, .slider_wrap .slider_inner .slider_item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.slider_wrap .slider_inner, .slider_wrap .slider_inner .slider_item a{
+    display: block;
+}
+.slider_wrap .slider_inner .slider_item:first-of-type {
+    z-index: 1;
+}
+.slider_wrap .slider_inner .slider_item img {
+    width: 100%;
+    height: auto;
+}
+
+.slider_wrap .dots {
+    text-align: center;
+    position: absolute;
+    bottom: .04rem;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+}
+.slider_wrap .dots span {
+    display: inline-block;
+    width: .06rem;
+    height: .06rem;
+    border-radius: 100%;
+    margin-right: .05rem;
+    background: rgba(255,255,255,0);
+    border: 1px solid rgba(96,167,193,.5);
+}
+.slider_wrap .dots span.active{
+    background: #60a7c1;
 }
 </style>
 

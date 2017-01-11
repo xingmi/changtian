@@ -11,7 +11,6 @@ if(utility.getUrlParam('shareId')){
 
 // 判断是否在微信中
 //if(!localStorage['openId'] && navigator.userAgent.match(/MicroMessenger/i)){
-    // alert(localStorage['openId'])
 //     window.location.href= "/wechat.html?page_ref="+ window.location.href;
 // }
 
