@@ -113,12 +113,12 @@ new Vue({
     computed : {
         parserRequirements : function(){
             if(this.productDetail.requirements){
-                return this.productDetail.requirements.replace(/&lt;br&gt;/g,'<br/><hr style="height:10px;">')
+                return this.productDetail.requirements.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
             }
         },
         parserMaterials : function(){
             if(this.productDetail.materials){
-                return this.productDetail.materials.replace(/&lt;br&gt;/g,'<br/><hr style="height:10px;">')
+                return this.productDetail.materials.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
             }
         },
         widthCalculateInterest : function(){
