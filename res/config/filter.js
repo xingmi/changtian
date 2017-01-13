@@ -9,10 +9,29 @@ Vue.filter('moneyFormat',function(money){
     return money < 9999 ? money : (money/10000) + "万"
 })
 
+// 贷款人群    
+Vue.filter('peopleValue',function(typeId){
+    console.log(typeId)
+    if(typeId){
+        return _.result(_.find(mapData.peoples,{'value': typeId.toString()}),'text')
+    }else{
+        return '未知';
+    }
+})
+
 // 还款类型    
 Vue.filter('refundsValue',function(typeId){
     if(typeId){
         return _.result(_.find(mapData.refunds,{'value': typeId.toString()}),'text')
+    }else{
+        return '未知';
+    }
+})
+
+// 资产贷款    
+Vue.filter('assetsValue',function(typeId){
+    if(typeId){
+        return _.result(_.find(mapData.assets,{'value': typeId.toString()}),'text')
     }else{
         return '未知';
     }

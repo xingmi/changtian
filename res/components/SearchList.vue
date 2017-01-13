@@ -3,9 +3,9 @@
         <div class="pulldown_search" v-if="listconfig.search_bar">
             <ul class="pull_ul clear_fix">
                 <li class="pull_li" >
-                <span @click="btn.showPerson = !btn.showPerson">贷款人群<i></i></span>
-                <transition name="fade">
-                    <ul class="pull_subul" v-if="btn.showPerson" transition="fade">
+                    <span v-if="temPeople.length">{{temPeople.toString() | peopleValue}}<i></i></span>
+                    <span v-else>贷款人群<i></i></span>
+                    <ul class="pull_subul">
                         <li class="pull_subli" v-for="people in datas.peoples">
                             <label @change="selectPeople(people.value)">
                                 <input type="checkbox" :value="people.value" v-model="temPeople"/>
@@ -13,12 +13,11 @@
                             </label>
                         </li>
                     </ul>
-                </transition>
                 </li>
                 <li class="pull_li">
-                <span @click="btn.showAssets = !btn.showAssets">资产贷款<i></i></span>
-                <transition name="fade">
-                    <ul class="pull_subul" v-if="btn.showAssets">
+                    <span v-if="temAssets.length">{{temAssets.toString() | assetsValue}}<i></i></span>
+                    <span v-else>资产贷款<i></i></span>
+                    <ul class="pull_subul">
                         <li class="pull_subli" v-for="asset in datas.assets">
                             <label @change="selectAssets(asset.value)">
                                 <input type="checkbox" :value="asset.value" v-model="temAssets"/>
@@ -26,12 +25,11 @@
                             </label>
                         </li>
                     </ul>
-                </transition>
                 </li>
                 <li class="pull_li">
-                <span @click="btn.showCredis = !btn.showCredis">信用贷<i></i></span>
-                <transition name="fade">
-                    <ul class="pull_subul" v-if="btn.showCredis">
+                    <span>信用贷<i></i></span>
+
+                    <ul class="pull_subul">
                         <li class="pull_subli" v-for="credit in datas.credits">
                             <label>
                                 <input type="checkbox" :value="credit.value" v-model="temCredit"/>
@@ -39,7 +37,7 @@
                             </label>
                         </li>
                     </ul>
-                </transition>
+
                 </li>
             </ul>
         </div>
@@ -88,8 +86,9 @@
             <i></i>
             收藏
         </a>
-    </section>
 
+        <div class="global_mask"></div>
+    </section>
 </template>
 
 <script>
@@ -121,6 +120,16 @@ module.exports = {
         if(this.listconfig.img){
             that.getSwiper();
         }
+
+        $('body').on('click','.pull_li',function(){
+            $(this).find('span').next().show().parent().siblings().find('ul').hide();
+            $('.global_mask').show();
+        })
+
+        $('body').on('click','.global_mask',function(){
+            $(this).hide();
+            $('.pull_subul').hide()
+        })
         
     },
     data : function(){
@@ -143,6 +152,8 @@ module.exports = {
     },
     watch : {
         temCredit : function(newValue){
+            $('.pull_subul, .global_mask').hide();
+            
             this.temParams.credis = eval(newValue.join('+'));
             this.getData();
         }
@@ -187,13 +198,21 @@ module.exports = {
                 })
         },
         selectPeople : function(value){
+
+            $('.pull_subul, .global_mask').hide();
+
+
             if(this.temPeople.length > 1){
                 this.temPeople.shift();
             }
             this.temParams.peoples = this.temPeople[0];
             this.getData();
+
         },
         selectAssets : function(value){
+
+            $('.pull_subul, .global_mask').hide();
+
             if(this.temAssets.length > 1){
                 this.temAssets.shift();
             }
@@ -208,7 +227,7 @@ module.exports = {
 
 <style scoped>
 .search_list{
-
+    position: relative;
 }
 .search_list .banner{
     width: 100%;
@@ -263,6 +282,7 @@ module.exports = {
     left: 0;
     background: #FFF;
     z-index: 2;
+    display: none;
 }
 .search_list .pulldown_search .pull_ul .pull_li .pull_subul .pull_subli{
     border-bottom: 1px solid #000;
@@ -329,6 +349,7 @@ module.exports = {
     position: absolute;
     right: 0;
     top: 0;
+    color: #939393;
 }
 .search_list .product_list li .product_module h2 i{
     border: 1px solid #ba8445;
@@ -417,6 +438,17 @@ module.exports = {
 }
 .slider_wrap .dots span.active{
     background: #60a7c1;
+}
+.global_mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 40px;
+    left: 0rem;
+    background: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    display: none;
 }
 </style>
 

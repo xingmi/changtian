@@ -35,7 +35,7 @@ new Vue({
             if(res.body.code == 0){
                 _.extend(that.productDetail,res.body.data);
 
-                that.selectParams.amount = that.productDetail.minAmount/10000;
+                that.selectParams.amount = that.productDetail.minAmount;
                 that.selectParams.term = that.productDetail.minTerm;
 
                 that.getInterestsDetail()
@@ -99,7 +99,7 @@ new Vue({
 
             this.$http.post(Config.api + 'product/'+utility.getUrlParam('id')+'/interests.json',{
                 id : utility.getUrlParam('id'),
-                amount : this.selectParams.amount*10000,
+                amount : this.selectParams.amount,
                 term : this.selectParams.term
             }).then(function(res){
                 if(res.body.code == 0){

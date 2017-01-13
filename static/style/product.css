@@ -274,3 +274,6 @@ padding-bottom: 60px;
 .fade-enter, .fade-leave-active {
   opacity: 0
 }
+.product .grey_color{
+    color: #7b7b7b;
+}

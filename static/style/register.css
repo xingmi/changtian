@@ -26,7 +26,7 @@
     float: right;
     margin-top: -8px;
 }
-.register li .code{co
+.register li .code{
     float: right;
     width: 100px;
     border:1px solid #a0a0a0;
@@ -48,7 +48,15 @@
     text-align: center;
     font-size: .16rem;
     border-radius: 5px;
-
+    position: relative;
+}
+.register .tel_style img{
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+    position: absolute;
+    top: 7px;
+    left: 15px;
 }
 .register_btn{
     position: fixed;

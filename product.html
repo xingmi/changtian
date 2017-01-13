@@ -17,7 +17,7 @@
         </div>
         <div class="product_name">
             <h2>{{productDetail.name}} <span>{{productDetail.type | loanValue}}</span></h2>
-            <p>月息：{{productDetail.interest}}% / {{productDetail.lendingDate}}天放款</p>
+            <p class="grey_color">月息：{{productDetail.interest}}% / {{productDetail.lendingDate}}天放款</p>
         </div>
     </section>
     <section class="product_content">
@@ -25,7 +25,7 @@
             <div class="amount">
                 金额
                 <div class="input"><input v-model="selectParams.amount"  @change="changeAmount()"/><span>万</span></div>
-                <p>额度范围 {{productDetail.minAmount/10000}}-{{productDetail.maxAmount | moneyFormat}}</p>
+                <p class="grey_color">额度范围 {{productDetail.minAmount}}万-{{productDetail.maxAmount}}万</p>
             </div>
             <div class="time">
                 期限
@@ -35,7 +35,7 @@
                         <option v-for="n in productDetail.maxTerm" v-if="n >= productDetail.minTerm">{{n}}</option>
                     </select>
                 </div>
-                <p>期限范围：{{productDetail.minTerm}}-{{productDetail.maxTerm}}个月</p>
+                <p class="grey_color">期限范围：{{productDetail.minTerm}}-{{productDetail.maxTerm}}个月</p>
             </div>
         </div>
         <div class="price_progress">
@@ -47,16 +47,16 @@
                 </div>
             </div>
             <ul class="progress_title clear_fix">
-                <li>总利息&nbsp;&nbsp;{{interest.interest}}元</li>
-                <li>贷款&nbsp;&nbsp;{{selectParams.amount*10000 | moneyFormat}}/{{selectParams.term}}个月</li>
+                <li class="grey_color">总利息&nbsp;&nbsp;{{interest.interest}}元</li>
+                <li class="grey_color">贷款&nbsp;&nbsp;{{selectParams.amount*10000 | moneyFormat}}/{{selectParams.term}}个月</li>
                 
-                <li>月供&nbsp;&nbsp;{{interest.monthly}}元</li>
-                <li>一次性费用&nbsp;&nbsp;{{interest.fee}}元</li>
+                <li class="grey_color">月供&nbsp;&nbsp;{{interest.monthly}}元</li>
+                <li class="grey_color">一次性费用&nbsp;&nbsp;{{interest.fee}}元</li>
             </ul>
         </div>
         <div>
             <h3>利率说明</h3>
-            <table class="table1">
+            <table class="table1 grey_color">
                 <thead>
                     <tr>
                         <th>贷款期限（月）</th>
@@ -80,11 +80,11 @@
                 </tbody>
             </table>
 
-            <h3>利率说明</h3>
-            <p class="text">可提前还款，没有违约金。</p>
+            <h3>提前还款</h3>
+            <p class="text grey_color">可提前还款，没有违约金。</p>
 
             <h3>几种费用有什么区别</h3>
-            <p class="text">
+            <p class="text grey_color">
                 利息：按剩余本金计算，随每月剩余本金变少减少；<br/>
                 费用：按贷款金额计算，不随剩余本金变化而减少；<br/>
                 一次性：按贷款全额计算，再放宽时一次性收取；<br/>
@@ -100,12 +100,12 @@
     </section>
     <section class="product_model product_condition">
         <h3>申请条件</h3>
-        <div v-html="parserRequirements">
+        <div v-html="parserRequirements" class="grey_color">
         </div>
     </section>
     <section class="product_model">
         <h3>所需材料</h3>
-        <div v-html="parserMaterials">
+        <div v-html="parserMaterials" class="grey_color">
         </div>
     </section>
 
