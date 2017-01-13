@@ -64,7 +64,7 @@
                 <li class="clear_fix" v-for="product in productlist">
                     <a :href="'/product.html?id='+product.id">
                         <div class="product_img">
-                            <img :src="product.icon">
+                            <img :src="product.logo">
                         </div>
                         <div class="product_module">
                             <h2>
@@ -74,7 +74,7 @@
                                 </span>
                                 <span class="link">展开全文</span>
                             </h2>
-                            <div>额度：{{product.minAmount | moneyFormat}}-{{product.maxAmount | moneyFormat}}</div>
+                            <div>额度：{{product.minAmount}}万-{{product.maxAmount}}万</div>
                             <div>月息：<span style="color:#536aba">{{product.interest}}%</span></div>
                             <div>还款方式：{{ product.refundType | refundsValue}}</div>
                             <div>放款速度：{{product.lendingDate}}天</div>
