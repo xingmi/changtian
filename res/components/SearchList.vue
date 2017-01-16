@@ -3,7 +3,7 @@
         <div class="pulldown_search" v-if="listconfig.search_bar">
             <ul class="pull_ul clear_fix">
                 <li class="pull_li">
-                    <span v-if="temPeople.length" @click="showData.first=!showData.first;showData.second=false;showData.third=false">{{temPeople.toString() | peopleValue}}<i></i></span>
+                    <span v-if="temPeople.length" @click="showData.first=!showData.first;showData.second=false;showData.third=false" style="color:#60a7c1;">{{temPeople.toString() | peopleValue}}<i></i></span>
                     <span v-else @click="showData.first=!showData.first;showData.second=false;showData.third=false">贷款人群<i></i></span>
                     <ul class="pull_subul" v-if="showData.first">
                         <li class="pull_subli" v-for="people in datas.peoples">
@@ -15,7 +15,7 @@
                     </ul>
                 </li>
                 <li class="pull_li">
-                    <span v-if="temAssets.length" @click="showData.first=false;showData.second=!showData.second;showData.third=false">{{temAssets.toString() | assetsValue}}<i></i></span>
+                    <span v-if="temAssets.length" @click="showData.first=false;showData.second=!showData.second;showData.third=false" style="color:#60a7c1;">{{temAssets.toString() | assetsValue}}<i></i></span>
                     <span v-else @click="showData.first=false;showData.second=!showData.second;showData.third=false">资产贷款<i></i></span>
                     <ul class="pull_subul" v-if="showData.second">
                         <li class="pull_subli" v-for="asset in datas.assets"> 
