@@ -401,7 +401,6 @@ module.exports = {
 .search_list .product_list li .product_module h2 span.link{
     float: right;
     font-size: .10rem;
-    margin-top: 4px;
     width: 1.0rem;
     position: absolute;
     right: 0;
