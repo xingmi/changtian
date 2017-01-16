@@ -41,7 +41,7 @@ module.exports = {
     },
     methods : {
         fastSearch : function(){
-            this.searchParams.amount = this.amount*10000;
+            this.searchParams.amount = this.amount;
             window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         },
         showCity : function(){
