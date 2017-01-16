@@ -68,9 +68,13 @@
                             <h2>
                                 <span class="title_model">
                                     {{product.name}}
-                                    <i>{{product.type | loanValue}}</i>
+                                    
                                 </span>
-                                <span class="link">展开全文</span>
+                                <span class="link">
+                                    <i>{{product.type | loanValue}}</i>
+                                    <span>展开全文</span>
+                                </span>
+                                
                             </h2>
                             <div>额度：{{product.minAmount}}万-{{product.maxAmount}}万</div>
                             <div>月息：<span style="color:#536aba">{{product.interest}}%</span></div>
@@ -386,7 +390,7 @@ module.exports = {
     width: 100%;
     margin-bottom: 5px;
     position: relative;
-    padding-right: .5rem;
+    padding-right: 1rem;
 }
 .search_list .product_list li .product_module h2 span.title_model{
     display: block;
@@ -398,7 +402,7 @@ module.exports = {
     float: right;
     font-size: .10rem;
     margin-top: 4px;
-    width: .50rem;
+    width: 1.0rem;
     position: absolute;
     right: 0;
     top: 0;
@@ -501,13 +505,6 @@ module.exports = {
     background: #000;
     opacity: .5;
     filter: alpha(opacity=50);
-/*    display: none;*/
-}
-.hide_mask{
-    display: none!important;
-}
-.show_mask{
-    display: block!important;
 }
 </style>
 
