@@ -10,9 +10,9 @@ if(utility.getUrlParam('shareId')){
 }
 
 // 判断是否在微信中
-if(!localStorage['openId'] && navigator.userAgent.match(/MicroMessenger/i)){
-    window.location.href= "/wechat.html?page_ref="+ window.location.href;
-}
+// if(!localStorage['openId'] && navigator.userAgent.match(/MicroMessenger/i)){
+//     window.location.href= "/wechat.html?page_ref="+ window.location.href;
+// }
 
 // 判断是否有数据
 if(!Cookie('mapDataExpires') || !localStorage['mapData']){
