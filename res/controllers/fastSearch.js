@@ -66,7 +66,7 @@ new Vue({
     },
     computed : {
         amountCoupute : function(){
-            return this.temparams.amount*10000;
+            return this.temparams.amount;
         },
         termsCoupute : function(){
             if(this.paramsTerms.length == 1){
