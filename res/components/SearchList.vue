@@ -2,10 +2,10 @@
     <section class="search_list">
         <div class="pulldown_search" v-if="listconfig.search_bar">
             <ul class="pull_ul clear_fix">
-                <li class="pull_li" >
-                    <span v-if="temPeople.length">{{temPeople.toString() | peopleValue}}<i></i></span>
-                    <span v-else>贷款人群<i></i></span>
-                    <ul class="pull_subul">
+                <li class="pull_li">
+                    <span v-if="temPeople.length" @click="showData.first=!showData.first;showData.second=false;showData.third=false">{{temPeople.toString() | peopleValue}}<i></i></span>
+                    <span v-else @click="showData.first=!showData.first;showData.second=false;showData.third=false">贷款人群<i></i></span>
+                    <ul class="pull_subul" v-if="showData.first">
                         <li class="pull_subli" v-for="people in datas.peoples">
                             <label @change="selectPeople(people.value)">
                                 <input type="checkbox" :value="people.value" v-model="temPeople"/>
@@ -15,10 +15,10 @@
                     </ul>
                 </li>
                 <li class="pull_li">
-                    <span v-if="temAssets.length">{{temAssets.toString() | assetsValue}}<i></i></span>
-                    <span v-else>资产贷款<i></i></span>
-                    <ul class="pull_subul">
-                        <li class="pull_subli" v-for="asset in datas.assets">
+                    <span v-if="temAssets.length" @click="showData.first=false;showData.second=!showData.second;showData.third=false">{{temAssets.toString() | assetsValue}}<i></i></span>
+                    <span v-else @click="showData.first=false;showData.second=!showData.second;showData.third=false">资产贷款<i></i></span>
+                    <ul class="pull_subul" v-if="showData.second">
+                        <li class="pull_subli" v-for="asset in datas.assets"> 
                             <label @change="selectAssets(asset.value)">
                                 <input type="checkbox" :value="asset.value" v-model="temAssets"/>
                                 <span>{{asset.text}}</span>
@@ -27,9 +27,9 @@
                     </ul>
                 </li>
                 <li class="pull_li">
-                    <span>信用贷<i></i></span>
+                    <span @click="showData.first=false;showData.second=false;showData.third=!showData.third">信用贷<i></i></span>
 
-                    <ul class="pull_subul">
+                    <ul class="pull_subul" v-if="showData.third">
                         <li class="pull_subli" v-for="credit in datas.credits">
                             <label>
                                 <input type="checkbox" :value="credit.value" v-model="temCredit"/>
@@ -87,7 +87,7 @@
             收藏
         </a>
 
-        <div class="global_mask"></div>
+        <div class="global_mask" @click="closeMask" v-if="showData.first || showData.second || showData.third"></div>
     </section>
 </template>
 
@@ -119,18 +119,7 @@ module.exports = {
 
         if(this.listconfig.img){
             that.getSwiper();
-        }
-
-        $('body').on('click','.pull_li',function(){
-            $(this).find('span').next().show().parent().siblings().find('ul').hide();
-            $('.global_mask').show();
-        })
-
-        $('body').on('click','.global_mask',function(){
-            $(this).hide();
-            $('.pull_subul').hide()
-        })
-        
+        }        
     },
     data : function(){
         return {
@@ -147,18 +136,78 @@ module.exports = {
             temPeople : [],
             temAssets : [],
             temCredit : [],
-            swiperArray : []
+            swiperArray : [],
+            showData : {
+                first : false,
+                second : false,
+                third : false,
+                mask : false
+            }
         }
     },
     watch : {
         temCredit : function(newValue){
-            $('.pull_subul, .global_mask').hide();
-            
+
+            this.closeMask();
+
             this.temParams.credis = eval(newValue.join('+'));
             this.getData();
         }
     },
     methods : {
+        menuan1 : function(params){
+            // switch(params){
+            //     case 'first' : 
+            //         if(this.showData.mask){
+            //             this.showData.first = false;
+            //             this.showData.second = false;
+            //             this.showData.third = false;
+            //             this.showData.mask = false;
+            //         }else{
+            //             this.showData.first = true;
+            //             this.showData.second = false;
+            //             this.showData.third = false;
+            //             this.showData.mask = true;
+            //         }
+            //     break;
+            //     case 'second' : 
+            //         if(this.showData.mask){
+            //             this.showData.first = false;
+            //             this.showData.second = false;
+            //             this.showData.third = false;
+            //             this.showData.mask = false;
+            //         }else{
+            //             this.showData.first = false;
+            //             this.showData.second = true;
+            //             this.showData.third = false;  
+            //             this.showData.mask = true;
+            //         }
+            //     break;
+            //     default : 
+            //         console.log(1111111111)
+
+            // };
+            
+
+            // tag = $(event.target);
+            // current = tag.closest('li.pull_li')
+
+            // current.find('span').next().removeClass('hide_mask').addClass('show_mask').parent().siblings().find('ul').hide();
+            // $('.global_mask').removeClass('hide_mask').addClass('show_mask');
+
+        },
+        closeMask : function(event){
+            this.showData = {
+                first : false,
+                second : false,
+                third : false,
+                mask : false
+            }
+            // $('.pull_subul,.global_mask').addClass('hide_mask').removeClass('show_mask');
+        },
+        closeli : function(){
+            this.closeMask();
+        },
         getData : function(){
             var that = this;
             that.$http.get(Config.api+ 'products.json',{
@@ -199,8 +248,7 @@ module.exports = {
         },
         selectPeople : function(value){
 
-            $('.pull_subul, .global_mask').hide();
-
+            this.closeMask()
 
             if(this.temPeople.length > 1){
                 this.temPeople.shift();
@@ -211,7 +259,7 @@ module.exports = {
         },
         selectAssets : function(value){
 
-            $('.pull_subul, .global_mask').hide();
+            this.closeMask()
 
             if(this.temAssets.length > 1){
                 this.temAssets.shift();
@@ -269,6 +317,11 @@ module.exports = {
     position: absolute;
     display: none;
 }
+.search_list .pulldown_search .pull_ul .pull_li span{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .search_list .pulldown_search .pull_ul .pull_li input:checked + span{
     color: #60a7c1;
 }
@@ -282,7 +335,7 @@ module.exports = {
     left: 0;
     background: #FFF;
     z-index: 2;
-    display: none;
+/*    display: none;*/
 }
 .search_list .pulldown_search .pull_ul .pull_li .pull_subul .pull_subli{
     border-bottom: 1px solid #000;
@@ -448,7 +501,13 @@ module.exports = {
     background: #000;
     opacity: .5;
     filter: alpha(opacity=50);
-    display: none;
+/*    display: none;*/
+}
+.hide_mask{
+    display: none!important;
+}
+.show_mask{
+    display: block!important;
 }
 </style>
 
