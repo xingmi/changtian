@@ -25,7 +25,7 @@ if(!Cookie('mapDataExpires') || !localStorage['mapData']){
     getLocation(function(lat,lng){
         Ajax.get(env.api+'constants.json?lat='+lat + "&lng="+lng,function(datas){
             var datas = JSON.parse(datas);
-            Cookie('mapDataExpires',true,{ expires: 1});
+            Cookie('mapDataExpires',true,{ expires: new Date(new Date().getTime() + 10 * 60 * 1000) });
             localStorage['mapData'] = JSON.stringify(datas.data);
             window.location.href= utility.getUrlParam('page_ref')
         })

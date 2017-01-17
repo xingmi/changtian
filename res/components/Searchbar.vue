@@ -17,7 +17,10 @@
             <div class="" @click="hideCity()"></div>
             <ul>
                 <li style="text-align:center">请选择城市</li>
-                <li v-for="(city,index) in cities" @click="selectCity(index)">{{city.text}}</li>
+                <li v-for="(provincial,index) in cities">
+                    <h4>{{provincial.name}}</h4>
+                    <span v-for="(city,i) in provincial.cities" @click="selectCity(index,i)">{{city.name}}</span>
+                </li>
             </ul>
         </div>
             
@@ -35,7 +38,7 @@ module.exports = {
         return {
             amount : '',
             searchParams : {},
-            usercity : Config.currentCity.text,
+            usercity : Config.currentCity.name,
             cities : Config.mapData.cities
         }
     },
@@ -50,8 +53,8 @@ module.exports = {
         hideCity : function(){
             $('.city_list').removeClass('city_actionsheet_toggle')
         },
-        selectCity : function(index){
-            _.extend(Config.mapData.current,Config.mapData.cities[index]);
+        selectCity : function(index,i){
+            _.extend(Config.mapData.current,Config.mapData.cities[index].cities[i]);
             localStorage['mapData'] = JSON.stringify(Config.mapData);
             window.location.replace("/searchList.html?newDate=" + new Date().getTime());
 
@@ -192,10 +195,20 @@ module.exports = {
     width: 30%;
     height: 100%;
     background-color: #eee;
+    overflow: scroll;
 }
 .city_actionsheet ul li{
     line-height: 30px;
     border-bottom: 1px solid  #8e8e8e;
     padding-left: 5px;
+}
+.city_actionsheet ul li h4{
+    font-weight: bold;
+}
+.city_actionsheet ul li span{
+    display: block;
+    padding-left: 10px;
+    border-top: 1px solid #8e8e8e;
+
 }
 </style>

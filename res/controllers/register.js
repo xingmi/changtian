@@ -22,7 +22,7 @@ new Vue({
         }
     },
     created : function(){
-        this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid=" + Config.openId
+        this.imageCode = "https://api.toudaiworld.com/message/validate.jpg?openid=" + Config.openId
     },
     methods : {
         postData : function(){
@@ -48,7 +48,7 @@ new Vue({
                 });
         },
         resetImageCode : function(){
-            this.imageCode = "https://api.ct.moyobar.com/message/validate.jpg?openid="+Config.openId+"&data=" + new Date().getTime()
+            this.imageCode = "https://api.toudaiworld.com/message/validate.jpg?openid="+Config.openId+"&data=" + new Date().getTime()
         },
         sendCode : function(){
             if(!this.user.name){

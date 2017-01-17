@@ -135,7 +135,7 @@ module.exports = {
             datas : Config.mapData,
             productlist : [],
             temParams : {
-                "city" : Config.currentCity.value
+                "city" : Config.currentCity.id
             },
             temPeople : [],
             temAssets : [],
@@ -160,45 +160,7 @@ module.exports = {
     },
     methods : {
         menuan1 : function(params){
-            // switch(params){
-            //     case 'first' : 
-            //         if(this.showData.mask){
-            //             this.showData.first = false;
-            //             this.showData.second = false;
-            //             this.showData.third = false;
-            //             this.showData.mask = false;
-            //         }else{
-            //             this.showData.first = true;
-            //             this.showData.second = false;
-            //             this.showData.third = false;
-            //             this.showData.mask = true;
-            //         }
-            //     break;
-            //     case 'second' : 
-            //         if(this.showData.mask){
-            //             this.showData.first = false;
-            //             this.showData.second = false;
-            //             this.showData.third = false;
-            //             this.showData.mask = false;
-            //         }else{
-            //             this.showData.first = false;
-            //             this.showData.second = true;
-            //             this.showData.third = false;  
-            //             this.showData.mask = true;
-            //         }
-            //     break;
-            //     default : 
-            //         console.log(1111111111)
-
-            // };
-            
-
-            // tag = $(event.target);
-            // current = tag.closest('li.pull_li')
-
-            // current.find('span').next().removeClass('hide_mask').addClass('show_mask').parent().siblings().find('ul').hide();
-            // $('.global_mask').removeClass('hide_mask').addClass('show_mask');
-
+          
         },
         closeMask : function(event){
             this.showData = {
@@ -207,7 +169,6 @@ module.exports = {
                 third : false,
                 mask : false
             }
-            // $('.pull_subul,.global_mask').addClass('hide_mask').removeClass('show_mask');
         },
         closeli : function(){
             this.closeMask();
@@ -280,6 +241,7 @@ module.exports = {
 <style scoped>
 .search_list{
     position: relative;
+    height: 100%;
 }
 .search_list .banner{
     width: 100%;
