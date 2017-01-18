@@ -84,13 +84,17 @@
             <p class="text grey_color">可提前还款，没有违约金。</p>
 
             <h3>几种费用有什么区别</h3>
-            <p class="text grey_color">
-                利息：按剩余本金计算，随每月剩余本金变少减少；<br/>
+            <p class="text grey_color" style="line-height:.16rem;">
+                等额本息：按贷款金额计算，不随剩余本金变化而减少；<br/>
+                等额本金：按剩余本金计算，随每月剩余本金变化而减少；<br/>
+                一次性：按贷款金额计算，在放款时一次性先收取；<br/>
+                先息后本：贷款本金到期一次性偿还，每月支付利息；
+                <!-- 利息：按剩余本金计算，随每月剩余本金变少减少；<br/>
                 费用：按贷款金额计算，不随剩余本金变化而减少；<br/>
                 一次性：按贷款全额计算，再放宽时一次性收取；<br/>
                 举例：贷款1万  12个月  分期还款<br/>
                 1%月利息（共600元），1%月费用（共1200），1%一次性<br/>
-                （共100元），总利息共计1900元。<br/>
+                （共100元），总利息共计1900元。<br/> -->
             </p>
         </div>
     </section>
@@ -100,12 +104,12 @@
     </section>
     <section class="product_model product_condition">
         <h3>申请条件</h3>
-        <div v-html="parserRequirements" class="grey_color">
+        <div v-html="parserRequirements" class="grey_color" style="line-height:.16rem;">
         </div>
     </section>
     <section class="product_model">
         <h3>所需材料</h3>
-        <div v-html="parserMaterials" class="grey_color">
+        <div v-html="parserMaterials" class="grey_color" style="line-height:.16rem;"> 
         </div>
     </section>
 

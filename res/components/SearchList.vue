@@ -27,11 +27,13 @@
                     </ul>
                 </li>
                 <li class="pull_li">
-                    <span @click="showData.first=false;showData.second=false;showData.third=!showData.third">信用贷<i></i></span>
+                    <span v-if="temCredit.length" @click="showData.first=false;showData.second=false;showData.third=!showData.third" style="color:#60a7c1;">{{temCredit.toString() | creditValue}}<i></i></span>
+
+                    <span @click="showData.first=false;showData.second=false;showData.third=!showData.third">信用贷款<i></i></span>
 
                     <ul class="pull_subul" v-if="showData.third">
                         <li class="pull_subli" v-for="credit in datas.credits">
-                            <label>
+                            <label @change="selectCredit(credit.value)">
                                 <input type="checkbox" :value="credit.value" v-model="temCredit"/>
                                 <span>{{credit.text}}</span>
                             </label>
@@ -150,13 +152,7 @@ module.exports = {
         }
     },
     watch : {
-        temCredit : function(newValue){
 
-            this.closeMask();
-
-            this.temParams.credis = eval(newValue.join('+'));
-            this.getData();
-        }
     },
     methods : {
         menuan1 : function(params){
@@ -231,6 +227,16 @@ module.exports = {
                 this.temAssets.shift();
             }
             this.temParams.peoples = this.temAssets[0];
+            this.getData();
+        },
+        selectCredit : function(newValue){
+
+            this.closeMask();
+
+            if(this.temCredit.length > 1){
+                this.temCredit.shift();
+            }
+            this.temParams.credis = this.temCredit[0];
             this.getData();
         }
     }

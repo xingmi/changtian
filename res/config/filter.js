@@ -37,6 +37,16 @@ Vue.filter('assetsValue',function(typeId){
     }
 })
 
+// 信用贷款
+Vue.filter('creditValue',function(typeId){
+    if(typeId){
+        return _.result(_.find(mapData.credits,{'value': typeId.toString()}),'text')
+    }else{
+        return '未知';
+    }
+})
+
+
 // 贷款类型
 Vue.filter('loanValue',function(typeId){
     if(typeId){
