@@ -419,7 +419,7 @@ module.exports = {
     content: '';
     display: block;
     width: 100%;
-    padding-top: 56.375%;
+    padding-top: 40%;
 }
 .slider_wrap .slider_inner, .slider_wrap .slider_inner .slider_item {
     position: absolute;
