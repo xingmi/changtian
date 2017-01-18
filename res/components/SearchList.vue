@@ -200,6 +200,7 @@ module.exports = {
                         $('.touch_slider').swipeSlide({
                             lazyLoad: true,
                             continuousScroll: true,
+                            speed : 8000,
                             transitionType: 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
                             firstCallback: function (i, sum, me) {
                                 me.find('.dots').children().first().addClass('active');
