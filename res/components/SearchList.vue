@@ -86,6 +86,7 @@
                     </a>
                 </li>
             </ul>
+            <span v-if="btn.showMore" @click="showMoreList" class="load_more">点击加载更多</span>
         </div>
 
         <a class="collect_icon" href="/collectList.html">
@@ -132,7 +133,8 @@ module.exports = {
             btn : {
                 showPerson : false,
                 showAssets : false,
-                showCredis : false
+                showCredis : false,
+                showMore   : false
             },
             datas : Config.mapData,
             productlist : [],
@@ -148,7 +150,9 @@ module.exports = {
                 second : false,
                 third : false,
                 mask : false
-            }
+            },
+            page : 1,
+            size : 20
         }
     },
     watch : {
@@ -169,17 +173,31 @@ module.exports = {
         closeli : function(){
             this.closeMask();
         },
+        showMoreList : function(){
+            console.log(1111)
+            this.page++;
+
+            this.getData();
+        },
         getData : function(){
             var that = this;
+            that.temParams.page = this.page;
+            that.temParams.size = this.size;
             that.$http.get(Config.api+ 'products.json',{
                 params : that.temParams
             }).then(function(res){
-                that.productlist = res.body.data;
+
+                that.productlist = _.concat(that.productlist,res.body.data)
 
                 setTimeout(function(){
                     that.btn.showPerson = false;
                     that.btn.showAssets =false;
                     that.btn.showCredis = false;
+                    if(res.body.data.length == that.size){
+                        that.btn.showMore = true;
+                    }else{
+                        that.btn.showMore = false;   
+                    }
                 },200)
                 
             },function(res){
@@ -236,7 +254,7 @@ module.exports = {
             if(this.temCredit.length > 1){
                 this.temCredit.shift();
             }
-            this.temParams.credis = this.temCredit[0];
+            this.temParams.credit = this.temCredit[0];
             this.getData();
         }
     }
@@ -317,7 +335,8 @@ module.exports = {
     border-bottom: 0;
 }
 .search_list .product_list{
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 
 }
 .search_list .product_list li {
@@ -391,6 +410,13 @@ module.exports = {
     height: 20px;
 }
 
+.search_list .load_more{
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    line-height: 40px;
+    font-size: .14rem;
+}
 .fade-enter-active, .fade-leave-active {
   transition: opacity .1s
 }

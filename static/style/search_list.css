@@ -1,3 +1,6 @@
 .search_list_container{
+  /*  padding-bottom: 40px;*/
+}
+.search_list_container .product_list{
     padding-bottom: 40px;
 }
