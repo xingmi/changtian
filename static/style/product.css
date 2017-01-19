@@ -154,7 +154,7 @@ padding-bottom: 60px;
     background: #f2d95b;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(3)::after{
-    background: #c0edff;
+    background: #85bbcf;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(4)::after{
     background: #4c707c;
