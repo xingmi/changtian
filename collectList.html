@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="/static/style/main.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/collect_list.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/collect_list.css?v=1">
     
 </head>
 <body>
@@ -39,7 +39,7 @@
                             <div>还款方式：{{ product.product.refundType | refundsValue}}</div>
                             <div>放款速度：{{product.product.lendingDate}}天</div>
                         </div>
-                        
+
                         <!-- <div class="product_module">
                             <h2>{{product.product.name}} <i>{{product.product.type | loanValue}}</i> <span>展开全文</span></h2>
                             <div>额度：{{product.product.minAmount | moneyFormat}}-{{product.product.maxAmount | moneyFormat}}</div>
