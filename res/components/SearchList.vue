@@ -271,6 +271,7 @@ module.exports = {
 <style scoped>
 .search_list{
     position: relative;
+    min-height: 100%;
 }
 .search_list .banner{
     width: 100%;
@@ -302,6 +303,7 @@ module.exports = {
     line-height: 30px;
     height: 30px;
     position: relative;
+    z-index: 3;
 }
 .search_list .pulldown_search .pull_ul .pull_li label{
     display: block;
