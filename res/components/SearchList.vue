@@ -271,7 +271,6 @@ module.exports = {
 <style scoped>
 .search_list{
     position: relative;
-    height: 100%;
 }
 .search_list .banner{
     width: 100%;
