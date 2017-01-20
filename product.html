@@ -47,11 +47,11 @@
                 </div>
             </div>
             <ul class="progress_title clear_fix">
-                <li class="grey_color">总利息&nbsp;&nbsp;{{interest.interest}}元</li>
+                <li class="grey_color">总利息&nbsp;&nbsp;{{interest.interest | toFixed}}元</li>
                 <li class="grey_color">贷款&nbsp;&nbsp;{{selectParams.amount*10000 | moneyFormat}}/{{selectParams.term}}个月</li>
                 
-                <li class="grey_color">月供&nbsp;&nbsp;{{interest.monthly}}元</li>
-                <li class="grey_color">一次性费用&nbsp;&nbsp;{{interest.fee}}元</li>
+                <li class="grey_color">月供&nbsp;&nbsp;{{interest.monthly | toFixed}}元</li>
+                <li class="grey_color">一次性费用&nbsp;&nbsp;{{interest.fee | toFixed}}元</li>
             </ul>
         </div>
         <div>

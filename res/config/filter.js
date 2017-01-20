@@ -9,9 +9,18 @@ Vue.filter('moneyFormat',function(money){
     return money < 9999 ? money : (money/10000) + "万"
 })
 
+// 格式化金钱
+Vue.filter('toFixed',function(money){
+    if(money){
+        return money.toFixed(2)
+    }else{
+        return 0;
+    }
+})
+
 // 贷款人群    
 Vue.filter('peopleValue',function(typeId){
-    console.log(typeId)
+    
     if(typeId){
         return _.result(_.find(mapData.peoples,{'value': typeId.toString()}),'text')
     }else{

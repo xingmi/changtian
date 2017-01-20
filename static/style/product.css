@@ -104,6 +104,7 @@ padding-bottom: 60px;
 .product .product_content .price_progress .progress{
     position: relative;
     height: 36px;
+    overflow: hidden;
 }
 .product .product_content .price_progress .progress span{
     width: 100%;
@@ -154,7 +155,7 @@ padding-bottom: 60px;
     background: #85bbcf;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(3)::after{
-    background: #c0edff;
+    background: #eddc4e;
 }
 .product .product_content .price_progress  .progress_title li:nth-child(4)::after{
     background: #4c707c;
