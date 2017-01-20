@@ -85,8 +85,9 @@
                         </div>
                     </a>
                 </li>
+                <span v-if="btn.showMore" @click="showMoreList" class="load_more">点击加载更多</span>
             </ul>
-            <span v-if="btn.showMore" @click="showMoreList" class="load_more">点击加载更多</span>
+            
         </div>
 
         <a class="collect_icon" href="/collectList.html">
