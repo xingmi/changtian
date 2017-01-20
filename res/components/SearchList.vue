@@ -385,6 +385,7 @@ module.exports = {
     margin-bottom: 5px;
     position: relative;
     padding-right: 1rem;
+    line-height: .16rem;
 }
 .search_list .product_list li .product_module h2 span.title_model{
     display: block;
