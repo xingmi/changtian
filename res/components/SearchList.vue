@@ -234,7 +234,8 @@ module.exports = {
             if(this.temPeople.length > 1){
                 this.temPeople.shift();
             }
-            this.productlist = []
+            this.productlist = [];
+            this.page = 1;
             this.temParams.peoples = this.temPeople[0];
             this.getData();
 
@@ -247,7 +248,8 @@ module.exports = {
                 this.temAssets.shift();
             }
 
-            this.productlist = []
+            this.productlist = [];
+            this.page = 1;
             this.temParams.assets = this.temAssets[0];
             this.getData();
         },
@@ -258,7 +260,8 @@ module.exports = {
             if(this.temCredit.length > 1){
                 this.temCredit.shift();
             }
-            this.productlist = []
+            this.productlist = [];
+            this.page = 1;
             this.temParams.credit = this.temCredit[0];
             this.getData();
         }
@@ -385,7 +388,7 @@ module.exports = {
     margin-bottom: 5px;
     position: relative;
     padding-right: 1rem;
-    line-height: .16rem;
+    line-height: .18rem;
 }
 .search_list .product_list li .product_module h2 span.title_model{
     display: block;
