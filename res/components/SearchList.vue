@@ -29,7 +29,7 @@
                 <li class="pull_li">
                     <span v-if="temCredit.length" @click="showData.first=false;showData.second=false;showData.third=!showData.third" style="color:#60a7c1;">{{temCredit.toString() | creditValue}}<i></i></span>
 
-                    <span @click="showData.first=false;showData.second=false;showData.third=!showData.third">信用贷款<i></i></span>
+                    <span v-else @click="showData.first=false;showData.second=false;showData.third=!showData.third">信用贷款<i></i></span>
 
                     <ul class="pull_subul" v-if="showData.third">
                         <li class="pull_subli" v-for="credit in datas.credits">
