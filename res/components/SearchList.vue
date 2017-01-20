@@ -58,7 +58,7 @@
             </div>
         </section>
 
-        <p class="search_total">共有{{productlist.length}}个结果</p>
+        <p class="search_total">共有{{productlistDetail.totalSize}}个结果</p>
         <div class="product_list">
             <ul>
                 <li class="clear_fix" v-for="product in productlist">
@@ -70,7 +70,6 @@
                             <h2>
                                 <span class="title_model">
                                     {{product.name}}
-                                    
                                 </span>
                                 <span class="link">
                                     <i>{{product.type | loanValue}}</i>
@@ -152,7 +151,8 @@ module.exports = {
                 mask : false
             },
             page : 1,
-            size : 20
+            size : 20,
+            productlistDetail : {}
         }
     },
     watch : {
@@ -187,13 +187,14 @@ module.exports = {
                 params : that.temParams
             }).then(function(res){
 
-                that.productlist = _.concat(that.productlist,res.body.data);
+                that.productlistDetail = res.body.data;
+                that.productlist = _.concat(that.productlist,res.body.data.data);
 
                 setTimeout(function(){
                     that.btn.showPerson = false;
                     that.btn.showAssets =false;
                     that.btn.showCredis = false;
-                    if(res.body.data.length == that.size){
+                    if(res.body.data.data.length == that.size){
                         that.btn.showMore = true;
                     }else{
                         that.btn.showMore = false;   
@@ -261,7 +262,7 @@ module.exports = {
             }
             this.productlist = [];
             this.page = 1;
-            this.temParams.credit = this.temCredit[0];
+            this.temParams.credits = this.temCredit[0];
             this.getData();
         }
     }
