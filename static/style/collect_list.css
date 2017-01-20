@@ -41,19 +41,33 @@
     font-size: .16rem;
     width: 100%;
     margin-bottom: 5px;
+    position: relative;
+    padding-right: 1rem;
 }
-.search_list .product_list li .product_module h2 span{
+.search_list .product_list li .product_module h2 span.title_model{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: .18rem;
+}
+.search_list .product_list li .product_module h2 span.link{
     float: right;
     font-size: .10rem;
-    margin-top: 4px;
+    width: 1.0rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #939393;
 }
 .search_list .product_list li .product_module h2 i{
     border: 1px solid #ba8445;
     color: #ba8445;
     display: inline-block;
-    font-size: .12rem;
+    font-size: .11rem;
     margin-left: 5px;
     padding: 2px 4px;
+    vertical-align: middle;
 }
 .search_list .product_list li .product_module div{
     width: 50%;

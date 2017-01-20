@@ -76,7 +76,6 @@
                                     <i>{{product.type | loanValue}}</i>
                                     <span>展开全文</span>
                                 </span>
-                                
                             </h2>
                             <div>额度：{{product.minAmount}}万-{{product.maxAmount}}万</div>
                             <div>月息：<span style="color:#536aba">{{product.interest}}%</span></div>

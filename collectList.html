@@ -22,13 +22,31 @@
                         <div class="product_img">
                             <img :src='"http://console.toudaiworld.com" + product.product.icon'>
                         </div>
+
                         <div class="product_module">
+                            <h2>
+                                <span class="title_model">
+                                    {{product.product.name}}
+                                    
+                                </span>
+                                <span class="link">
+                                    <i>{{product.product.type | loanValue}}</i>
+                                    <span>展开全文</span>
+                                </span>
+                            </h2>
+                            <div>额度：{{product.product.minAmount}}万-{{product.product.maxAmount}}万</div>
+                            <div>月息：<span style="color:#536aba">{{product.product.interest}}%</span></div>
+                            <div>还款方式：{{ product.product.refundType | refundsValue}}</div>
+                            <div>放款速度：{{product.product.lendingDate}}天</div>
+                        </div>
+                        
+                        <!-- <div class="product_module">
                             <h2>{{product.product.name}} <i>{{product.product.type | loanValue}}</i> <span>展开全文</span></h2>
                             <div>额度：{{product.product.minAmount | moneyFormat}}-{{product.product.maxAmount | moneyFormat}}</div>
                             <div>月息：{{product.product.interest}}%</div>
                             <div>还款方式：{{ product.product.refundType | refundsValue}}</div>
                             <div>放款速度：{{product.product.lendingDate}}天</div>
-                        </div>
+                        </div> -->
                     </a>
                 </li>
             </ul>
