@@ -187,7 +187,7 @@ module.exports = {
                 params : that.temParams
             }).then(function(res){
 
-                that.productlist = _.concat(that.productlist,res.body.data)
+                that.productlist = _.concat(that.productlist,res.body.data);
 
                 setTimeout(function(){
                     that.btn.showPerson = false;
@@ -233,6 +233,7 @@ module.exports = {
             if(this.temPeople.length > 1){
                 this.temPeople.shift();
             }
+            this.productlist = []
             this.temParams.peoples = this.temPeople[0];
             this.getData();
 
@@ -244,7 +245,9 @@ module.exports = {
             if(this.temAssets.length > 1){
                 this.temAssets.shift();
             }
-            this.temParams.peoples = this.temAssets[0];
+
+            this.productlist = []
+            this.temParams.assets = this.temAssets[0];
             this.getData();
         },
         selectCredit : function(newValue){
@@ -254,6 +257,7 @@ module.exports = {
             if(this.temCredit.length > 1){
                 this.temCredit.shift();
             }
+            this.productlist = []
             this.temParams.credit = this.temCredit[0];
             this.getData();
         }
