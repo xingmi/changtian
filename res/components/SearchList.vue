@@ -83,7 +83,7 @@
                         </div>
                     </a>
                 </li>
-                <span v-if="btn.showMore" @click="showMoreList" class="load_more">点击加载更多</span>
+                <span v-if="btn.showMore"  class="load_more">加载中...</span>
             </ul>
             
         </div>
@@ -125,7 +125,18 @@ module.exports = {
 
         if(this.listconfig.img){
             that.getSwiper();
-        }        
+        } 
+
+        $(window).on('scroll',function(e){
+            var wh = $(window).height()
+            if(!that.btn.showMore){
+                return false;
+            }
+            if(document.body.scrollTop >= ($('.search_list').height() - wh + 90)){
+                that.page++;
+                that.getData();
+            }
+        })       
     },
     data : function(){
         return {
@@ -173,12 +184,12 @@ module.exports = {
         closeli : function(){
             this.closeMask();
         },
-        showMoreList : function(){
-            console.log(1111)
-            this.page++;
+        // showMoreList : function(){
+        //     console.log(1111)
+        //     this.page++;
 
-            this.getData();
-        },
+        //     this.getData();
+        // },
         getData : function(){
             var that = this;
             that.temParams.page = this.page;
