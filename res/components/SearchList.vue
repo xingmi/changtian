@@ -132,10 +132,20 @@ module.exports = {
             if(!that.btn.showMore){
                 return false;
             }
-            if(document.body.scrollTop >= ($('.search_list').height() - wh + 90)){
-                that.page++;
-                that.getData();
+            if(window.location.href.indexOf('searchList') > 0){
+
+                if(document.body.scrollTop >= ($('.search_list').height() - wh + 90)){
+                    that.page++;
+                    that.getData();
+                }
+            }else{
+                if(document.body.scrollTop >= ($('.search_list').height() - wh - 40)){
+                    that.page++;
+                    that.getData();
+                }
             }
+
+            
         })       
     },
     data : function(){
