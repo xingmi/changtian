@@ -76,8 +76,8 @@
         color: #000;
         background: #839fa9;
         border-bottom:2px solid #FFF;
-        height: 30px;
-        line-height: 30px;
+        height: 38px;
+        line-height: 38px;
     }
 
     .fade-enter-active, .fade-leave-active {
