@@ -44,10 +44,12 @@ new Vue({
             postData.openid = Config.openId;
 
             for(key in postData){
-
-                if(!postData[key] || postData[key]  == undefined ){
-                    Toast.show('请检查所有数据是否填写完整',1000);
-                    return false;
+                if(!postData[key] || postData[key] == undefined ){
+                    if(key == 'receivables'){
+                    }else{
+                        Toast.show('请检查所有数据是否填写完整',1000);
+                        return false;
+                    }
                 };
             }
 
