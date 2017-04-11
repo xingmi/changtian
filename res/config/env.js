@@ -1,3 +1,3 @@
 module.exports = {
-    api : "https://api.toudaiworld.com/"
+    api : "http://api.toudaiworld.com/"
 }
