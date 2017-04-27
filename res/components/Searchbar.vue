@@ -30,7 +30,7 @@
 <script>
 
 var Config = require('../config/globalMain');
-import $ from '../lib/zepto';
+var $ = require('../lib/zepto');
 
 module.exports = {
     // props : ['usercity'],
