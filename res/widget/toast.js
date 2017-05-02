@@ -1,6 +1,6 @@
 var Lodash = require('../lib/lodash');
-// var $  = require('../lib/zepto');
-import $ from '../lib/zepto';
+var $  = require('../lib/zepto');
+// import $ from '../lib/zepto';
 
 module.exports = {
     show: function(title, times, callback) {
