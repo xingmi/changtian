@@ -60,7 +60,7 @@ Vue.http.options.emulateJSON = true;
 if(!sessionStorage['mapData']){
   loadData()
   getLocation(function(lat,lng){
-   loadData(lat,lng,location.reload())
+   loadData(lat,lng,location.href = "/searchList.html?dataTime=" + new Date().getTime())
   })
 }else{
   vueTmpFilter(sessionStorage['mapData'])
