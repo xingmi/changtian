@@ -38,9 +38,13 @@ module.exports = {
         return {
             amount : '',
             searchParams : {},
-            usercity : Config.currentCity.name,
-            cities : Config.mapData.cities
+            usercity : "",
+            cities : ""
         }
+    },
+    created : function(){
+        this.usercity = JSON.parse(sessionStorage['mapData']).current.name,
+        this.cities = JSON.parse(sessionStorage['mapData']).cities
     },
     methods : {
         fastSearch : function(){
@@ -54,16 +58,17 @@ module.exports = {
             $('.city_list').removeClass('city_actionsheet_toggle')
         },
         selectCity : function(index,i){
-            _.extend(Config.mapData.current,Config.mapData.cities[index].cities[i]);
-            localStorage['mapData'] = JSON.stringify(Config.mapData);
+            var sessionList = JSON.parse(sessionStorage['mapData'])
+
+            _.extend(sessionList.current,sessionList.cities[index].cities[i]);
+
+            sessionStorage['mapData'] = JSON.stringify(sessionList);
             window.location.replace("/searchList.html?newDate=" + new Date().getTime());
 
         }
     }
 
 }
-
-
 
 </script>
 

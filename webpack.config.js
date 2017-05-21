@@ -1,20 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var entryConfig = require(path.join(__dirname,'entry.js'))
+
 module.exports = {
-  entry: {
-    searchList : './res/controllers/searchList.js',
-    register   : './res/controllers/register.js',
-    searchResult   : './res/controllers/searchResult.js',
-    fastSearch : './res/controllers/fastSearch.js',
-    getBaseData : './res/controllers/getBaseData.js',
-    personApply : './res/controllers/personApply.js',
-    companyApply : './res/controllers/companyApply.js',
-    product    : './res/controllers/product.js',
-    collectList : './res/controllers/collectList.js',
-    wechat  : './res/controllers/wechat.js',
-    index : './res/controllers/index.js'
-  },
+  entry: entryConfig,
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

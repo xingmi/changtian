@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/style/main.css">
     <link rel="stylesheet" type="text/css" href="/static/style/index.css">
     <!-- <link rel="stylesheet" type="text/css" href="/static/style/search_list.css"> -->
     
@@ -13,161 +14,19 @@
 <body>
 
 <div class="container index">
-  <div id="main"> 
-   <div id="app">
-    <div data-reactroot="">
-     <div class="main-box">
-      <div class="index page-animation">
-       <div class="header">
-        <div class="index">
-         <img class="logo" src="/images/logo.png" />
-         <img class="text" src="/images/index_top_text.png" />
-        </div>
-       </div>
-       <div style="overflow: hidden;">
-         <img src="/static/images/index/banner01.jpg" width="100%" />
-       </div>
-       <ul class="index-product">
-        <li style="border-right: 1px solid rgb(240, 240, 240);">
-         <div class="ico">
-          <img src="/static/images/index/index_project_ico01.png" />
-         </div>
-         <div class="text">
-          <b>小雨点信贷</b>
-         </div></li>
-        <li>
-         <div class="ico">
-          <img src="/static/images/index/index_project_ico02.png" />
-         </div>
-         <div class="text">
-          <b>房屋抵押贷</b>
-         </div></li>
-        <li style="border-right: 1px solid rgb(240, 240, 240);">
-         <div class="ico">
-          <img src="/static/images/index/index_project_ico03.png" />
-         </div>
-         <div class="text">
-          <b>小雨点装修贷</b>
-         </div></li>
-        <li>
-         <div class="ico">
-          <img src="/static/images/index/index_project_ico04.png" />
-         </div>
-         <div class="text">
-          <b>小雨点赎楼贷</b>
-         </div></li>
-       </ul>
-       <div style="background: rgb(238, 239, 241); color: rgb(102, 102, 102); height: 10px; text-align: center; font-size: 0.95rem;"></div>
-       <img src="/static/images/index/regbar.jpg" style="width: 100%; position: relative; bottom: -3pt;" />
-       <div style="background: rgb(255, 255, 255); height: 300px; overflow: hidden;">
-        <form>
-         <div class="account-list2">
-          <ul>
-           <li>
-            <div class="ico ico-tel"></div><label for="username"></label><input type="number" name="userName" id="userName" class="long" pattern="[0-9]*" placeholder="输入11位中国大陆手机号码" />
-            <div class="state"></div></li>
-           <li>
-            <div class="ico ico-password"></div><label for="password"></label><input type="text" name="passWord" id="passWord" class="long" placeholder="请设置您的登录密码" />
-            <div class="state"></div>
-            <div>
-            <!--  <div class="eye" style="background: url(&quot;images/eye_open.png&quot;) 0px 0px no-repeat;"></div> -->
-            </div></li>
-           <li>
-            <div class="ico ico-code-index"></div><label for="imageCheckCodeInput"></label><input type="text" name="imageCheckCodeInput" id="imageCheckCodeInput" placeholder="图形验证码" />
-            <div class="state"></div><img class="img-check-code" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAeAFoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+is59Qlsrhlv0Vbdm/d3KfcAPQP/AHT79D7dK0etJO5MZqWiMO+8WaXZeWiGe6uZM7bW2iLy8dcrxj8cVJY+Iob+1vJUsdQjltE3vbTW5WUjBICjuTtIHNcVZ3Wrah4u1pdJhQX8d4we6nkIjSJcKqYGc52nt2rrdM8RSHUZNJ1mOG11BAGUox8uVT0Kk9OeMH/61c9Oo6jvF6en6mMKjk7309CD/hM/+pa8R/8AgB/9lVjRvFltrWqT6fHYaha3EEfmSC6hCbRkYB5JBOc/TNP8R63JpsMVpYoJtVvDstofQ93b/ZHX/JpmgafHoMg0+TMt1cxm4lu2OTPJn5x7YyuPYn3yk6ntOXmulvp+A0589r+pJqfimx069NkkF5fXigM8FlCZWQHuewqW38QWtxot3qYhuo47RXM0UsWyRSq7iMHvgjviuI8I6trl5Y3c2lWlirNO815d37sA7sSQo288LjrxzWlP4yttV8La1bTRML+K3mhkjtVadM7Dhg6ggL7kjpSpVp1FzL5afqFKU6qvFfh+p1Gn6zHfPCPKaJbmBLi2Ln/WIVBI9mGeRz2P0ktdWgvNW1DTo0kE1j5fmswG0713Dbznp1yBXAJ4k1GXw7plnaeF9WYwQRbLzyT8rKoG9AAdwP1GQferPhOPUNb8Qa/c39xeWEr/AGYywQx+QT8jAA7ssOB2IznNdPMpKPK9ev3P9f61Rst0nJJ9evTyPRaKzbXS9M0uYzxxgXDLtM0sjSSsOuNzEsRwOM9qufaU/uS/9+2/wqm10Lcf5SVlDqVYAqRggjgisv7LcaWd1gpmtf4rQnlP+uZPT/dPHoRWrRSauZSgpa9Tg7aefQvEepapZafc6hpuolWkW1j3TQSrnKshwRyxPbqKu2sN3falqXiK/wBKlSEWJtreykUGWVQS5yvYk8AV0N3pwmm+1W0ht7wDAlUZDD0cfxD9R2IqCx1GXUWntiohmt38udlORn/Y+ue/T9a5HD2fXrovNmEYuMuST81/X6HC+H9TvLHUnv7vQNYnupcxP/ojt9njByqoxJJGMZBA+vrvz66PEEMws7DVrO4sczCaSBV6cOgOSNxVmwCPftXWBUt4cKuFUdBWe0C384urbNvMvBmU/Mw9GHRh9enbFa06coxSlLX0/r7zWFKSWjOH07SYfDd3cpc6Bc61YTyfaLO4hj8/AIHBUnAOMc4q4uhXd9Z67fXSNbTahEfI02NgD8sZWPfjv7dM9fboNCk3TXulTAhrFwqrG52bGG5QOh4yRg9OK3kjSMYRVUegGKFTbVpPbbyNoSfLq2+3l6GZokdzb6Bp1s0GySG1ijfzDjBCgHjr/KsOPTb1vFWuX0MEsc8fkFHyyJdrs+ZAenGAMjoevpXY0VrGPK4tdP8AKxNtrdCrYS21zapcW64VxzkYYEcEH3BBB+lWqKKp2voM/9k=" width="90" height="30" /></li>
-           <li>
-            <div class="ico ico-code"></div><label for="checkCode"></label><input type="text" name="checkCode" id="checkCode" class="short" placeholder="短信验证码" />
-            <div class="send-code">
-             <button type="button">发送验证码</button>
-            </div></li>
-          </ul>
-         </div>
-         <div class="submit">
-          <button type="button" class="ant-btn ant-btn-submit"><span>立即借款</span></button>
-         </div>
-         <div style="display: none;">
-          <div style="font-size: 0.9rem; line-height: 100%; color: orange; margin: 0px auto; text-align: center; overflow: hidden; position: relative; top: -16px;">
-           <span>安卓UC浏览器暂不支持，请使用其他浏览器</span>
-          </div>
-         </div>
-        </form>
-        <!-- <div class="account-link" style="margin: 0px auto; width: 150px; font-size: 1rem;"> -->
-         <!-- react-text: 79 --><!-- 已有账号， -->
-         <!-- /react-text -->
-         <!-- <a href="/login"><span style="color: rgb(233, 85, 23);">立即登录</span></a> -->
-        <!-- </div> -->
-       </div>
-       <div style="height: 10px; background: rgb(238, 239, 241);"></div>
-       <div class="index-link2">
-        <a href="javascript:">隐私声明</a>
-        <!-- react-text: 85 -->|
-        <!-- /react-text -->
-        <a href="javascript:">使用条款</a>
-       </div>
-       <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzkzODE3MTgzM180MDIwMDNfNDAwMDE4ODI5OV8yXw" target="_blank"></a>
-       <div style="background: rgb(255, 255, 255);">
-        <div class="hotline" style="background: rgb(255, 255, 255);">
-         <p class="p1">
-          <!-- react-text: 91 -->咨询热线：
-          <!-- /react-text --><strong>4000-188-299</strong></p>
-         <p class="p2">服务时间：09:00-20:00</p>
-        </div>
-        <!-- <div class="or-line">
-         <span class="or" style="background: rgb(255, 255, 255);">or</span>
-        </div> -->
-        <!-- <div class="other-login">
-         <a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzkzODE3MTgzM180MDIwMDNfNDAwMDE4ODI5OV8yXw"><img src="images/qq_login.png" alt="" /></a>
-         <a style="margin-left: 20px;"><img src="images/weixin_login.png" alt="" /></a>
-        </div> -->
-        <div style="text-align: center; color: rgb(136, 136, 136); background: rgb(255, 255, 255); padding: 15px 0px 10px;">
-         <!-- react-text: 102 -->Copyright &copy; 2016 小雨点网贷 版权所有 
-         <!-- /react-text -->
-         <br />
-         <!-- react-text: 104 -->重庆小雨点小额贷款有限公司 渝ICP备11007461号
-         <!-- /react-text -->
-         <br />
-         <!-- react-text: 106 -->全国贷款牌照 渝两江服发[2016]54号
-         <!-- /react-text -->
-        </div>
-       </div>
-       <!-- <div class="mask" style="display: none;">
-        <div class="box">
-         <div class="ico">
-          <img src="/images/index_load.png" />
-         </div>
-         <div class="text">
-          暂未开放，敬请期待
-         </div>
-        </div>
-        <div class="bg"></div>
-       </div> -->
-       <!-- <div class="mask2" style="display: none;">
-        <div class="bg"></div>
-        <div class="box">
-         <img src="/images/weixinma.png" />
-        </div>
-       </div> -->
-      <!--  <div style="height: 60px;"></div> -->
-       <!-- <div class="footer-bar">
-        <ul>
-         <li>
-          <div class="ico_index"></div><p>首页</p></li>
-         <li>
-          <div class="ico_product"></div><p>产品及服务</p></li>
-         <li>
-          <div class="ico_help"></div><p>帮助中心</p></li>
-         <li>
-          <div class="ico_about"></div><p>关于我们</p></li>
-        </ul>
-       </div> -->
+  <section class="slider_wrap touch_slider" style="-webkit-transform-style: preserve-3d;">
+      <ul class="slider_inner">
+          <li class="slider_item" v-for="swiper in swiperArray">
+              <a :href="swiper.url ? swiper.url : 'javascript:void(0)'">
+                  <img :src="swiper.image">
+                 <!--  <img src="http://i1.ucaiyuan.com/h5_activity/201701zhekouji/h5zhekouji.jpg?uwidth=750&uheight=428"> -->
+              </a>
+          </li>
+      </ul>
+      <div class="dots">
+          <span v-for="swiper in swiperArray"></span>
       </div>
-     </div>
-    </div>
-   </div> 
-  </div>
-
-
-
+  </section>
 </div>
 
 <script type="text/javascript"  src="/dist/index.js?v=645645645"></script>

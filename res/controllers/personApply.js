@@ -23,7 +23,7 @@ new Vue({
             expected : '',
             mobile : ''
         },
-        configParams : Config.mapData,
+        configParams : JSON.parse(sessionStorage['mapData']),
         temCredit_registries : [],
         temExpected : [],
     },

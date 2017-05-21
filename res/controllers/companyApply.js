@@ -22,7 +22,7 @@ new Vue({
             device : '', // 设备
             receivables : '' //企业应收账款额
         },
-        configParams : Config.mapData,
+        configParams : JSON.parse(sessionStorage['mapData']),
         temTrade : [],
         temCredit_registries : [],
     },

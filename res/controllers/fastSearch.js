@@ -16,9 +16,9 @@ new Vue({
         searchParams : {
         },
         temparams:{
-            institutions : Config.mapData.institutions,
-            refunds : Config.mapData.refunds,
-            terms : Config.mapData.terms,
+            institutions : JSON.parse(sessionStorage['mapData']).institutions,
+            refunds : JSON.parse(sessionStorage['mapData']).refunds,
+            terms : JSON.parse(sessionStorage['mapData']).terms,
             amount : ''
         },
         paramsTerms : [],

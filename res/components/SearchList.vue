@@ -109,6 +109,12 @@ module.exports = {
     props : ['listconfig'],
     created : function(){
         var that = this;
+
+        this.datas = JSON.parse(sessionStorage['mapData'])
+        this.temParams = {
+            "city" : JSON.parse(sessionStorage['mapData']).current.id
+        }
+
         if(window.location.href.indexOf('searchList') > 0){
 
         }else{
@@ -145,8 +151,7 @@ module.exports = {
                 }
             }
 
-            
-        })       
+        });
     },
     data : function(){
         return {
@@ -156,11 +161,9 @@ module.exports = {
                 showCredis : false,
                 showMore   : false
             },
-            datas : Config.mapData,
+            datas : [],
             productlist : [],
-            temParams : {
-                "city" : Config.currentCity.id
-            },
+            temParams : {},
             temPeople : [],
             temAssets : [],
             temCredit : [],
