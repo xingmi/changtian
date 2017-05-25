@@ -37,7 +37,7 @@ function loadData(lat,lng,callback){
       if(datas.code == 0){
         sessionStorage['mapData'] = JSON.stringify(datas.data)
         vueTmpFilter(sessionStorage['mapData']);  
-        callback && callback()    
+        if(callback)callback()    
       }
   })
 }
@@ -50,6 +50,8 @@ if(utility.getUrlParam('shareId')){
 // 判断是否在微信中
 if(!localStorage['openId'] && navigator.userAgent.match(/MicroMessenger/i)){
     window.location.href= "/wechat.html?page_ref="+ window.location.href;
+}else{
+    localStorage['openId'] = Math.random().toString(36).substr(2);
 }
 
 
@@ -60,7 +62,9 @@ Vue.http.options.emulateJSON = true;
 if(!sessionStorage['mapData']){
   loadData()
   getLocation(function(lat,lng){
-   loadData(lat,lng,location.href = "/searchList.html?dataTime=" + new Date().getTime())
+   loadData(lat,lng,function(){
+    location.href = "/searchList.html?dataTime=" + new Date().getTime()
+   })
   })
 }else{
   vueTmpFilter(sessionStorage['mapData'])
@@ -71,8 +75,6 @@ if(!sessionStorage['mapData']){
     next()
   });
 }
-
-
 
 if(navigator.userAgent.match(/MicroMessenger/i)){
     var wechat = require('./wechat')

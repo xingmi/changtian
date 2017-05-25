@@ -106,6 +106,10 @@
             <dd class="clear_fix">
                  <input type="number" placeholder="请输入手机号码" v-model="params.mobile" />
             </dd>
+            <dd class="send_code">
+                <input type="number" placeholder="请输入验证码" v-model="params.code" />
+                <button :class="sendStatus" @click="sendCode" v-cloak >{{codeMsg}}</button>
+            </dd>
         </dl>
     </section>
 

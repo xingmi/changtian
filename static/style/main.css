@@ -141,12 +141,16 @@ body {
   position: relative;
 }
 
+.hidden{
+  overflow: hidden;
+}
 [v-cloak]{
     display: none  !important;
 }
 input::-webkit-input-placeholder{
   color: #FFF;
 }
+
 
 .global_toast {
   position: fixed;

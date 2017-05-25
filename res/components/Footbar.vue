@@ -12,7 +12,7 @@
                 </ul>
                 </transition>
             </li>
-            <li><a href="/fastSearch.html"><i class="third"></i>快速匹配</a></li>
+<!--             <li><a href="/fastSearch.html"><i class="third"></i>快速匹配</a></li> -->
         </ul>
 
     </section>
@@ -30,7 +30,7 @@
         z-index: 1
     }
     .foot_bar>ul>li{
-        width: 33.33%;
+        width: 50%;
         height: 100%;
         float: left;
         text-align: center;

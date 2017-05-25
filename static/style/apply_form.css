@@ -6,6 +6,9 @@
     padding: 10px;
     border-bottom: 1px solid #aeadad;
 }
+input::-webkit-input-placeholder{
+  color: #888;
+}
 .apply_form .apply_btn{
     position: fixed;
     bottom: 0;
@@ -126,6 +129,23 @@
 }
 .apply_form .apply dd .yesorno_model div:last-child{
     border-top: 0;
+}
+
+.apply_form .apply dd.send_code{ 
+    padding-right: 100px;
+}
+.apply_form .apply dd.send_code .title{
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 80px;
+    text-align: center;
+    background: #ef775f;
+    height: 30px;
+    color: #FFF;
+}
+.apply_form .apply dd.send_code .title.disable{
+    background: #c4c4c4;
 }
 
 .apply_form .select_option{

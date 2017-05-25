@@ -11,11 +11,40 @@ require('../lib/swipeSlide');
 new Vue({
     el : '.index',
     data : {
-        swiperArray : []
+        page : 1,
+        size : 2,
+        type : 1,
+        swiperArray : [],
+        centerImage : '',
+        newsList: [],
+        isHasMore : true,
+        selectThis : true,
+        agents : []
     },
     created : function(){
         
         this.getSwiper();
+        this.getData()
+
+        // 中间banner
+        this.$http.get(Config.api + "banners?type=6")
+        .then(function(res){
+            if(res.body.code == 0){
+              this.centerImage = res.body.data
+            }
+        },function(){
+
+        }).bind(this);
+
+        // 客户经理
+        this.$http.get(Config.api + "home")
+        .then(function(res){
+          if(res.body.code == 0){
+            this.agents = res.body.data.agents
+          }
+        },function(){
+
+        }).bind(this);
     },
     methods : {
         getSwiper : function(){
@@ -40,5 +69,39 @@ new Vue({
                     },0)
                 })
         },
+        getData : function(){
+            this.$http.get(Config.api + 'articles',{
+              params : {
+                type : this.type,
+                size : this.size,
+                page : this.page
+              }
+            })
+            .then(function(res){
+                if(res.body.code == 0){   
+                  this.news =res.body.data;
+                  this.newsList = _.concat(this.newsList,res.body.data.articles)
+                  if(this.page == this.news.totalPage){
+                    this.isHasMore = false;
+                  }
+                }
+            },function(){
+
+            }).bind(this);
+        },
+        nextPage : function(){
+            if(this.page < this.news.totalPage){
+              this.page++;
+              this.getData()
+            }
+        },
+        getNewDate : function(type){
+            this.selectThis = !this.selectThis;
+            this.isHasMore = true;
+            this.page = 1;
+            this.newsList = []
+            this.type = type;
+            this.getData()
+        }
     }
 })

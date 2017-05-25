@@ -1,8 +1,8 @@
 <template>
     <section class="search_list">
-        <div class="pulldown_search" v-if="listconfig.search_bar">
+        <div :class="[ listconfig.search_item ? 'pulldown_search' : 'pulldown_search pulldown_search_three']" v-if="listconfig.search_bar">
             <ul class="pull_ul clear_fix">
-                <li class="pull_li">
+                <li class="pull_li hide_search_content">
                     <span v-if="temPeople.length" @click="showData.first=!showData.first;showData.second=false;showData.third=false" style="color:#60a7c1;">{{temPeople.toString() | peopleValue}}<i></i></span>
                     <span v-else @click="showData.first=!showData.first;showData.second=false;showData.third=false">贷款人群<i></i></span>
                     <ul class="pull_subul" v-if="showData.first">
@@ -14,7 +14,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="pull_li">
+                <li class="pull_li hide_search_content">
                     <span v-if="temAssets.length" @click="showData.first=false;showData.second=!showData.second;showData.third=false" style="color:#60a7c1;">{{temAssets.toString() | assetsValue}}<i></i></span>
                     <span v-else @click="showData.first=false;showData.second=!showData.second;showData.third=false">资产贷款<i></i></span>
                     <ul class="pull_subul" v-if="showData.second">
@@ -26,7 +26,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="pull_li">
+                <li class="pull_li hide_search_content">
                     <span v-if="temCredit.length" @click="showData.first=false;showData.second=false;showData.third=!showData.third" style="color:#60a7c1;">{{temCredit.toString() | creditValue}}<i></i></span>
 
                     <span v-else @click="showData.first=false;showData.second=false;showData.third=!showData.third">信用贷款<i></i></span>
@@ -39,7 +39,9 @@
                             </label>
                         </li>
                     </ul>
-
+                </li>
+                <li class="pull_li show_search" v-if="listconfig.search_item">
+                    <span>筛选<i></i></span>
                 </li>
             </ul>
         </div>
@@ -94,6 +96,67 @@
         </a>
 
         <div class="global_mask" @click="closeMask" v-if="showData.first || showData.second || showData.third"></div>
+
+        <div class="fast_search global_action_sheet search_actionsheet" v-if="listconfig.search_item">
+            <div class="search_keyword">
+                <div class="clear_fix">
+                    <span class="keyword_title">关键词搜索</span>   
+                    <div class="keyword_input">
+                        <input placeholder="信用贷款" v-model="keyword"/>  
+                        <span class="search_btn" @click="keywordSearch()">搜索</span>    
+                    </div>
+                </div>
+                <p class="keyword_prompt">关键词提示：</p>
+                <ul class="keyword_example">
+                    <li class="clear_fix">
+                        <span>"信用贷款"</span>
+                        <span>"房产抵押贷款"</span>
+                        <span>"汽车抵押贷款"</span>
+                    </li>
+                    <li class="clear_fix">
+                        <span>"装修贷款"</span>
+                        <span>"消费贷款"</span>
+                        <span>"应收账款融资"</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="search_params">
+                <div class="search_price clear_fix">
+                    <span class="price_title">贷款金额</span>
+                    <div class="keyword_input">
+                        <input placeholder="信用贷款" v-model="temparams.amount"/>  
+                        <span class="search_btn">万</span>   
+                    </div>
+                </div>
+                <dl>
+                    <dt>贷款期限</dt>
+                    <dd class="clear_fix">
+                        <label v-for="data in temparams.terms">
+                            <input type="checkbox" :value="data.value" v-model="paramsTerms">
+                            <span class="button">{{data.text}}</span>
+                        </label>
+                    </dd>
+                    <dt>还款方式</dt>
+                    <dd class="clear_fix">
+                        <label v-for="data in temparams.refunds" @change="selectRefund(data.value)">
+                            <input type="checkbox" :value="data.value" name="refund" v-model="paramsRefunds">
+                            <span class="button">{{data.text}}</span>
+                        </label>
+                    </dd>
+                    <dt>机构类型</dt>
+                    <dd class="clear_fix">
+                        <label v-for="data in temparams.institutions" @change="selectInstitutions(data.value)">
+                            <input type="checkbox" :value="data.value" v-model="paramsInstitutions">
+                            <span class="button">{{data.text}}</span>
+                        </label>
+                    </dd>
+                </dl>
+            </div>
+            <div class="foot_btn">
+                <span class="reset" @click="resetParams()">重置</span>
+                <span class="search" @click="paramsSearch()">匹配</span>
+            </div>
+        </div>
     </section>
 </template>
 
@@ -152,6 +215,20 @@ module.exports = {
             }
 
         });
+
+        
+    },
+    mounted : function(){
+        $(".show_search").on('click',function(){
+            window.scrollTo(0,0)
+            $("body").toggleClass('hidden')
+            $(".fast_search").toggleClass('search_actionsheet_toggle')
+        })
+
+        $(".hide_search_content").on('click',function(){
+            $("body").removeClass('hidden')
+            $(".fast_search").removeClass('search_actionsheet_toggle')
+        })
     },
     data : function(){
         return {
@@ -176,7 +253,22 @@ module.exports = {
             },
             page : 1,
             size : 20,
-            productlistDetail : {}
+            productlistDetail : {},
+
+            keyword : '',
+            searchParams : {
+            },
+            temparams:{
+                institutions : JSON.parse(sessionStorage['mapData']).institutions,
+                refunds : JSON.parse(sessionStorage['mapData']).refunds,
+                terms : JSON.parse(sessionStorage['mapData']).terms,
+                amount : ''
+            },
+            paramsTerms : [],
+            paramsRefunds : [],
+            paramsInstitutions : []
+
+
         }
     },
     watch : {
@@ -288,6 +380,47 @@ module.exports = {
             this.page = 1;
             this.temParams.credits = this.temCredit[0];
             this.getData();
+        },
+        keywordSearch : function(){
+            this.searchParams.keyword = this.keyword;
+            // console.log(JSON.stringify(this.searchParams))
+            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
+        },
+        paramsSearch : function(){
+            this.searchParams.amount = this.amountCoupute;
+            this.searchParams.terms = this.termsCoupute;
+            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
+        },
+        resetParams : function(){
+            this.searchParams = {};
+            this.paramsRefunds = [];
+            this.paramsInstitutions = [];
+            this.paramsTerms = [];
+        },
+        selectRefund : function(value){
+            if(this.paramsRefunds.length > 1){
+                this.paramsRefunds.shift();
+            }
+            this.searchParams.refunds = this.paramsRefunds[0];
+        },
+        selectInstitutions : function(){
+            if(this.paramsInstitutions.length > 1){
+                this.paramsInstitutions.shift();
+            }
+            this.searchParams.institutions = this.paramsInstitutions[0];
+        }
+    },
+    computed : {
+        amountCoupute : function(){
+            return this.temparams.amount;
+        },
+        termsCoupute : function(){
+            if(this.paramsTerms.length == 1){
+                return this.paramsTerms[0];
+            }else if(this.paramsTerms.length >= 2){
+                return Math.min.apply(null,this.paramsTerms) + "," + Math.max.apply(null,this.paramsTerms)
+            }
+            
         }
     }
 }
@@ -321,16 +454,20 @@ module.exports = {
     display: inline-block;
     margin-left: 5px;
 }
+
 .search_list .pulldown_search .pull_ul .pull_li{
     border-right:1px solid #adadad;
     float: left;
-    width: 33.33%;
+    width: 25%;
     text-align: center;
     font-size: .14rem;
     line-height: 30px;
     height: 30px;
     position: relative;
     z-index: 3;
+}
+.search_list .pulldown_search.pulldown_search_three .pull_ul .pull_li{
+    width: 33.33%
 }
 .search_list .pulldown_search .pull_ul .pull_li label{
     display: block;
@@ -533,6 +670,210 @@ module.exports = {
     background: #000;
     opacity: .5;
     filter: alpha(opacity=50);
+}
+
+.fast_search{
+    padding-bottom: 40px;
+}
+.fast_search .search_keyword {
+    padding: 10px;
+    border-bottom: 5px solid #aeadad;
+}
+.fast_search .search_keyword .keyword_title{
+    float: left;
+    width: 30%;
+    line-height: 36px;
+    padding-right: 10px;
+    text-align: center;
+    color:#000;
+}
+.fast_search .search_keyword .keyword_input{
+    float: left;
+    width: 70%;
+    border:1px solid #aeadad;
+    border-radius: 10px;
+    height: 36px;
+    padding: 0 65px 0 5px;
+    overflow: hidden;
+    position: relative;
+}
+.fast_search .search_keyword .keyword_input input{
+    height: 30px;
+    margin-top: 3px;
+    width: 100%;
+}
+.fast_search .search_keyword .keyword_input::-webkit-input-placeholder{
+  color: #b6b3b3;
+}
+.fast_search .search_keyword .keyword_input .search_btn{
+    background: #718d97;
+    color: #FFF;
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 36px;
+    right: 0;
+    top: 0;
+    line-height: 34px;
+}
+
+.fast_search .search_keyword .keyword_prompt{
+    color: #b8b8b8;
+    margin: 5px;
+    margin-top: 15px;
+}
+.fast_search .search_keyword .keyword_example span{
+    width: 33.33%;
+    float: left;
+    color: #b8b8b8;
+    padding: 5px;
+}
+.fast_search .search_params {
+    padding: 10px;
+}
+.fast_search .search_params .search_price .price_title{
+    float: left;
+    width: 30%;
+    line-height: 36px;
+    padding-right: 10px;
+    color:#000;
+}
+
+.fast_search .search_params .search_price .keyword_input{
+    float: left;
+    width: 70%;
+    border:1px solid #aeadad;
+    border-radius: 10px;
+    height: 36px;
+    padding: 0 65px 0 5px;
+    overflow: hidden;
+    position: relative;
+}
+.fast_search .search_params .search_price .keyword_input input{
+    height: 30px;
+    margin-top: 3px;
+    width: 100%;
+    text-align: center;
+    font-size: .14rem;
+}
+.fast_search .search_params .search_price .keyword_input::-webkit-input-placeholder{
+  color: #b6b3b3;
+}
+.fast_search .search_params .search_price .keyword_input .search_btn{
+    color: #000;
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 36px;
+    right: 0;
+    top: 0;
+    line-height: 34px;
+}
+.fast_search .search_params dl{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #aeadad;
+}
+.fast_search .search_params dl dt{
+    color: #424242;
+    padding: 10px 0;
+    font-size: .14rem;
+}
+.fast_search .search_params dl dd{
+    border-bottom: 1px solid #aeadad;
+    padding-bottom: 10px;
+}
+.fast_search .search_params dl dd label{
+    width: 25%;
+    float: left;
+    margin-top: 10px;
+}
+.fast_search .search_params dl dd label span{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #d5d5d5;
+    border-radius: 4px;
+    color: #000;
+}
+.fast_search .search_params dl dd input{
+    position: absolute;
+    opacity: 0;
+}
+.fast_search .search_params dl dd input:checked + span{
+    background: #718d97;
+    color: #FFF;
+}
+.fast_search .foot_btn{
+    /*position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;*/
+    height: 38px;
+}
+.fast_search .foot_btn span{
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 100%;
+    font-size: .14rem;
+    line-height: 36px;
+}
+.fast_search .foot_btn span.reset{
+    background: #FFF;
+    color: #b2b2b2;
+    border-top:1px solid #718d97;
+}
+.fast_search .foot_btn span.search{
+    border-top:1px solid #718d97;
+    background: #718d97;
+    color: #FFF;
+}
+
+.search_actionsheet {
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translate(100%, 0);
+  -webkit-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  -moz-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform .3s;
+}
+.search_actionsheet_toggle {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+}
+.global_action_sheet{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 90px;
+    left: 0rem;
+    background: #FFF;
+    padding-bottom: 90px;
+/*    background: #000;*/
+    z-index: 100;
+    overflow-y: scroll;
+    overflow-x: hidden;
+/*    opacity: .5;
+    filter: alpha(opacity=50);*/
 }
 </style>
 

@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="container index">
+<div class="container index" v-cloak>
   <section class="slider_wrap touch_slider" style="-webkit-transform-style: preserve-3d;">
       <ul class="slider_inner">
           <li class="slider_item" v-for="swiper in swiperArray">
@@ -26,6 +26,41 @@
       <div class="dots">
           <span v-for="swiper in swiperArray"></span>
       </div>
+  </section>
+  <section class="account_manager">
+    <ul class="clear_fix">
+      <li v-for="agent in agents">
+        <div class="manager clear_fix">
+          <img :src="agent.image">
+          <div>
+            <h4><span>{{agent.name}}</span> {{agent.mobile}}</h4>
+            <span>贷款额度：<i>{{agent.amount}}</i>万</span>
+            <span class="manager_type">{{agent.excel}}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </section>
+  <section>
+    <img :src="centerImage[0].image" v-if="centerImage[0]" style="width: 100%">
+  </section>
+  <section class="news">
+      <h3><span>新闻资讯</span></h3>
+      <div class="nav clear_fix">
+        <span @click="getNewDate('1')" :class="{current : selectThis}">金融视点</span>
+        <span @click="getNewDate('2')" :class="{current : !selectThis}">长天资讯</span>
+      </div>
+      <div>
+          <ul class="new_list">
+            <li v-for="article in newsList"><a href="">{{article.title}}</a></li>
+            <li @click="nextPage()" class="last" v-if="isHasMore">点击查看更多</li>
+          </ul>
+      </div>
+
+  </section>
+  <section class="footer">
+    咨询热线：4008-525-987&nbsp;&nbsp;&nbsp;&nbsp;服务时间：09：00 ~ 20：00
   </section>
 </div>
 
