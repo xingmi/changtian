@@ -221,12 +221,12 @@ module.exports = {
     mounted : function(){
         $(".show_search").on('click',function(){
             window.scrollTo(0,0)
-            $("body").toggleClass('hidden')
+            $("html,body").toggleClass('hidden')
             $(".fast_search").toggleClass('search_actionsheet_toggle')
         })
 
         $(".hide_search_content").on('click',function(){
-            $("body").removeClass('hidden')
+            $("html,body").removeClass('hidden')
             $(".fast_search").removeClass('search_actionsheet_toggle')
         })
     },
