@@ -63,7 +63,7 @@ if(!sessionStorage['mapData']){
   loadData()
   getLocation(function(lat,lng){
    loadData(lat,lng,function(){
-    location.href = "/searchList.html?dataTime=" + new Date().getTime()
+    window.location.href = location.origin + (location.pathname == "/" ? "" : location.pathname) + "?dataTime=" + new Date().getTime()
    })
   })
 }else{

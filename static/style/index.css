@@ -1,3 +1,8 @@
+.line{
+    background: #ececec;
+    height: 5px;
+}
+
 .slider_wrap {
     overflow: hidden;
     position: relative;
@@ -99,8 +104,8 @@
 }
 .news .new_list li{
     padding-left: 20px;
-    height: 30px;
-    line-height: 30px;
+    height: 36px;
+    line-height: 36px;
     font-size: 12px;
     border-top: 1px solid #d1d1d1;
 }
@@ -117,7 +122,6 @@
     height: 90px;
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
-
 }
 .account_manager ul{
     white-space: nowrap;
@@ -135,24 +139,31 @@
     width: 210px;
     height: 66px;
     border: 1px solid #ebebeb;
+    box-shadow: 0 0 2px #c8c8c8;
+
 }
 .account_manager li .manager h4{
     margin-top: 4px;
+    font-family: "SimHei", Arial, Helvetica, sans-serif;
 }
 .account_manager li .manager h4 span{
     color: #75bf72;
     border-left: 1px solid #75bf72;
     padding-left: 2px;
+    font-family: "SimHei", Arial, Helvetica, sans-serif;
+
 }
 .account_manager li .manager div{
     float: left;
     height: 100%;
     border-left: 1px solid #d8d8d8;
     padding-left: 3px;
+    width: 144px;
 }
 .account_manager li .manager div>span{
     display: block;
     margin-top: 6px;
+    font-family: "SimHei", Arial, Helvetica, sans-serif;
 }
 .account_manager li .manager div>span.manager_type{
     text-align: right;
@@ -166,6 +177,7 @@
     border: 1px solid #ebebeb;
     margin: 2px;
     margin-left: 2px;
+    box-shadow: 0 0 2px #c8c8c8
 }
 
 .footer{
@@ -174,4 +186,76 @@
     color: #FFF;
     height: 30px;
     line-height: 30px;
+}
+.first_module{
+    height: 230px;
+}
+.first_module img{
+    width: 100%;
+    height: 100%;
+}
+.first_module .left{
+    height: 100%;
+    width: 35%;
+    float: left;
+    overflow: hidden;
+}
+.first_module .right{
+    width: 65%;
+    height: 100%;
+    float: left
+}
+.first_module .right .top{
+    height: 90px;
+    overflow: hidden;
+    border-bottom: 1px solid #d1d1d1;
+}
+.first_module .right .bottom{
+    height: 140px;
+    overflow: hidden;
+}
+.first_module .right .bottom .bottom_left,
+.first_module .right .bottom .bottom_right{
+    width: 50%;
+    height: 100%;
+    display: block;
+    float: left;
+    border-bottom: 1px solid #d1d1d1;
+}
+.second_module{
+    height: 110px;
+    overflow: hidden;
+}
+.second_module img{
+    width: 100%;
+}
+.second_module .bottom_left,
+.second_module .bottom_right{
+    width: 50%;
+    height: 100%;
+    display: block;
+    float: left;
+    
+}
+.second_module .bottom_left{
+    border-right: 1px solid #d1d1d1;
+}
+.third_module {
+    height: 116px;
+    padding: 0 4px;
+}
+.third_module div{
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+.third_module div a {
+    margin: 4px 2px;
+    width: 118px;
+    height: 108px;
+    overflow: hidden;
+    display: inline-block;
+}
+.third_module div a img{
+    width: 100%;
 }

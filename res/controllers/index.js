@@ -12,14 +12,21 @@ new Vue({
     el : '.index',
     data : {
         page : 1,
-        size : 2,
+        size : 8,
         type : 1,
         swiperArray : [],
         centerImage : '',
         newsList: [],
         isHasMore : true,
         selectThis : true,
-        agents : []
+        scrollToolsImage : [],
+        agents : [],
+        images1 : [],
+        images2 : [],
+        images3 : [],
+        images4 : [],
+        images5 : [],
+        images6 : []
     },
     created : function(){
         
@@ -36,11 +43,77 @@ new Vue({
 
         }).bind(this);
 
-        // 客户经理
+
+        // 手机站第一模块左边大图
+        this.$http.get(Config.api + "banners?type=7")
+        .then(function(res){
+            if(res.body.code == 0){
+              this.images1 = res.body.data
+            }
+        },function(){
+
+        }).bind(this);
+
+
+        // 手机站第一模块右边上图
+        this.$http.get(Config.api + "banners?type=8")
+        .then(function(res){
+            if(res.body.code == 0){
+              this.images2 = res.body.data
+            }
+        },function(){
+
+        }).bind(this);
+
+        // 手机站第一模块右边下左图
+        this.$http.get(Config.api + "banners?type=9")
+        .then(function(res){
+            if(res.body.code == 0){
+              this.images3 = res.body.data
+            }
+        },function(){
+
+        }).bind(this);
+
+
+        // 手机站第一模块右边下右图
+        this.$http.get(Config.api + "banners?type=10")
+        .then(function(res){
+            if(res.body.code == 0){
+              this.images4 = res.body.data
+            }
+        },function(){
+
+        }).bind(this);
+
+        // 手机站第二模块左图
+        this.$http.get(Config.api + "banners?type=11")
+        .then(function(res){
+            if(res.body.code == 0){
+              this.images5 = res.body.data
+            }
+        },function(){
+
+        }).bind(this);
+
+        // 手机站第二模块右图
+        this.$http.get(Config.api + "banners?type=12")
+        .then(function(res){
+            if(res.body.code == 0){
+              this.images6 = res.body.data
+            }
+        },function(){
+
+        }).bind(this);
+
+
+
+        // 客户经理 和 滚动栏
         this.$http.get(Config.api + "home")
         .then(function(res){
           if(res.body.code == 0){
             this.agents = res.body.data.agents
+            this.scrollToolsImage = res.body.data.icons.ydkjlj
           }
         },function(){
 
@@ -81,7 +154,7 @@ new Vue({
                 if(res.body.code == 0){   
                   this.news =res.body.data;
                   this.newsList = _.concat(this.newsList,res.body.data.articles)
-                  if(this.page == this.news.totalPage){
+                  if(this.page == this.news.totalPage || this.news.totalPage == 0){
                     this.isHasMore = false;
                   }
                 }

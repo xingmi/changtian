@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title>长天金融超市</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -27,9 +27,46 @@
           <span v-for="swiper in swiperArray"></span>
       </div>
   </section>
-  <section class="account_manager">
+
+  <section class="line"></section>
+
+  <section class="first_module clear_fix">
+      <div class="left">
+        <a :href="images1[0].url ? images1[0].url : 'javascript:void(0)'" v-if="images1[0]"><img :src="images1[0].image"></a>
+      </div>
+      <div class="right">
+        <div class="top">
+         <a :href="images2[0].url ? images2[0].url : 'javascript:void(0)'" v-if="images2[0]"><img :src="images2[0].image"></a>
+        </div>
+        <div class="bottom">
+       <a class="bottom_left" :href="images3[0].url ? images3[0].url : 'javascript:void(0)'" v-if="images3[0]"><img :src="images3[0].image"></a>
+        <a class="bottom_right" :href="images4[0].url ? images4[0].url : 'javascript:void(0)'" v-if="images4[0]"><img :src="images4[0].image"></a>
+        </div>
+      </div>
+  </section>
+
+
+  <section class="second_module">
+    <div class="clear_fix">
+      <a class="bottom_left" :href="images5[0].url ? images5[0].url : 'javascript:void(0)'" v-if="images5[0]"><img :src="images5[0].image"></a>
+      <a class="bottom_left" :href="images6[0].url ? images6[0].url : 'javascript:void(0)'" v-if="images6[0]"><img :src="images6[0].image"></a>
+    </div>
+  </section>
+
+  <section class="third_module" v-if="scrollToolsImage.icons && scrollToolsImage.icons.length">
+    <div class="clear_fix">
+      <a class="bottom_left" :href="image.url" v-for="image in scrollToolsImage.icons">
+        <img :src="image.image1">
+      </a>
+    </div> 
+  </section>
+
+  <section class="line"></section>
+  
+  <section class="account_manager" v-if="agents.length">
     <ul class="clear_fix">
       <li v-for="agent in agents">
+        <a :href="'tel:'+agent.mobile">
         <div class="manager clear_fix">
           <img :src="agent.image">
           <div>
@@ -38,6 +75,7 @@
             <span class="manager_type">{{agent.excel}}</span>
           </div>
         </div>
+        </a>
       </li>
     </ul>
 
@@ -55,6 +93,7 @@
           <ul class="new_list">
             <li v-for="article in newsList"><a href="">{{article.title}}</a></li>
             <li @click="nextPage()" class="last" v-if="isHasMore">点击查看更多</li>
+            <li class="last" v-else="isHasMore">没有更多数据</li>
           </ul>
       </div>
 
@@ -64,6 +103,6 @@
   </section>
 </div>
 
-<script type="text/javascript"  src="/dist/index.js?v=645645645"></script>
+<script type="text/javascript"  src="/dist/index.js?v=77566465546"></script>
 </body>
 </html>
