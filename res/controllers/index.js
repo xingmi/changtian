@@ -122,7 +122,7 @@ new Vue({
     methods : {
         getSwiper : function(){
             var that = this;
-            that.$http.get(Config.api + 'banners')
+            that.$http.get(Config.api + 'banners?type=13')
                 .then(function(res){
                     that.swiperArray = res.body.data;
 
