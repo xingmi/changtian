@@ -18,9 +18,11 @@ function getLocation(callback){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(
             function(p){
+                alert('定位成功')
                 callback(p.coords.latitude, p.coords.longitude);
             },
             function(e){
+                alert('定位失败')
                 callback(31,121)
                //  var msg = e.code + "\n" + e.message;
                // alert('定位失败')
