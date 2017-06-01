@@ -48,7 +48,7 @@ new Vue({
             // postData.assets = eval(this.params.assets.join('+'));
             postData.openid = Config.openId;
 
-            for(key in postData){
+            for(var key in postData){
                 if(!postData[key] || postData[key] == undefined ){
                     if(key == 'receivables'){
                     }else{
