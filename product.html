@@ -81,7 +81,9 @@
             </table>
 
             <h3>提前还款</h3>
-            <p class="text grey_color">可提前还款，没有违约金。</p>
+            <p class="text grey_color">
+            可提前还款，{{productDetail.penalty == 1 ? '有' : '没有'}}违约金。
+            </p>
 
             <h3>几种费用有什么区别</h3>
             <p class="text grey_color" style="line-height:.16rem;">

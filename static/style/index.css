@@ -120,8 +120,8 @@
 }
 .account_manager {
     height: 90px;
-    border-top: 1px solid #ebebeb;
-    border-bottom: 1px solid #ebebeb;
+    border-top: 1px solid #bcbbbb;
+    border-bottom: 1px solid #bcbbbb;
 }
 .account_manager ul{
     white-space: nowrap;
@@ -208,7 +208,7 @@
 .first_module .right .top{
     height: 90px;
     overflow: hidden;
-    border-bottom: 1px solid #d1d1d1;
+    border-bottom: 1px solid #bcbbbb;
 }
 .first_module .right .bottom{
     height: 140px;
@@ -220,14 +220,19 @@
     height: 100%;
     display: block;
     float: left;
-    border-bottom: 1px solid #d1d1d1;
+    border-bottom: 1px solid #bcbbbb;
+}
+.first_module .right .bottom .bottom_left{
+    border-right: 1px solid #bcbbbb;
 }
 .second_module{
     height: 110px;
     overflow: hidden;
+    border-bottom: 1px solid #bcbbbb;
 }
 .second_module img{
     width: 100%;
+    height: 100%;
 }
 .second_module .bottom_left,
 .second_module .bottom_right{
@@ -238,9 +243,10 @@
     
 }
 .second_module .bottom_left{
-    border-right: 1px solid #d1d1d1;
+    border-right: 1px solid #bcbbbb;
 }
 .third_module {
+    border-bottom: 1px solid #bcbbbb;
     height: 116px;
     padding: 0 4px;
 }
@@ -258,4 +264,5 @@
 }
 .third_module div a img{
     width: 100%;
+    height: 100%;
 }

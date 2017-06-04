@@ -109,14 +109,14 @@
                 <p class="keyword_prompt">关键词提示：</p>
                 <ul class="keyword_example">
                     <li class="clear_fix">
-                        <span>"信用贷款"</span>
-                        <span>"房产抵押贷款"</span>
-                        <span>"汽车抵押贷款"</span>
+                        <span>"信用"</span>
+                        <span>"房产抵押"</span>
+                        <span>"汽车抵押"</span>
                     </li>
                     <li class="clear_fix">
-                        <span>"装修贷款"</span>
-                        <span>"消费贷款"</span>
-                        <span>"应收账款融资"</span>
+                        <span>"装修"</span>
+                        <span>"设备融资"</span>
+                        <span>"应收账款"</span>
                     </li>
                 </ul>
             </div>
