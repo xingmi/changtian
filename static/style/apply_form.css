@@ -5,6 +5,10 @@
     font-size: .15rem;
     padding: 10px;
     border-bottom: 1px solid #aeadad;
+    background: #d95920;
+    text-align: center;
+    line-height: 28px;
+    color: #FFF;
 }
 input::-webkit-input-placeholder{
   color: #888;
@@ -18,7 +22,7 @@ input::-webkit-input-placeholder{
     line-height: 50px;
     font-size: .16rem;
     text-align: center;
-    background: #85bbcf;
+    background: #d95920;
     color: #FFF;
     letter-spacing: 10px;
 }
@@ -26,7 +30,7 @@ input::-webkit-input-placeholder{
     padding: 0 10px;
 }
 .apply_form .apply dt{
-    color: #6191a6;
+    color: #356579;
     font-size: .14rem;
     margin: 15px 0 5px 0;
 }
@@ -57,12 +61,12 @@ input::-webkit-input-placeholder{
 .apply_form .apply dd input[type=text],
 .apply_form .apply dd input[type=number],
 .apply_form .apply dd .analog_input{
-    border: 1px solid #f7bd99;
+    border: 1px solid #aaaaaa;
     width: 100%;
     height: 30px;
     line-height: 30px;
     margin: 4px 0;
-    box-shadow: 1px 1px 5px #f7bd99,1px 1px 5px #f7bd99 inset;
+    // box-shadow: 1px 1px 5px #aaaaaa,1px 1px 5px #aaaaaa inset;
     padding-left: 10px;
     position: relative;
 }
@@ -117,14 +121,14 @@ input::-webkit-input-placeholder{
 }
 .apply_form .apply dd .yesorno_model h3{
     color: #FFF;
-    background: #f7bd99;
+    background: #ee775f;
     height: 30px;
     line-height: 30px;
     padding-left: 3px;
 }
 .apply_form .apply dd .yesorno_model div{
     line-height: 30px;
-    border:1px solid #f6b58d;
+    border:1px solid #ee775f;
     padding-left: 5px;
 }
 .apply_form .apply dd .yesorno_model div:last-child{
@@ -132,15 +136,26 @@ input::-webkit-input-placeholder{
 }
 
 .apply_form .apply dd.send_code{ 
-    padding-right: 100px;
+
+}
+.apply_form .apply dd.send_code div.first{
+    width: 50%;
+    float: left;
+    padding-right: 30px;
+}
+.apply_form .apply dd.send_code div.second{
+    width: 50%;
+    float: left;
+    position: relative;
+    padding-left: 90px;
 }
 .apply_form .apply dd.send_code .title{
     position: absolute;
-    right: 0;
+    left: 0;
     top: 4px;
     width: 80px;
     text-align: center;
-    background: #ef775f;
+    background: #356579;
     height: 30px;
     color: #FFF;
 }
@@ -159,8 +174,8 @@ input::-webkit-input-placeholder{
 }
 
 .apply_form .table_model {
-    border-top: 1px solid #f6b58d;
-    border-left: 1px solid #f6b58d;
+    border-top: 1px solid #cd6854;
+    border-left: 1px solid #cd6854;
     color: #6191a6;
 }
 .apply_form .table_model ul li{
@@ -169,10 +184,10 @@ input::-webkit-input-placeholder{
     height: 30px;
     line-height: 30px;
     text-align: center;
-    border-bottom: 1px solid #f6b58d;
-    border-right: 1px solid #f6b58d;
+    border-bottom: 1px solid #cd6854;
+    border-right: 1px solid #cd6854;
 }
 .apply_form .table_model ul.row_title{
-    background: #f7bd99;
+    background: #ee775f;
     color: #FFF;
 }

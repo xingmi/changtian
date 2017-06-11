@@ -91,7 +91,7 @@
       </div>
       <div>
           <ul class="new_list">
-            <li v-for="article in newsList"><a href="">{{article.title}}</a></li>
+            <li v-for="article in newsList"><a :href="'/newsDetail.html?id='+article.id">{{article.title}}</a></li>
             <li @click="nextPage()" class="last" v-if="isHasMore">点击查看更多</li>
             <li class="last" v-else="isHasMore">没有更多数据</li>
           </ul>

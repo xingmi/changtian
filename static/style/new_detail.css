@@ -1,0 +1,32 @@
+.new_detail h2{
+  font-size: 18px;
+  padding: 10px;
+  border-bottom: 2px solid #5685eb;
+}
+.new_detail .content h3{
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+padding: 10px 0 0 20px;
+
+}
+.new_detail .content h4{
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.new_detail .news_content{
+  font-size: 12px;
+  padding: 0 10px;
+  line-height: 18px;
+  padding-bottom: 10px;
+  text-indent: 24px;
+}
+.new_detail .news_content img{
+  width: 100%;
+  display: block;
+}

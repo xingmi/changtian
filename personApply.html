@@ -103,12 +103,14 @@
                 <div class="analog_input">{{params.expected | expectedValue}}</div>
             </dd>
             <dt>10. 联系方式<i>*</i></dt>
-            <dd class="clear_fix">
-                 <input type="number" placeholder="请输入手机号码" v-model="params.mobile" />
-            </dd>
-            <dd class="send_code">
-                <input type="number" placeholder="请输入验证码" v-model="params.code" />
+            <dd class="clear_fix send_code">
+                <div class="first">
+                     <input type="number" placeholder="请输入手机号码" v-model="params.mobile" />
+                </div>
+                <div class="second">
                 <button :class="sendStatus" @click="sendCode" v-cloak >{{codeMsg}}</button>
+                    <input type="number" placeholder="请输入验证码" v-model="params.code" />
+                </div>
             </dd>
         </dl>
     </section>

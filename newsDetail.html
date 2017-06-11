@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>企业贷款申请表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/new_detail.css">
+</head>
+<body>
+<div class="container new_detail" v-cloak>
+    <h2>资讯&视点</h2>
+    <div class="content">
+      <h3>{{newsDetail.title}}</h3>
+      <h4 v-cloak>时间：{{newsDetail.publishTime && new Date(newsDetail.publishTime).pattern('yyyy-MM-dd')}}</h4>
+      <div class="news_content" v-html="newsDetail.content">
+        
+      </div>
+    </div>
+</div>
+<script type="text/javascript"  src="/dist/newsDetail.js?v=77566465546"></script>
+</body>
+</html>
