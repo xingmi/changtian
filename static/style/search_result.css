@@ -4,8 +4,8 @@
 .search_bar{
     padding: 0 10px;
     background: #eaeaea;
-    height: 32px;
-    padding-top: 4px;
+    height: 40px;
+    padding-top: 6px;
 }
 .search_bar .bar{
     height: 24px;

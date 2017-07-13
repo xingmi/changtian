@@ -51,6 +51,8 @@ new Vue({
             var searchParams = JSON.parse(utility.getUrlParam('searchParams'));
             var temParams = _.extend(this.temParams,searchParams);
 
+            this.keyword = searchParams.keyword
+
             _.each(searchParams,function(value,key){
                 if(!!value) temParams[key] = value;
             })
