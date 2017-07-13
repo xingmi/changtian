@@ -4,6 +4,7 @@ body{
 .select_model{
     background: #3a76ff;
     padding: 10px 5%;
+    height: 50px;
 }
 .select_model .select{
     width: 80%;
