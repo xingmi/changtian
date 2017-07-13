@@ -63,7 +63,7 @@ module.exports = {
             _.extend(sessionList.current,sessionList.cities[index].cities[i]);
 
             sessionStorage['mapData'] = JSON.stringify(sessionList);
-            window.location.replace("/searchList.html?newDate=" + new Date().getTime());
+            window.location.replace("/index.html?newDate=" + new Date().getTime());
 
         }
     }
