@@ -17,9 +17,14 @@ Vue.http.get(env.api + 'wechat/sign',{
         signature: res.body.data.signature,// 必填，签名，见附录1
         jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
+
+
+    linkUrl = 'http://' + window.location.host + '/product.html?id=' + utility.getUrlParam('id') + '&shareId=' + (utility.getUrlParam('shareId') ? localStorage['share_openid'] : localStorage['openId'])
+
+
     var datas = {
         title: '长天', // 分享标题
-        link: 'http://' + window.location.host + '/product.html?id=' + utility.getUrlParam('id') + '&shareId=' + localStorage['openId'], // 分享链接
+        link: linkUrl, // 分享链接
         imgUrl: '', // 分享图标
         success: function () { 
            

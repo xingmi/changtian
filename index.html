@@ -14,92 +14,144 @@
 <body>
 
 <div class="container index" v-cloak>
-  <section class="slider_wrap touch_slider" style="-webkit-transform-style: preserve-3d;">
-      <ul class="slider_inner">
-          <li class="slider_item" v-for="swiper in swiperArray">
-              <a :href="swiper.url ? swiper.url : 'javascript:void(0)'">
-                  <img :src="swiper.image">
-                 <!--  <img src="http://i1.ucaiyuan.com/h5_activity/201701zhekouji/h5zhekouji.jpg?uwidth=750&uheight=428"> -->
-              </a>
-          </li>
-      </ul>
-      <div class="dots">
-          <span v-for="swiper in swiperArray"></span>
-      </div>
-  </section>
-
-  <section class="line"></section>
-
-  <section class="first_module clear_fix">
-      <div class="left">
-        <a :href="images1[0].url ? images1[0].url : 'javascript:void(0)'" v-if="images1[0]"><img :src="images1[0].image"></a>
-      </div>
-      <div class="right">
-        <div class="top">
-         <a :href="images2[0].url ? images2[0].url : 'javascript:void(0)'" v-if="images2[0]"><img :src="images2[0].image"></a>
+  <section class="select_model clear_fix">
+    <div class="select show_search">
+        <i class="search_icon"></i>
+        <div class="input_model">
+            <em>找贷款</em>
         </div>
-        <div class="bottom">
-       <a class="bottom_left" :href="images3[0].url ? images3[0].url : 'javascript:void(0)'" v-if="images3[0]"><img :src="images3[0].image"></a>
-        <a class="bottom_right" :href="images4[0].url ? images4[0].url : 'javascript:void(0)'" v-if="images4[0]"><img :src="images4[0].image"></a>
-        </div>
-      </div>
-  </section>
+    </div>
+    <div class="address" @click="showCity()">
+        <i></i>
+        {{usercity}}
+    </div>
 
-
-  <section class="second_module">
-    <div class="clear_fix">
-      <a class="bottom_left" :href="images5[0].url ? images5[0].url : 'javascript:void(0)'" v-if="images5[0]"><img :src="images5[0].image"></a>
-      <a class="bottom_right" :href="images6[0].url ? images6[0].url : 'javascript:void(0)'" v-if="images6[0]"><img :src="images6[0].image"></a>
+    <div class="city_list city_actionsheet">
+        <div class="" @click="hideCity()"></div>
+        <ul>
+            <li style="text-align:center">请选择城市</li>
+            <li v-for="(provincial,index) in cities">
+                <h4>{{provincial.name}}</h4>
+                <span v-for="(city,i) in provincial.cities" @click="selectCity(index,i)">{{city.name}}</span>
+            </li>
+        </ul>
     </div>
   </section>
 
-  <section class="third_module" v-if="scrollToolsImage.icons && scrollToolsImage.icons.length">
-    <div class="clear_fix">
-      <a class="bottom_left" :href="image.url" v-for="image in scrollToolsImage.icons">
-        <img :src="image.image1">
-      </a>
-    </div> 
-  </section>
-
-  <section class="line"></section>
-  
-  <section class="account_manager" v-if="agents.length">
-    <ul class="clear_fix">
-      <li v-for="agent in agents">
-        <a :href="'tel:'+agent.mobile">
-        <div class="manager clear_fix">
-          <img :src="agent.image">
-          <div>
-            <h4><span>{{agent.name}}</span> {{agent.mobile}}</h4>
-            <span>贷款额度：<i>{{agent.amount}}</i>万</span>
-            <span class="manager_type">{{agent.excel}}</span>
-          </div>
-        </div>
+  <section class="top_list">
+    <ul class="clear_fix" v-if="homeDetail.icons && homeDetail.icons.dyjdhpz">
+      <li v-for="nav in homeDetail.icons.dyjdhpz.icons">
+        <a href="javascript:void(0)" :data-id="nav.id" data-type="2" class="jump_to_new_link">
+          <img :src="nav.image1">
+          <span>{{nav.name}}</span>
         </a>
       </li>
     </ul>
-
   </section>
+
+  <section class="center_list">
+    <ul class="clear_fix" v-if="homeDetail.icons && homeDetail.icons.dejdhpz">
+      <li v-for="nav in homeDetail.icons.dejdhpz.icons">
+        <a href="javascript:void(0)" :data-id="nav.id" data-type="2" class="jump_to_new_link">
+          <img :src="nav.image1">
+          <span>{{nav.name}}</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="search_list">
+    <h3><span>推荐贷款</span></h3>
+    <ul class="product_list">
+      <li class="clear_fix" v-for="product in productlist">
+          <a :href="'/product.html?id='+product.id">
+              <div class="product_img">
+                  <img :src="product.logo">
+              </div>
+              <div class="product_module">
+                  <h2>
+                      <span class="title_model">
+                          {{product.name}}
+                      </span>
+                      <span class="link">
+                          <i>{{product.type | loanValue}}</i>
+                          <span>展开全文</span>
+                      </span>
+                  </h2>
+                  <div>额度：{{product.minAmount}}万-{{product.maxAmount}}万</div>
+                  <div>月息：<span style="color:#536aba">{{product.interest}}%</span></div>
+                  <div>还款方式：{{ product.refundType | refundsValue}}</div>
+                  <div>放款速度：{{product.lendingDate}}天</div>
+              </div>
+          </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="search_list credit_list">
+    <h3><span>信用卡</span></h3>
+    <ul class="product_list">
+      <li class="clear_fix" v-for="product in credits">
+          <a href="javascript:void(0)" :data-id="product.id" data-type="1" class="jump_to_new_link">
+              <div class="product_img">
+                  <img :src="product.image">
+              </div>
+              <div class="product_module">
+                  <h2>
+                      <span class="title_model">
+                          {{product.name}}
+                      </span>
+                  </h2>
+                  <div>{{product.rights}}</div>
+              </div>
+          </a>
+      </li>
+    </ul>
+  </section>
+
+
   <section>
-    <img :src="centerImage[0].image" v-if="centerImage[0]" style="width: 100%">
-  </section>
-  <section class="news">
-      <h3><span>新闻资讯</span></h3>
-      <div class="nav clear_fix">
-        <span @click="getNewDate('1')" :class="{current : selectThis}">金融视点</span>
-        <span @click="getNewDate('2')" :class="{current : !selectThis}">长天资讯</span>
-      </div>
-      <div>
-          <ul class="new_list">
-            <li v-for="article in newsList"><a :href="'/newsDetail.html?id='+article.id">{{article.title}}</a></li>
-            <li @click="nextPage()" class="last" v-if="isHasMore">点击查看更多</li>
-            <li class="last" v-else="isHasMore">没有更多数据</li>
-          </ul>
-      </div>
+      <div class="fast_search global_action_sheet search_actionsheet">
+            <div class="search_keyword">
+                <div class="clear_fix">
+                    <span class="keyword_title hide_search_content"> < </span>   
+                    <div class="keyword_input">
+                        <input placeholder="请输入关键字" v-model="keyword"/>  
+                        <span class="search_btn" @click="keywordSearch()">搜索</span>    
+                    </div>
+                </div>
+            </div>
+            <div class="search_params">
+                <dl>
+                    <dt>贷款人群</dt>
+                    <dd class="clear_fix">
+                        <label v-for="data in temparams.peoples" @change="selectPeoples(data.value)" >
+                            <input type="checkbox" :value="data.value" v-model="paramsPeoples">
+                            <span class="button">{{data.text}}</span>
+                        </label>
+                    </dd>
+                    <dt>资产分类</dt>
+                    <dd class="clear_fix">
+                        <label v-for="data in temparams.assets" @change="selectAssets(data.value)">
+                            <input type="checkbox" :value="data.value" name="refund" v-model="paramsAssets">
+                            <span class="button">{{data.text}}</span>
+                        </label>
+                    </dd>
+                    <dt>信用贷款</dt>
+                    <dd class="clear_fix">
+                        <label v-for="data in temparams.credits" @change="selectCredits(data.value)">
+                            <input type="checkbox" :value="data.value" v-model="paramsCredits">
+                            <span class="button">{{data.text}}</span>
+                        </label>
+                    </dd>
+                </dl>
+            </div>
+            <div class="foot_btn">
+                <span class="reset" @click="resetParams()">重置</span>
+                <span class="search" @click="paramsSearch()">确认</span>
+            </div>
+        </div>
 
-  </section>
-  <section class="footer">
-    咨询热线：4008-525-987&nbsp;&nbsp;&nbsp;&nbsp;服务时间：09：00 ~ 20：00
   </section>
 </div>
 

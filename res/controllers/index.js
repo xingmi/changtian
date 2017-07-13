@@ -4,177 +4,155 @@
 
 var Vue    = require('vue');
 var Config = require('../config/globalMain');
+var Seachbar = require('../components/Searchbar.vue');
+var $ = require('../lib/zepto');
 
-require("expose-loader?$!../lib/zepto");
-require('../lib/swipeSlide');
+// require("expose-loader?$!../lib/zepto");
+
 
 new Vue({
     el : '.index',
+    components : {
+        
+    },
     data : {
-        page : 1,
-        size : 8,
-        type : 1,
-        swiperArray : [],
-        centerImage : '',
-        newsList: [],
-        isHasMore : true,
-        selectThis : true,
-        scrollToolsImage : [],
-        agents : [],
-        images1 : [],
-        images2 : [],
-        images3 : [],
-        images4 : [],
-        images5 : [],
-        images6 : []
+        homeDetail : {},
+        amount : '',
+        productlist : [],
+        credits: [],
+        usercity : "",
+        usercityId: 0,
+        cities : "",
+        keyword : '',
+        searchParams : {},
+        temparams : {
+            peoples : JSON.parse(sessionStorage['mapData']).peoples,
+            assets : JSON.parse(sessionStorage['mapData']).assets,
+            credits : JSON.parse(sessionStorage['mapData']).credits,
+        },
+        paramsCredits : [],
+        paramsPeoples : [],
+        paramsAssets  : []
     },
     created : function(){
-        
-        this.getSwiper();
-        this.getData()
+        this.usercity = JSON.parse(sessionStorage['mapData']).current.name
+        this.usercityId = JSON.parse(sessionStorage['mapData']).current.id
+        this.cities = JSON.parse(sessionStorage['mapData']).cities
 
-        // 中间banner
-        this.$http.get(Config.api + "banners?type=6")
-        .then(function(res){
-            if(res.body.code == 0){
-              this.centerImage = res.body.data
-            }
-        },function(){
+        this.getHomeData();
+        this.getProductData();
+        this.getCreditData();
+    },
+    mounted :function(){
+        var that = this;
+        $(".show_search").on('click',function(){
+            window.scrollTo(0,0)
+            $("html,body").toggleClass('hidden')
+            $(".fast_search").toggleClass('search_actionsheet_toggle')
+        })
 
-        }).bind(this);
-
-
-        // 手机站第一模块左边大图
-        this.$http.get(Config.api + "banners?type=7")
-        .then(function(res){
-            if(res.body.code == 0){
-              this.images1 = res.body.data
-            }
-        },function(){
-
-        }).bind(this);
+        $(".hide_search_content").on('click',function(){
+            $("html,body").removeClass('hidden')
+            $(".fast_search").removeClass('search_actionsheet_toggle')
+        })
 
 
-        // 手机站第一模块右边上图
-        this.$http.get(Config.api + "banners?type=8")
-        .then(function(res){
-            if(res.body.code == 0){
-              this.images2 = res.body.data
-            }
-        },function(){
-
-        }).bind(this);
-
-        // 手机站第一模块右边下左图
-        this.$http.get(Config.api + "banners?type=9")
-        .then(function(res){
-            if(res.body.code == 0){
-              this.images3 = res.body.data
-            }
-        },function(){
-
-        }).bind(this);
-
-
-        // 手机站第一模块右边下右图
-        this.$http.get(Config.api + "banners?type=10")
-        .then(function(res){
-            if(res.body.code == 0){
-              this.images4 = res.body.data
-            }
-        },function(){
-
-        }).bind(this);
-
-        // 手机站第二模块左图
-        this.$http.get(Config.api + "banners?type=11")
-        .then(function(res){
-            if(res.body.code == 0){
-              this.images5 = res.body.data
-            }
-        },function(){
-
-        }).bind(this);
-
-        // 手机站第二模块右图
-        this.$http.get(Config.api + "banners?type=12")
-        .then(function(res){
-            if(res.body.code == 0){
-              this.images6 = res.body.data
-            }
-        },function(){
-
-        }).bind(this);
-
-
-
-        // 客户经理 和 滚动栏
-        this.$http.get(Config.api + "home")
-        .then(function(res){
-          if(res.body.code == 0){
-            this.agents = res.body.data.agents
-            this.scrollToolsImage = res.body.data.icons.ydkjlj
-          }
-        },function(){
-
-        }).bind(this);
+        $("body").on('click',".jump_to_new_link",function(){
+            var id = $(this).attr('data-id');
+            var type = $(this).attr('data-type');
+            window.location.href = "https://api.toudaiworld.com/jump?type="+type+"&dataId=" + id + "&city="+ that.usercityId
+        })
     },
     methods : {
-        getSwiper : function(){
+
+        getProductData : function(){
             var that = this;
-            that.$http.get(Config.api + 'banners?type=13')
-                .then(function(res){
-                    that.swiperArray = res.body.data;
-
-                    setTimeout(function(){
-                        $('.touch_slider').swipeSlide({
-                            lazyLoad: true,
-                            continuousScroll: true,
-                            speed : 8000,
-                            transitionType: 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
-                            firstCallback: function (i, sum, me) {
-                                me.find('.dots').children().first().addClass('active');
-                            },
-                            callback: function (i, sum, me) {
-                                me.find('.dots').children().eq(i).addClass('active').siblings().removeClass('active');
-                            }
-                        });
-                    },0)
-                })
-        },
-        getData : function(){
-            this.$http.get(Config.api + 'articles',{
-              params : {
-                type : this.type,
-                size : this.size,
-                page : this.page
-              }
-            })
-            .then(function(res){
-                if(res.body.code == 0){   
-                  this.news =res.body.data;
-                  this.newsList = _.concat(this.newsList,res.body.data.articles)
-                  if(this.page == this.news.totalPage || this.news.totalPage == 0){
-                    this.isHasMore = false;
-                  }
+            that.$http.get(Config.api+ 'products.json',{
+                params : {
+                    page : 1,
+                    size : 4
                 }
-            },function(){
+            }).then(function(res){
 
-            }).bind(this);
+                that.productlistDetail = res.body.data;
+                that.productlist = _.concat(that.productlist,res.body.data.data);
+                
+            },function(res){
+
+            });
         },
-        nextPage : function(){
-            if(this.page < this.news.totalPage){
-              this.page++;
-              this.getData()
+
+        getCreditData : function(){
+            var that = this;
+            that.$http.get(Config.api+ 'credits').then(function(res){
+
+                that.credits = res.body.data;
+                
+            },function(res){
+
+            });
+        },
+
+        getHomeData : function(){
+            var that = this;
+            that.$http.get(Config.api+ 'home').then(function(res){
+
+                that.homeDetail = res.body.data;
+                
+            },function(res){
+
+            });
+        },
+        fastSearch : function(){
+            this.searchParams.amount = this.amount;
+            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
+        },
+        showCity : function(){
+            $('.city_list').addClass('city_actionsheet_toggle')
+        },
+        hideCity : function(){
+            $('.city_list').removeClass('city_actionsheet_toggle')
+        },
+        selectCity : function(index,i){
+            var sessionList = JSON.parse(sessionStorage['mapData'])
+
+            _.extend(sessionList.current,sessionList.cities[index].cities[i]);
+
+            sessionStorage['mapData'] = JSON.stringify(sessionList);
+            window.location.replace("/searchList.html?newDate=" + new Date().getTime());
+        },
+        selectPeoples : function(value){
+            if(this.paramsPeoples.length > 1){
+                this.paramsPeoples.shift();
             }
+            this.searchParams.peoples = this.paramsPeoples[0];
         },
-        getNewDate : function(type){
-            this.selectThis = !this.selectThis;
-            this.isHasMore = true;
-            this.page = 1;
-            this.newsList = []
-            this.type = type;
-            this.getData()
+
+        selectAssets : function(value){
+            if(this.paramsAssets.length > 1){
+                this.paramsAssets.shift();
+            }
+            this.searchParams.assets = this.paramsAssets[0];
+        },
+        selectCredits : function(value){
+            if(this.paramsCredits.length > 1){
+                this.paramsCredits.shift();
+            }
+            this.searchParams.credits = this.paramsCredits[0];
+        },
+        paramsSearch : function(){
+            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
+        },
+        resetParams : function(){
+            this.searchParams = {};
+            this.paramsPeoples = [];
+            this.paramsAssets = [];
+            this.paramsCredits = [];
+        },
+        keywordSearch : function(){
+            this.searchParams.keyword = this.keyword;
+            window.location.href="/searchResult.html?searchParams=" + JSON.stringify(this.searchParams)
         }
+        
     }
 })
