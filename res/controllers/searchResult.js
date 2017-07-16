@@ -76,9 +76,10 @@ new Vue({
         var wh = $(window).height();
         $(".search_module").height(wh-30);
 
-        $("body").on('click',".search_rule dt",function(){
-            $(this).parent().toggleClass('current')
-        });
+        // $("body").on('click',".search_rule dt",function(){
+        //     alert(1111)
+        //     $(this).parent().toggleClass('current')
+        // });
 
     },
     watch : {
@@ -131,7 +132,6 @@ new Vue({
             $("body").removeClass('overflow_hide')
         },
         keywordSearch : function(){
-            alert(1111)
            this.onEnter();
         },
         paramsSearch : function(){
@@ -173,6 +173,9 @@ new Vue({
             this.temParams.keyword = this.keyword;
             this.productlist = []
             this.paramsSearch();
+        },
+        toggle : function(e){
+            $(e.target).parent().toggleClass('current')
         }
     },
     computed : {
