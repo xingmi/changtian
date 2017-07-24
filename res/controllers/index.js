@@ -40,7 +40,7 @@ new Vue({
         this.cities = JSON.parse(sessionStorage['mapData']).cities
 
         this.getHomeData();
-        this.getProductData();
+        // this.getProductData();
         this.getCreditData();
     },
     mounted :function(){
@@ -65,22 +65,22 @@ new Vue({
     },
     methods : {
 
-        getProductData : function(){
-            var that = this;
-            that.$http.get(Config.api+ 'products.json',{
-                params : {
-                    page : 1,
-                    size : 4
-                }
-            }).then(function(res){
+        // getProductData : function(){
+        //     var that = this;
+        //     that.$http.get(Config.api+ 'products.json',{
+        //         params : {
+        //             page : 1,
+        //             size : 4
+        //         }
+        //     }).then(function(res){
 
-                that.productlistDetail = res.body.data;
-                that.productlist = _.concat(that.productlist,res.body.data.data);
+        //         that.productlistDetail = res.body.data;
+        //         that.productlist = _.concat(that.productlist,res.body.data.data);
                 
-            },function(res){
+        //     },function(res){
 
-            });
-        },
+        //     });
+        // },
 
         getCreditData : function(){
             var that = this;
@@ -98,6 +98,7 @@ new Vue({
             that.$http.get(Config.api+ 'home').then(function(res){
 
                 that.homeDetail = res.body.data;
+                that.productlist  = that.homeDetail.products
                 
             },function(res){
 

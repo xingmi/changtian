@@ -296,26 +296,38 @@
   opacity: 0
 }
 
-.collect_icon{
+.collect_icon,
+.register_icon{
     position: fixed;
-    bottom: 50px;
+    bottom: 60px;
     right: 10px;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
     border:  1px solid #7b7b7b;
     background: #FFF;
     z-index: 2px;
     text-align: center;
 }
-.collect_icon i{
+.collect_icon i,
+.register_icon i{
     background: url(/static/images/collect.jpg) no-repeat;
     background-size: 100%;
     width: 20px;
     height: 19px;
     display: block;
-    margin: 2px auto;
+    margin: 4px auto;
 }
+.register_icon i{
+    background: url(/static/images/register_icon.png) no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+}
+.register_icon {
+    bottom: 120px;
+}
+
 .slider_wrap {
     overflow: hidden;
     position: relative;

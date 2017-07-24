@@ -1,18 +1,8 @@
 <template>
     <section class="foot_bar">
         <ul class="clear_fix">
-            <li><a href="/register.html"><i class="first"></i>极速办理</a></li>
-            <li @click="show = !show">
-                <i class="second"></i>
-                高效申请
-                <transition name="fade">
-                <ul v-if="show">
-                    <li><a href="/personApply.html">个人贷款申请表</a></li>
-                    <li><a href="/companyApply.html">企业贷款申请表</a></li>
-                </ul>
-                </transition>
-            </li>
-<!--             <li><a href="/fastSearch.html"><i class="third"></i>快速匹配</a></li> -->
+            <li><a href="/personApply.html"><i class="first"></i>个人贷款申请表</a></li>
+            <li><a href="/personApply.html"><i class="first"></i>企业贷款申请表</a></li>
         </ul>
 
     </section>

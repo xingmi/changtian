@@ -7,13 +7,16 @@ var Seachbar = require('../components/Searchbar.vue');
 var Footbar  = require('../components/Footbar.vue');
 var Config = require('../config/globalMain');
 var utility = require('../config/utility');
+var Footbar  = require('../components/Footbar.vue');
 
 require("expose-loader?$!../lib/zepto");
 
 new Vue({
     el : '.search_result',
-        watch : {
-
+    components: {
+        'foot-bar'  : Footbar
+    },
+    watch : {
     },
     data : {
             btn : {

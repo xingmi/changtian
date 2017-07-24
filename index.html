@@ -51,7 +51,7 @@
 
   <section class="center_list">
     <ul class="clear_fix" v-if="homeDetail.icons && homeDetail.icons.dejdhpz">
-      <li v-for="nav in homeDetail.icons.dejdhpz.icons">
+      <li v-for="(nav,index) in homeDetail.icons.dejdhpz.icons" v-if="index < 12">
         <a href="javascript:void(0)" :data-id="nav.id" data-type="2" class="jump_to_new_link">
           <img :src="nav.image1">
           <span>{{nav.name}}</span>
@@ -63,7 +63,7 @@
   <section class="search_list">
     <h3><span>推荐贷款</span></h3>
     <ul class="product_list">
-      <li class="clear_fix" v-for="product in productlist">
+      <li class="clear_fix" v-for="(product,index) in productlist" v-if="index < 6">
           <a :href="'/product.html?id='+product.id">
               <div class="product_img">
                   <img :src="product.logo">
@@ -91,7 +91,7 @@
   <section class="search_list credit_list">
     <h3><span>信用卡</span></h3>
     <ul class="product_list">
-      <li class="clear_fix" v-for="product in credits">
+      <li class="clear_fix" v-for="(product,index) in credits" v-if="index < 6">
           <a href="javascript:void(0)" :data-id="product.id" data-type="1" class="jump_to_new_link" class="clear_fix">
               <div class="product_img">
                   <img :src="product.image">
