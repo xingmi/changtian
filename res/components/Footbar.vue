@@ -2,7 +2,7 @@
     <section class="foot_bar">
         <ul class="clear_fix">
             <li><a href="/personApply.html"><i class="first"></i>个人贷款申请表</a></li>
-            <li><a href="/personApply.html"><i class="first"></i>企业贷款申请表</a></li>
+            <li><a href="/companyApply.html"><i class="first"></i>企业贷款申请表</a></li>
         </ul>
 
     </section>
