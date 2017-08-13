@@ -94,3 +94,14 @@
     width: 100%;
     text-align: center;
 }
+.fllow_us{
+    text-align: center;
+}
+.fllow_us p{
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #6bb4c5;
+}
+.fllow_us img{
+    width: 150px;
+}
