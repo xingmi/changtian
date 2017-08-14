@@ -50,7 +50,7 @@ if(utility.getUrlParam('shareId')){
 // 判断是否在微信中
 if(!localStorage['openId'] && navigator.userAgent.match(/MicroMessenger/i)){
     window.location.href= "/wechat.html?page_ref="+ window.location.href;
-}else{
+}else if(!localStorage['openId']){
     localStorage['openId'] = Math.random().toString(36).substr(2);
 }
 
