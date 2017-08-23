@@ -1,0 +1,85 @@
+.my{
+  background: #eeeeee;
+  font-size: 16px;
+}
+.user_info{
+  height: 150px;
+  background: url(/static/images/my.jpg) no-repeat;
+}
+.user_info img{
+  width: 80px;
+  height: 80px;
+  margin-top: 35px;
+  margin-left: 40px;
+  float: left;
+  border-radius: 50%;
+}
+.user_info span{
+  float: left;
+  margin-top: 65px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+.user_data{
+  margin-top: 20px;
+}
+.user_data li{
+  height: 50px;
+  line-height: 50px;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  margin-top: 10px;
+  background-color: #FFF;
+  padding: 0 25px 0 10px;
+  position: relative;
+  background-repeat: no-repeat;
+}
+.user_data li.first img{
+  margin-top: 16px;
+}
+.user_data li img{
+  width: 20px;
+  margin-top: 12px;
+  display: inline-block;
+  margin-right: 5px;
+}
+.user_data li a{
+  display: block;
+  height: 100%;
+}
+.user_data li span{
+  float: right;
+}
+.user_data li span em{
+  color: red;
+  margin-right: 2px;
+  display: inline-block;
+  width: 20px;
+}
+.user_data li span em.amount{
+  width: auto;
+}
+.user_data li span i.arrow{
+  position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
+}
+.user_data li i.arrow::after{
+  content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    -webkit-transform: rotate(45deg) translateY(-50%);
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    box-sizing: border-box;
+}
