@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注册代理商</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/register.css">
+
+</head>
+<body>
+
+<div class="container register">
+    <ul>
+        <li>
+            <label>
+                <span>手机号</span>
+                <input v-model.number="user.phone"/>
+            </label>
+        </li>
+        <li>
+            <label>
+                <span>图片验证码</span>
+                <input v-model="imageCodeValue"/>
+                <img :src="imageCode" @click="resetImageCode">
+            </label>
+        </li>
+        <li>
+            <label>
+                <span>验证码</span>
+                <input v-model.number="user.code"/>
+                <button class="code" @click="sendCode" v-cloak>{{codeMsg}}</button>
+            </label>
+        </li>
+    </ul>
+
+    <span class="register_btn" v-on:click="postData">注册代理商</span>
+</div>
+
+
+<script type="text/javascript"  src="/dist/bind.js?v=1111111111111"></script>
+</body>
+</html>

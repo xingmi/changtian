@@ -105,3 +105,21 @@
 .fllow_us img{
     width: 150px;
 }
+input.user_amount::-webkit-input-placeholder{
+  color: #555;
+}
+.withdraw li{
+    padding-bottom: 5px;
+}
+.withdraw li span{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.withdraw li input{
+    font-size: 16px;
+    padding-left: 10px;
+    width: 100%;
+    display: block;
+    font-weight: bold;
+    color: #f60;
+}

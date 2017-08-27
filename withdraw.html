@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>立即提现</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/register.css">
+
+</head>
+<body>
+
+<div class="container register withdraw">
+    <ul>
+        <li>
+            <label>
+                <span>户名</span>
+                <input v-model="user.name"/>
+            </label>
+        </li>
+        <li>
+            <label>
+                <span>借记卡号</span>
+                <input v-model="user.cardno"/>
+            </label>
+        </li>
+        <li>
+            <label>
+                <span>开户行</span>
+                <input v-model="user.bank"/>
+            </label>
+        </li>
+        <li>
+            <label>
+                <span>金额</span>
+                <input v-model="user.amount" :placeholder="'可用余额 ' + placeholderUserAmount" class="user_amount" />
+            </label>
+        </li>
+    </ul>
+
+    <span class="register_btn" v-on:click="postData">立即提现</span>
+</div>
+
+
+<script type="text/javascript"  src="/dist/withdraw.js?v=1111111111111"></script>
+</body>
+</html>

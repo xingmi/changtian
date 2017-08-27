@@ -1,3 +1,6 @@
+.commission{
+  padding-bottom: 50px;
+}
 .commission_banner{
   background: #fd9826;
 }
@@ -22,6 +25,7 @@
   display: block;
   color: #FFF;
   font-size: 18px;
+  font-weight: bold;
 }
 .commission_title{
   font-size: 16px;
@@ -46,7 +50,7 @@
 .commission_list ul li .change{
   margin-right: 20px;
   display: inline-block;
-  width: 100px;
+  width: 80px;
 }
 .commission_list ul li .change.plus{
   color: blue;
@@ -56,4 +60,18 @@
 }
 .commission_list ul li .time{
   
+}
+
+.register_btn{
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    height: 50px;
+    background: #f2955c;
+    color: #FFF;
+    font-size: .16rem;
+    text-align: center;
+    line-height: 50px;
 }

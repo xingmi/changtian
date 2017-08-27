@@ -21,11 +21,15 @@ new Vue({
               this.commission = res.body.data
             }else{
               Toast.show('请先注册成为代理商',2000,function(){
+                window.location.href = '/bind.html'
               })
             }
         },function(){
 
         }).bind(this);
+      },
+      redirectWithdraw :function(){
+        window.location.href = '/withdraw.html?money=' +  this.commission.balance
       }
     }
 });
