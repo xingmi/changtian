@@ -31,7 +31,7 @@ new Vue({
                 return;
             }
             var self = this;
-            self.$http.post(Config.api+ 'quick/personal',{
+            self.$http.post(Config.api+ 'distributor/register',{
                     'openid' : Config.openId,
                     'mobile' : self.user.phone,
                     'code'   : self.user.code
