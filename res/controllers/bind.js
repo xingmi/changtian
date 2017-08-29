@@ -37,7 +37,9 @@ new Vue({
                     'code'   : self.user.code
                 }).then(function(res){
                     if(res.body.code == 0){
-                        Toast.show('申请成功')
+                        Toast.show('申请成功',1000,function(){
+                            window.location.href = '/my.html'
+                        })
                     }else{
                         Toast.show(res.body.message)  
                     }
