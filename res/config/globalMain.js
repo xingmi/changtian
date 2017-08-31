@@ -55,7 +55,7 @@ if(!localStorage['openId'] && navigator.userAgent.match(/MicroMessenger/i)){
 }
 
 
-// Vue.http.options.emulateHTTP = true;
+Vue.http.options.emulateHTTP = true;
 Vue.http.options.emulateJSON = true;
 
 
