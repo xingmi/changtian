@@ -5,7 +5,7 @@ var Ajax = require('../config/ajax');
 
 
 if(!utility.getUrlParam('code')){
-    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfe59cbf2a7686637&redirect_uri="+ encodeURIComponent(window.location.href)+"&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
+    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbb555eb5210015b0&redirect_uri="+ encodeURIComponent(window.location.href)+"&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
 }else{
     Ajax.get(env.api+'wechat/userinfo?code='+ utility.getUrlParam('code') + (localStorage['share_openid'] ? ('&sid='+localStorage['share_openid']) : ''),function(datas){
         var datas = JSON.parse(datas);

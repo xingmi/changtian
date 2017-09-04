@@ -83,3 +83,8 @@
     top: 50%;
     box-sizing: border-box;
 }
+.user_data .qrcode img{
+  display: block;
+  width: 50%;
+  margin: 20px auto;
+}
