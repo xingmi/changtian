@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="/static/style/main.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/register.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/bind.css">
 
 </head>
 <body>
@@ -16,25 +16,27 @@
     <ul>
         <li>
             <label>
-                <span>手机号</span>
-                <input v-model.number="user.phone"/>
+                <input v-model.number="user.phone" placeholder="手机号" />
             </label>
         </li>
         <li>
             <label>
-                <span>图片验证码</span>
-                <input v-model="imageCodeValue"/>
+                <input v-model="imageCodeValue" placeholder="图片验证码" />
                 <img :src="imageCode" @click="resetImageCode">
             </label>
         </li>
         <li>
             <label>
-                <span>验证码</span>
-                <input v-model.number="user.code"/>
+                <input v-model.number="user.code" placeholder="验证码" />
                 <button class="code" @click="sendCode" v-cloak>{{codeMsg}}</button>
             </label>
         </li>
     </ul>
+
+    <div class="protocol">
+            我已同意<span>《长天金融用户协议》</span><br/>
+            和<span>《长天金融佣金协议》</span>
+    </div>
 
     <span class="register_btn" v-on:click="postData">注册代理商</span>
 </div>

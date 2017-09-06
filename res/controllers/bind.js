@@ -5,6 +5,7 @@
 var Vue      = require('vue');
 var Config = require('../config/globalMain');
 var Toast = require('../widget/toast');
+var $ = require('../lib/zepto');
 
 new Vue({
     el : '.register',
@@ -22,12 +23,32 @@ new Vue({
         }
     },
     created : function(){
-        this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid=" + Config.openId
+        // this.checkUserIsRegister();
+        this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid=" + Config.openId;
+        this.bindClickEvent();
     },
     methods : {
+        checkUserIsRegister : function(){
+            this.$http.get(Config.api + 'distributor/info?openid=' + localStorage['openId'])
+            .then(function(res){
+                if(res.body.code == 0){   
+                  window.location.href = '/my.html'
+                }else{
+                  // Toast.show('请先注册成为代理商',2000,function(){
+                  //   window.location.href = '/bind.html'
+                  // })
+                }
+            },function(){
+
+            }).bind(this);
+        },
         postData : function(){
             if(!this.user.code){
                 Toast.show('请填写手机验证码',1000);
+                return;
+            }
+            if( !$(".protocol").hasClass('current')){
+                Toast.show('请先同意用户及佣金协议',1000);
                 return;
             }
             var self = this;
@@ -50,6 +71,11 @@ new Vue({
         resetImageCode : function(){
             this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid="+Config.openId+"&data=" + new Date().getTime()
         },
+        bindClickEvent : function(e){
+            $("body").on('click','.protocol',function(){
+                $(this).toggleClass('current')
+            })
+        },
         sendCode : function(){
             if(!this.user.phone){
                 Toast.show('请填写手机号码',1000);
@@ -68,7 +94,7 @@ new Vue({
                     self.isSend = true; 
                     return;
                 } else {
-                    self.codeMsg = "重新发送(" + self.countdown + "s)"; 
+                    self.codeMsg = "重发(" + self.countdown + "s)"; 
                     self.countdown--;
                 } 
                 setTimeout(function() { settime() },1000) //每1000毫秒执行一次

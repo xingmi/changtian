@@ -1,0 +1,91 @@
+body{
+  background-color: #ececec;
+}
+.register{
+  padding: 0 15px;
+}
+
+.register ul li{
+  height: 40px;
+  line-height: 40px;
+  border:1px solid #d6d6d6;
+  border-radius: 4px;
+  background-color: #FFF;
+  margin-top: 20px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 40px;
+}
+.register ul li label{
+  height: 36px;
+  line-height: 36px;
+  display: block;
+}
+.register ul li input{
+  height: 38px;
+  line-height: 38px;
+}
+.register ul li:nth-child(1){
+  background-image: url('/static/images/bind_icon1.jpg');
+}
+.register ul li:nth-child(2){
+  background-image: url('/static/images/bind_icon2.jpg');
+}
+.register ul li:nth-child(3){
+  background-image: url('/static/images/bind_icon3.jpg');
+}
+.register ul li img,
+.register ul li button{
+  float: right;
+  width: 90px;
+  height: 38px;
+    font-size: 14px;
+}
+.register ul li button{
+  margin-top: 1px;
+  background-color: #FFF;
+  height: 34px;
+  border: 1px solid #ececec;
+  box-shadow: 1px 1px 3px #000;
+}
+input::-webkit-input-placeholder{
+  color: #666;
+    font-size: 14px;
+}
+.register_btn{
+  display: block;
+  background:#fa6a2d;
+  height: 46px;
+  text-align: center;
+  line-height: 46px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #FFF;
+  margin-top: 30px;
+}
+.protocol{
+  margin: 20px auto;
+  width: 80%;
+  padding-left: 30px;
+  font-size: 14px;
+  line-height: 24px;
+}
+.protocol span{
+  color: #fe704c;
+  font-size: 14px;
+}
+.protocol.current{
+ background: url('/static/images/bind_icon4.jpg') no-repeat 0px top;
+}
+.protocol input{
+  position: absolute;
+  display: none;
+}
+.protocol input[type=checkbox] + i{
+  background: url(../images/apply_checkbox.png) no-repeat;
+  background-size: 34px 17px;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: -4px;
+}
