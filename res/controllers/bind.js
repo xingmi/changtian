@@ -23,7 +23,7 @@ new Vue({
         }
     },
     created : function(){
-        // this.checkUserIsRegister();
+        this.checkUserIsRegister();
         this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid=" + Config.openId;
         this.bindClickEvent();
     },
@@ -47,7 +47,7 @@ new Vue({
                 Toast.show('请填写手机验证码',1000);
                 return;
             }
-            if( !$(".protocol").hasClass('current')){
+            if( !$(".protocol_icon i").hasClass('current')){
                 Toast.show('请先同意用户及佣金协议',1000);
                 return;
             }
@@ -72,8 +72,18 @@ new Vue({
             this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid="+Config.openId+"&data=" + new Date().getTime()
         },
         bindClickEvent : function(e){
-            $("body").on('click','.protocol',function(){
-                $(this).toggleClass('current')
+            $("body")
+            .on('click','.protocol_icon',function(){
+                $(this).find('i').toggleClass('current')
+            })
+            .on('click','.mask',function(){
+                $(".mask").hide();
+            })
+            .on('click','.mask1_toggle',function(){
+                $(".mask1").toggle();
+            })
+            .on('click','.mask2_toggle',function(){
+                $(".mask2").toggle();
             })
         },
         sendCode : function(){

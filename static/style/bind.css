@@ -65,27 +65,97 @@ input::-webkit-input-placeholder{
 }
 .protocol{
   margin: 20px auto;
-  width: 80%;
-  padding-left: 30px;
+  width: 90%;
+  padding-left: 40px;
   font-size: 14px;
   line-height: 24px;
+  position: relative;
 }
 .protocol span{
   color: #fe704c;
   font-size: 14px;
 }
-.protocol.current{
- background: url('/static/images/bind_icon4.jpg') no-repeat 0px top;
+.protocol_icon{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 50px;
 }
+.protocol_icon i{
+  width: 30px;
+  height: 30px;
+  display: block;
+  background: url('/static/images/bind_icon4.png') no-repeat 0px top;
+}
+.protocol_icon i.current{
+  background: url('/static/images/bind_icon5.png') no-repeat 0px top;
+}
+// .protocol.current{
+//  background: url('/static/images/bind_icon4.jpg') no-repeat 0px top;
+// }
 .protocol input{
   position: absolute;
   display: none;
 }
-.protocol input[type=checkbox] + i{
-  background: url(../images/apply_checkbox.png) no-repeat;
-  background-size: 34px 17px;
-  width: 17px;
-  height: 17px;
-  display: inline-block;
-  vertical-align: -4px;
+
+
+
+.mask{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  background: rgba(0,0,0,.9);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 100;
+  text-align: left;
+  line-height: 18px;
+}
+.mask h2{
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.mask h3{
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.fadeIn{
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+.animated{
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+.mask1,
+.mask2{
+  display: none;
 }
