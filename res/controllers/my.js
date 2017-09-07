@@ -20,9 +20,9 @@ new Vue({
             if(res.body.code == 0){   
               this.user = res.body.data
             }else{
-              // Toast.show('请先注册成为代理商',2000,function(){
-              //   window.location.href = '/bind.html'
-              // })
+              Toast.show('请先注册成为代理商',2000,function(){
+                window.location.href = '/bind.html'
+              })
             }
         },function(){
 

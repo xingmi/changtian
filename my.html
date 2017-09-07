@@ -22,10 +22,7 @@
   <li class="first"><a href="/commission.html"><img src="/static/images/my_2.png">我的佣金 <span><em class="amount">{{user.amount}}</em>元</span><i class="arrow"></i></a></li>
   <li class="second"><img src="/static/images/my_3.png">我的代理商 <span>一级：<em>{{user.count}}</em>&nbsp;&nbsp;二级：<em>{{user.lcount}}</em></span></li>
   <li class="third"><img src="/static/images/my_1.png">我的推广订单<span>有效：<em>{{user.pocount}}</em>&nbsp;&nbsp总数：<em>{{user.ocount}}</em></span></li>
-  <li class="first"><img src="/static/images/my_4.png">我的推广二维码</li>
-  <div class="qrcode">
-    <img :src=user.qrcode>
-  </div>
+  <li class="first"><a :href=" '/myQrCode.html?images=' + user.qrcode"><img src="/static/images/my_4.png">我的推广二维码<i class="arrow"></i></a></li>
 </ul>
 </div>
 

@@ -297,7 +297,8 @@
 }
 
 .collect_icon,
-.register_icon{
+.register_icon,
+.bind_icon{
     position: fixed;
     bottom: 60px;
     right: 10px;
@@ -326,6 +327,11 @@
 }
 .register_icon {
     bottom: 120px;
+}
+.bind_icon{
+    bottom: 180px;
+    line-height: 18px;
+    padding-top: 5px;
 }
 
 .slider_wrap {
