@@ -34,17 +34,17 @@
     </ul>
 
     <div class="protocol">
-            <div class="protocol_icon">
+            <div class="protocol_icon" @click="change1">
                 <i></i>
             </div>
-            我已同意<span  class="mask1_toggle">《长天金融用户协议》</span><br/>
-            和<span class="mask2_toggle">《长天金融佣金协议》</span>
+            我已同意<span  class="mask1_toggle" @click="change2">《长天金融用户协议》</span><br/>
+            和<span class="mask2_toggle" @click="change3">《长天金融佣金协议》</span>
     </div>
 
     <span class="register_btn" v-on:click="postData">注册代理商</span>
 
 
-    <div class="mask animated fadeIn mask1">
+    <div class="mask animated fadeIn mask1" @click="change4">
     <h2>长天金融网站用户注册协议</h2>
     <h3>特别提示</h3>
     长天金融网站（以下简称“长天金融”）由上海长荷网络科技有限公司及其关联实体(以下简称“我们”或“长天金融”)运营，我们依照以下注册协议向您提供本注册协议涉及的相关服务。请您使用长天金融服务前仔细阅读本注册协议，服务使用人必须同意本注册协议的全部条款并按照页面上的提示完成注册程序，注册成为长天金融的用户（以下简称"用户"）。<br/>
@@ -163,7 +163,7 @@
     </div>
 
 
-     <div class="mask animated fadeIn mask2">
+     <div class="mask animated fadeIn mask2" @click="change5">
         <h2>长天金融佣金协议</h2>
         （一）长天金融服务（以下简称为本服务）：指本条所列的信用评估、提现、代收、代付等服务，及您实际使用的本公司或本公司接受您的委托为您不时提供的服务以及提供的其他服务。<br/>
         （二）在使用信用评估服务前，您需符合下列要求：<br/>

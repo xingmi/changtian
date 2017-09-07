@@ -25,7 +25,7 @@ new Vue({
     created : function(){
         this.checkUserIsRegister();
         this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid=" + Config.openId;
-        this.bindClickEvent();
+       
     },
     methods : {
         checkUserIsRegister : function(){
@@ -71,20 +71,21 @@ new Vue({
         resetImageCode : function(){
             this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid="+Config.openId+"&data=" + new Date().getTime()
         },
-        bindClickEvent : function(e){
-            $("body")
-            .on('click','.protocol_icon',function(){
-                $(this).find('i').toggleClass('current')
-            })
-            .on('click','.mask',function(){
-                $(".mask").hide();
-            })
-            .on('click','.mask1_toggle',function(){
-                $(".mask1").toggle();
-            })
-            .on('click','.mask2_toggle',function(){
-                $(".mask2").toggle();
-            })
+        
+        change1 : function(){
+            $('.protocol_icon i').toggleClass('current')
+        },
+        change2 : function(){
+            $(".mask1").toggle();
+        },
+        change3 : function(){
+            $(".mask2").toggle();
+        },
+        change4 : function(){
+             $(".mask").hide();
+        },
+        change5 : function(){
+             $(".mask").hide();
         },
         sendCode : function(){
             if(!this.user.phone){
