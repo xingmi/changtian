@@ -22,8 +22,18 @@ body{
     padding-top:6px;
     border-radius: 4px;
 }
-.select_model .select .input_model em{
-    width: 100px;
+// .select_model .select .input_model em{
+//     width: 100px;
+//     background: none;
+//     color: #FFF;
+//     height: 20px;
+//     vertical-align: middle;
+//     line-height: 20px;
+//     font-size: .12rem;
+// }
+
+.select_model .select .input_model input{
+    width: 100%;
     background: none;
     color: #FFF;
     height: 20px;
@@ -31,6 +41,7 @@ body{
     line-height: 20px;
     font-size: .12rem;
 }
+
 
 .select_model .select span{
     position: absolute;

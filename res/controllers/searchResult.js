@@ -33,11 +33,17 @@ new Vue({
             temparams:{
                 institutions : JSON.parse(sessionStorage['mapData']).institutions,
                 refunds : JSON.parse(sessionStorage['mapData']).refunds,
-                terms : JSON.parse(sessionStorage['mapData']).terms
+                terms : JSON.parse(sessionStorage['mapData']).terms,
+                assets : JSON.parse(sessionStorage['mapData']).assets,
+                credits : JSON.parse(sessionStorage['mapData']).credits
             },
             paramsTerms : [],
             paramsRefunds : [],
-            paramsInstitutions : []
+            paramsInstitutions : [],
+            paramsCredits : [],
+            paramsPeoples : [],
+            paramsAssets  : []
+
 
     },
     created : function(){
@@ -77,7 +83,7 @@ new Vue({
         });
 
         var wh = $(window).height();
-        $(".search_module").height(wh-30);
+        $(".search_module").height(wh-40);
 
         // $("body").on('click',".search_rule dt",function(){
         //     alert(1111)
@@ -149,7 +155,10 @@ new Vue({
             this.paramsRefunds = [];
             this.paramsInstitutions = [];
             this.paramsTerms = [];
-            this.productlist = []
+            this.productlist = [];
+            this.paramsCredits = [];
+            this.paramsPeoples = [];
+            this.paramsAssets  = [];
             this.paramsSearch()
         },
         selectRefund : function(value){
@@ -168,6 +177,24 @@ new Vue({
             this.productlist = []
             this.paramsSearch()
         },
+
+        selectAssets : function(value){
+            if(this.paramsAssets.length > 1){
+                this.paramsAssets.shift();
+            }
+            this.temParams.assets = this.paramsAssets[0];
+             this.productlist = []
+            this.paramsSearch()
+        },
+        selectCredits : function(value){
+            if(this.paramsCredits.length > 1){
+                this.paramsCredits.shift();
+            }
+            this.temParams.credits = this.paramsCredits[0];
+            this.productlist = []
+            this.paramsSearch()
+        },
+
         selectTerms : function(){
             this.productlist = []
             this.paramsSearch()

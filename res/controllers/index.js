@@ -45,11 +45,11 @@ new Vue({
     },
     mounted :function(){
         var that = this;
-        $(".show_search").on('click',function(){
-            window.scrollTo(0,0)
-            $("html,body").toggleClass('hidden')
-            $(".fast_search").toggleClass('search_actionsheet_toggle')
-        })
+        // $(".show_search").on('click',function(){
+        //     window.scrollTo(0,0)
+        //     $("html,body").toggleClass('hidden')
+        //     $(".fast_search").toggleClass('search_actionsheet_toggle')
+        // })
 
         $(".hide_search_content").on('click',function(){
             $("html,body").removeClass('hidden')

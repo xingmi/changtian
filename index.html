@@ -18,7 +18,8 @@
     <div class="select show_search">
         <i class="search_icon"></i>
         <div class="input_model">
-            <em>找贷款</em>
+            <input type="" name="" placeholder="找贷款" v-model="keyword" @keyup.enter="keywordSearch">
+            <!-- <em>找贷款</em> -->
         </div>
     </div>
     <div class="address" @click="showCity()">
