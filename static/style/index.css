@@ -533,7 +533,8 @@ body{
 }
 
 .collect_icon,
-.register_icon{
+.register_icon,
+.bind_icon{
     position: fixed;
     bottom: 60px;
     right: 10px;
@@ -562,4 +563,9 @@ body{
 }
 .register_icon {
     bottom: 50px;
+}
+.bind_icon{
+  bottom: 120px;
+  line-height: 18px;
+  padding-top: 5px;
 }
