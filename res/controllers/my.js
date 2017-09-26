@@ -2,7 +2,7 @@ var Vue = require('vue');
 var utility = require('../config/utility');
 var Config = require('../config/globalMain');
 var Toast = require('../widget/toast');
-
+var $ = require('../lib/zepto');
 require('../config/date');
 
 new Vue({
@@ -27,6 +27,15 @@ new Vue({
         },function(){
 
         }).bind(this);
-      }
+      },
+      change3 : function(){
+            $(".mask2").toggle();
+        },
+        change4 : function(){
+             $(".mask").hide();
+        },
+        change5 : function(){
+             $(".mask").hide();
+        },
     }
 });

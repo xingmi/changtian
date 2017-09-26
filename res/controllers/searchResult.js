@@ -152,6 +152,8 @@ new Vue({
             this.page = 1;
             this.temParams.refunds = ''
             this.temParams.institutions ='';
+            this.temParams.assets = '';
+            this.temParams.credits = '';
             this.paramsRefunds = [];
             this.paramsInstitutions = [];
             this.paramsTerms = [];
@@ -159,6 +161,7 @@ new Vue({
             this.paramsCredits = [];
             this.paramsPeoples = [];
             this.paramsAssets  = [];
+
             this.paramsSearch()
         },
         selectRefund : function(value){

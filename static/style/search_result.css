@@ -126,7 +126,7 @@
 .search_list .search_total .search_module .search_rule label i{
     position: absolute;
     right: 20px;
-    top: 4px;
+    top: 10px;
     background: url(../images/search_result_rule.png) no-repeat;
     background-size: 38px 19px;
     width: 19px;
