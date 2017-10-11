@@ -27,6 +27,26 @@
                 <p>筛选条件： <i @click="resetParams()">全部清除</i></p>
                 <ul>
                   <li>
+                      <dt @click="toggle">资产贷款</dt>
+                      <dd class="clear_fix">
+                          <label v-for="data in temparams.assets" @change="selectAssets(data.value)">
+                              <input type="checkbox" :value="data.value" v-model="paramsAssets">
+                              <i></i>
+                              <span class="button">{{data.text}}</span>
+                          </label>
+                      </dd>
+                  </li>
+                  <li>
+                      <dt @click="toggle">信用贷款</dt>
+                      <dd class="clear_fix">
+                          <label v-for="data in temparams.credits" @change="selectCredits()">
+                              <input type="checkbox" :value="data.value" v-model="paramsCredits">
+                              <i></i>
+                              <span class="button">{{data.text}}</span>
+                          </label>
+                      </dd>
+                  </li>
+                  <li>
                     <dt @click="toggle">还款方式</dt>
                     <dd class="clear_fix">
                         <label v-for="data in temparams.refunds" @change="selectRefund(data.value)">
@@ -51,26 +71,6 @@
                       <dd class="clear_fix">
                           <label v-for="data in temparams.terms" @change="selectTerms(data.value)">
                               <input type="checkbox" :value="data.value" v-model="paramsTerms">
-                              <i></i>
-                              <span class="button">{{data.text}}</span>
-                          </label>
-                      </dd>
-                  </li>
-                  <li>
-                      <dt @click="toggle">资产贷款</dt>
-                      <dd class="clear_fix">
-                          <label v-for="data in temparams.assets" @change="selectAssets(data.value)">
-                              <input type="checkbox" :value="data.value" v-model="paramsAssets">
-                              <i></i>
-                              <span class="button">{{data.text}}</span>
-                          </label>
-                      </dd>
-                  </li>
-                  <li>
-                      <dt @click="toggle">信用贷款</dt>
-                      <dd class="clear_fix">
-                          <label v-for="data in temparams.credits" @change="selectCredits()">
-                              <input type="checkbox" :value="data.value" v-model="paramsCredits">
                               <i></i>
                               <span class="button">{{data.text}}</span>
                           </label>

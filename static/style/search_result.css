@@ -83,7 +83,7 @@
     right: 0;
 }
 .search_list .search_total .search_module .search_rule p{
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px 10px;
     border-bottom: 2px solid #c4c4c4;
     color: #010101;
@@ -97,7 +97,7 @@
 }
 .search_list .search_total .search_module .search_rule dt{
     padding: 5px 15px;
-    font-size: 16px;
+    font-size: 14px;
     border-bottom: 1px solid #c4c4c4;
     background-image: url('../images/search_arrow_down.png');
     background-repeat: no-repeat;
