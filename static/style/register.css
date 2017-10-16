@@ -39,26 +39,6 @@
 }
 
 .register .tel_style{
-    background: #f68946;
-    color: #FFF;
-    margin: 20px 10px;
-    display: block;
-    height: 38px;
-    line-height: 38px;
-    text-align: center;
-    font-size: .16rem;
-    border-radius: 5px;
-    position: relative;
-}
-.register .tel_style img{
-    width: 24px;
-    vertical-align: middle;
-    margin-right: 10px;
-    position: absolute;
-    top: 7px;
-    left: 15px;
-}
-.register_btn{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -70,6 +50,26 @@
     font-size: .16rem;
     text-align: center;
     line-height: 50px;
+}
+.register .tel_style img{
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+    // position: absolute;
+    // top: 7px;
+    // left: 15px;
+}
+.register_btn{
+    background: #f68946;
+    color: #FFF;
+    margin: 20px 10px;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: .16rem;
+    border-radius: 5px;
+    position: relative;
 }
 
 .apply_success .success_model{
