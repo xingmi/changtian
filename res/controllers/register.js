@@ -18,7 +18,7 @@ new Vue({
             name : "",
             phone : "",
             code : '',
-            
+            amount : ''          
         }
     },
     created : function(){
@@ -36,7 +36,7 @@ new Vue({
                     'mobile' : self.user.phone,
                     'code'   : self.user.code,
                     'name'   : self.user.name,
-                    'amount' : 10000
+                    'amount' : self.user.amount || 100
                 }).then(function(res){
                     if(res.body.code == 0){
                         window.location.href= "/applySuccess.html"

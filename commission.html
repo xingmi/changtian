@@ -33,7 +33,7 @@
         <span class="change plus" v-if="item.drcr == 'D'">+{{item.amount}}</span>
         <span class="change minus" v-else>-{{item.amount}}</span>
 
-        <span class="time">{{new Date(item.txnDate).pattern('MM/dd HH:mm:ss') }}</span>
+        <span class="time">{{item.txnDate}}</span>
      </li>
    </ul>
   </div>
