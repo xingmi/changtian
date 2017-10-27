@@ -51,6 +51,10 @@ new Vue({
             this.imageCode = "http://api.toudaiworld.com/message/validate.jpg?openid="+Config.openId+"&data=" + new Date().getTime()
         },
         sendCode : function(){
+            if(!this.user.amount){
+                Toast.show('请填写申请金额',1000);
+                return;
+            }
             if(!this.user.name){
                 Toast.show('请填写姓名',1000);
                 return;

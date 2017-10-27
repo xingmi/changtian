@@ -16,6 +16,12 @@
     <ul>
         <li>
             <label>
+                <span>申请金额</span>
+                <input v-model.number="user.amount"/>
+            </label>
+        </li>
+        <li>
+            <label>
                 <span>姓名</span>
                 <input v-model="user.name"/>
             </label>
@@ -38,12 +44,6 @@
                 <span>验证码</span>
                 <input v-model.number="user.code"/>
                 <button class="code" @click="sendCode" v-cloak>{{codeMsg}}</button>
-            </label>
-        </li>
-        <li>
-            <label>
-                <span>金额</span>
-                <input v-model.number="user.amount"/>
             </label>
         </li>
     </ul>
