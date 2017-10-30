@@ -92,9 +92,9 @@ new Vue({
 
     },
     watch : {
-        keyword : function(){
-            this.onEnter()
-        }
+        // keyword : function(){
+        //     this.onEnter()
+        // }
     },
     mounted : function(){
         $(".show_search").on('click',function(){
@@ -111,6 +111,7 @@ new Vue({
     methods : {
         getData : function(){
             var that = this;
+            console.log(this.page)
             that.temParams.page = this.page;
             that.temParams.size = this.size;
             that.$http.get(Config.api+ 'products.json',{
