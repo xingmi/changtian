@@ -11,11 +11,11 @@ import MobileSelect from 'mobile-select'
 
 var userData = JSON.parse(sessionStorage['userForm'])
 
-for(var key in userData){
-  for(var i = 1; i < 15; i++){
-    if(typeof(userData[key]) == 'object')
-    userData[key]['value' + i] = '';
-  }
+
+if(userData.house.name == '商品住宅' || userData.house.name == '商铺' || userData.house.name == '商住两用房'){
+  userData.house.value3 = ''
+  userData.house.value4 = ''
+  userData.house.value5 = ''
 }
 
 console.log(userData)
@@ -33,183 +33,6 @@ new Vue({
 
     mounted : function(){
       var that = this;
-      //职业类型
-      // var mobileSelect1 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger1', 
-      //     wheels: [
-      //       {data:['上班族','企业主','自由职业']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.profession.name = data[0]
-      //     }
-      // });
-      // //房产类型
-      // var mobileSelect2 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger2', 
-      //     wheels: [
-      //         {data:['商品住宅','商铺','商住两用房','自建房/宅基地','划拨土地房','厂房','无房']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.house.name = data[0]
-      //     }
-      // });
-
-      // //公积金
-      // var mobileSelect3 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger3', 
-      //     wheels: [
-      //         {data:['是,有本地公积金','否,不缴纳']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.provident.name = data[0]
-      //     }
-      // });
-
-      // // 社保
-      // var mobileSelect4 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger4', 
-      //     wheels: [
-      //         {data:['是,有本地社保','否,没有']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.social.name = data[0]
-      //     }
-      // });
-
-      // //车
-      // var mobileSelect5 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger5', 
-      //     wheels: [
-      //         {data:['是,有车','否,没车']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.car.name = data[0]
-      //     }
-      // });
-
-      // // 信用卡
-      // var mobileSelect6 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger6', 
-      //     wheels: [
-      //         {data:['是,有信用卡','否']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.credit.name = data[0]
-      //     }
-      // });
-
-      // // 商业保险
-      // var mobileSelect7 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger7', 
-      //     wheels: [
-      //         {data:['是,有商业保险','否']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.commercial.name = data[0]
-      //     }
-      // });
-
-      // // 信用状况
-      // var mobileSelect8 = new MobileSelect({
-      //     triggerDisplayData : false,
-      //     trigger: '#trigger8', 
-      //     wheels: [
-      //         {data:['1年内逾期超过3次或超过90天','一年内逾期少于3次且少于90天','无信用卡或贷款','信用良好，无逾期']}
-      //     ],
-      //     position:[0], //初始化定位
-      //     callback : function(indexArr,data){
-      //       that.user.creditStatus.name = data[0]
-      //     }
-      // });
-
-      var ala1 = new MobileSelect({
-          triggerDisplayData : false,
-          trigger: '#triggerProfession1', 
-          wheels: [
-              {data:['银行代发','转账工资','现金发放']}
-          ],
-          position:[0], //初始化定位
-          callback : function(indexArr,data){
-            that.$nextTick(function () {
-              that.user.profession.value1 = data[0]
-            })
-            
-          }
-      });
-
-      var ala2 = new MobileSelect({
-          triggerDisplayData : false,
-          trigger: '#triggerProfession2', 
-          wheels: [
-              {data:['国营','民营','事业','外资']}
-          ],
-          position:[0], //初始化定位
-          callback : function(indexArr,data){
-            that.user.profession.value3 = data[0]
-          }
-      });
-
-      var ala3 = new MobileSelect({
-          triggerDisplayData : false,
-          trigger: '#triggerProfession3', 
-          wheels: [
-              {data:['1年以内','1-2年','2年以上']}
-          ],
-          position:[0], //初始化定位
-          callback : function(indexArr,data){
-            that.user.profession.value3 = data[0]
-          }
-      });
-
-      var ala4 = new MobileSelect({
-          triggerDisplayData : false,
-          trigger: '#triggerProfession4', 
-          wheels: [
-              {data:['大型企业，央企，国企，500强','一般纳税人资质企业','小微企业']}
-          ],
-          position:[0], //初始化定位
-          callback : function(indexArr,data){
-            that.user.profession.value10 = data[0]
-          }
-      });
-
-      var ala5 = new MobileSelect({
-          triggerDisplayData : false,
-          trigger: '#triggerProfession5', 
-          wheels: [
-              {data:['5-20万元','20-100万元','100万元以上']}
-          ],
-          position:[0], //初始化定位
-          callback : function(indexArr,data){
-            that.user.profession.value11 = data[0]
-          }
-      });
-
-      var house1 = new MobileSelect({
-          triggerDisplayData : false,
-          trigger: '#triggerHouse1', 
-          wheels: [
-              {data:['6月以下','1年以下','1年以上']}
-          ],
-          position:[0], //初始化定位
-          callback : function(indexArr,data){
-            that.user.house.value1 = data[0]
-          }
-      });
 
       var house2 = new MobileSelect({
           triggerDisplayData : false,
@@ -223,24 +46,25 @@ new Vue({
           }
       });
 
-
-      var house2 = new MobileSelect({
-          triggerDisplayData : false,
-          trigger: '#triggerCar1', 
-          wheels: [
-              {data:['全款车','按揭车']}
-          ],
-          position:[0], //初始化定位
-          callback : function(indexArr,data){
-            that.user.car.value1 = data[0]
-          }
-      });
-
-
     },
     methods : {
         nextStep : function(){
           var data_result = {},all_data = this.user;
+
+          if(userData.house.name == '商品住宅' || userData.house.name == '商铺' || userData.house.name == '商住两用房'){
+            if(!all_data.house.value3){
+              return Toast.show('请填写完整数据')
+            }
+
+            if(all_data.house.value3 != '按揭房'){
+              delete all_data.house.value4
+              delete all_data.house.value5
+            }else{
+              if(!all_data.house.value4 || !all_data.house.value5){
+                return Toast.show('请填写完整数据')
+              }
+            }
+          }
 
           for(var key in all_data){
             if(typeof(all_data[key]) == 'object' ){
@@ -309,6 +133,7 @@ new Vue({
           }
 
           console.log(data_result)
+
           Toast.show('提交成功，请耐心等待')
           
         }
