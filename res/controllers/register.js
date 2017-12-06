@@ -36,7 +36,8 @@ new Vue({
                     'mobile' : self.user.phone,
                     'code'   : self.user.code,
                     'name'   : self.user.name,
-                    'amount' : self.user.amount || 100
+                    'amount' : self.user.amount || 100,
+                    'source' : localStorage['source']
                 }).then(function(res){
                     if(res.body.code == 0){
                         window.location.href= "/applySuccess.html"

@@ -561,11 +561,21 @@ body{
     width: 20px;
     height: 20px;
 }
-.register_icon {
+a.register_icon {
+
     bottom: 50px;
+    background: #559fb8;
+    border: 1px solid #559fb8;
+    color: #FFF;
+    line-height: 40px;
+    padding-top: 5px;
 }
-.bind_icon{
+a.bind_icon{
+  border:  1px solid #559fb8;
+  background: #559fb8;
   bottom: 120px;
   line-height: 18px;
   padding-top: 5px;
+  line-height: 40px;
+  color: #FFF;
 }

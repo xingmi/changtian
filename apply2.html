@@ -1,0 +1,105 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>精准推荐贷款</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/apply2.css">
+
+</head>
+<body>
+
+<div class="container apply2" v-cloak>
+<img src="static/images/apply2_banner.jpg">
+
+<ul>
+    <div class="line"></div>
+    <li>
+        <i class="count">1</i>
+        <div>
+            <span class="sub_name">贷款额度</span>
+            <input type="" name="" v-model='user.amount' placeholder="请输入" v-inputclass>
+            <span class="title">万元</span>
+        </div>
+    </li>
+    <li>
+        <i class="count">2</i>
+        <div id="trigger1">
+            <span class="sub_name">职业身份</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.profession.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+    <li>
+        <i class="count">3</i>
+        <div id="trigger2">
+            <span class="sub_name">名下房产类型</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.house.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+    <li>
+        <i class="count">4</i>
+        <div id="trigger3">
+            <span class="sub_name">是否有公积金</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.provident.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+    <li>
+        <i class="count">5</i>
+        <div id="trigger4">
+            <span class="sub_name">是否有社保</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.social.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+    <li>
+        <i class="count">6</i>
+        <div id="trigger5">
+            <span class="sub_name">名下是否有车</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.car.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+    <li>
+        <i class="count">7</i>
+        <div id="trigger6">
+            <span class="sub_name">是否有信用卡</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.credit.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+    <li>
+        <i class="count">8</i>
+        <div id="trigger7">
+            <span class="sub_name">是否有商业保险</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.commercial.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+    <li>
+        <i class="count">9</i>
+        <div id="trigger8">
+            <span class="sub_name">信用状况</span>
+            <input type="" name="" placeholder="请选择" readonly v-model='user.creditStatus.name'>
+            <i class="icon"></i>
+        </div>
+    </li>
+</ul>
+<div class="next_btn" @click="nextStep">
+    下一步
+</div> 
+
+</div>
+
+
+
+
+
+<script type="text/javascript"  src="/dist/apply2.js?v=1111111111111"></script>
+</body>
+</html>

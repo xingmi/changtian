@@ -8,8 +8,11 @@ var Ajax = require('../config/ajax');
 var vueTmpFilter = require('./filter');
 var VueResource = require('../lib/vue-resource');
 var env    = require('./env');
+var utility = require('./utility');
 
 var io = require('../lib/growingio')
+
+require('./directive');
 
 Vue.use(VueResource);
 
@@ -40,6 +43,10 @@ function loadData(lat,lng,callback){
         if(callback)callback()    
       }
   })
+}
+
+if(!localStorage['source']){
+  localStorage['source'] = utility.getUrlParam('source')
 }
 
 // 存储分享人openid

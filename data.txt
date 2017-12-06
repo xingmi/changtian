@@ -1,0 +1,54 @@
+{
+
+  amount : '100', // 额度 
+  profession : { 
+    'name' : '职业身份',
+    'value1' '收入形式',
+    'value2' '月收入',
+    'value3' '单位类型',
+    'value4' '当前单位工龄',
+    'value5' '年销售',
+    'value6' '年开票',
+    'value7' '年缴税额',
+    'value8' '设备估值',
+    'value9' '营业执照时间',
+    'value10' '下游企业类型',
+    'value11' 'Pos机流水',
+    'value12' '月收入',
+  }, 
+  house : {
+    'name' : '房产类型',
+    'value1' '房龄',
+    'value2' '房产估值',
+    'value3' '全款房/按揭房',
+    'value4' '月还款额度',
+    'value5' '已还期数',
+    'value6' '房产估值',
+  }, 
+  provident : {
+    'name' : '是否有公积金',
+    'value1' '公积金连续缴存时间',
+  }, 
+  social : {
+    'name' : '是否有社保',
+    'value1' '社保连续缴存时间',
+  }, 
+  car : { //车
+    'name' : '名下是否有车',
+    'value1' '全款/按揭车',
+    'value2' '月还款额度',
+    'value3' '已还期数',
+  },
+  credit : {
+    'name' : '是否有信用卡',
+    'value1' '总额度',
+  }, 
+  commercial : {
+    'name' : '是否有商业保险',
+    'value1' '年缴费',
+    'value1' '连续缴费',
+  }, 
+  creditStatus : {
+    'name' : '信用状况'
+  },
+}
