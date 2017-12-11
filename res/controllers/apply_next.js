@@ -18,6 +18,12 @@ if(userData.house.name == '商品住宅' || userData.house.name == '商铺' || u
   userData.house.value5 = ''
 }
 
+if(userData.car.name == '是,有车'){
+  userData.car.value1 = ''
+  userData.car.value2 = ''
+  userData.car.value3 = ''
+}
+
 console.log(userData)
 new Vue({
     el : '.apply2',
@@ -43,6 +49,18 @@ new Vue({
           position:[0], //初始化定位
           callback : function(indexArr,data){
             that.user.house.value3 = data[0]
+          }
+      });
+
+      var house2 = new MobileSelect({
+          triggerDisplayData : false,
+          trigger: '#triggerCar1', 
+          wheels: [
+              {data:['全款车','按揭车']}
+          ],
+          position:[0], //初始化定位
+          callback : function(indexArr,data){
+            that.user.car.value1 = data[0]
           }
       });
 
@@ -132,9 +150,30 @@ new Vue({
             }
           }
 
+          var iscomplate = true
+          for(var firstKey in data_result){
+            if(typeof(data_result[firstKey]) == 'object'){
+              for(var secondKey in data_result[firstKey]){
+                if(!data_result[firstKey][secondKey]){
+                  iscomplate = false
+                }
+              }
+            }else{
+              if( !data_result[firstKey]){
+                iscomplate = false
+              }
+            }
+          }
+
+
           console.log(data_result)
 
-          Toast.show('提交成功，请耐心等待')
+          if(!iscomplate){
+            Toast.show('请填写完整的数据')
+          }else{
+            Toast.show('提交成功，请耐心等待')
+          }
+          
           
         }
     }

@@ -320,29 +320,29 @@ new Vue({
               }
 
               if(data_result[key]['name'] == '是,有本地公积金'){
-                 data_result[key]['value1']  = all_data[key]['value1'];
+                 // data_result[key]['value1']  = all_data[key]['value1'];
               }
 
               if(data_result[key]['name'] == '是,有本地社保'){
-                 data_result[key]['value1']  = all_data[key]['value1'];
+                 // data_result[key]['value1']  = all_data[key]['value1'];
               }
 
               if(data_result[key]['name'] == '是,有车'){
-                 data_result[key]['value1']  = all_data[key]['value1'];
+                 // data_result[key]['value1']  = all_data[key]['value1'];
               }
 
               if(data_result[key]['value1'] == '按揭车'){
-                 data_result[key]['value2']  = all_data[key]['value2'];
-                 data_result[key]['value3']  = all_data[key]['value3'];
+                 // data_result[key]['value2']  = all_data[key]['value2'];
+                 // data_result[key]['value3']  = all_data[key]['value3'];
               }
 
               if(data_result[key]['name'] == '是,有信用卡'){
-                 data_result[key]['value1']  = all_data[key]['value1'];
+                 // data_result[key]['value1']  = all_data[key]['value1'];
               }
 
               if(data_result[key]['name'] == '是,有商业保险'){
-                 data_result[key]['value1']  = all_data[key]['value1'];
-                 data_result[key]['value2']  = all_data[key]['value2'];
+                 // data_result[key]['value1']  = all_data[key]['value1'];
+                 // data_result[key]['value2']  = all_data[key]['value2'];
               }
             }else{
               data_result[key] = all_data[key]

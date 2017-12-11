@@ -149,13 +149,13 @@
                 <input type="" name=""  placeholder="请选择" readonly v-model='user.provident.name'>
                 <i class="icon"></i>
             </div>
-            <article v-show="user.provident.name == '是,有本地公积金'">
+<!--             <article v-show="user.provident.name == '是,有本地公积金'">
                 <div >
                     <span class="sub_name">公积金连续缴存时间</span>
                     <input type="" name="" placeholder="请输入" v-model='user.provident.value1'>
                     <span class="title">个月</span>
                 </div>
-            </article>
+            </article> -->
         </li>
         <li>
             <i class="count">5</i>
@@ -164,13 +164,13 @@
                 <input type="" name="" placeholder="请选择" readonly v-model='user.social.name'>
                 <i class="icon"></i>
             </div>
-            <article v-show="user.social.name == '是,有本地社保'">
+<!--             <article v-show="user.social.name == '是,有本地社保'">
                 <div >
                     <span class="sub_name">社保连续缴存时间</span>
                     <input type="" name="" placeholder="请输入" v-model='user.social.value1'>
                     <span class="title">个月</span>
                 </div>
-            </article>
+            </article> -->
         </li>
         <li>
             <i class="count">6</i>
@@ -179,7 +179,7 @@
                 <input type="" name="" placeholder="请选择" readonly v-model='user.car.name'>
                 <i class="icon"></i>
             </div>
-            <article v-show="user.car.name == '是,有车'">
+<!--             <article v-show="user.car.name == '是,有车'">
                 <div id="triggerCar1">
                     <span class="sub_name">全款/按揭车</span>
                     <input type="" name="" readonly  placeholder="请选择" v-model='user.car.value1'>
@@ -195,7 +195,7 @@
                     <input type="" name="" placeholder="请输入" v-model='user.car.value3'>
                     <span class="title">个月</span>
                 </div>
-            </article>
+            </article> -->
         </li>
         <li>
             <i class="count">7</i>
@@ -204,13 +204,6 @@
                 <input type="" name="" readonly placeholder="请选择" v-model='user.credit.name'>
                 <i class="icon"></i>
             </div>
-            <article v-show="user.credit.name == '是,有信用卡'">
-                <div>
-                    <span class="sub_name">总额度</span>
-                    <input type="" name="" placeholder="请输入" v-model='user.credit.value1'>
-                    <span class="title">万元</span>
-                </div>
-            </article>
         </li>
         <li>
             <i class="count">8</i>
@@ -219,18 +212,6 @@
                 <input type="" name="" placeholder="请选择" readonly v-model='user.commercial.name'>
                 <i class="icon"></i>
             </div>
-            <article v-show="user.commercial.name == '是,有商业保险'">
-                <div>
-                    <span class="sub_name">年缴费</span>
-                    <input type="" name="" placeholder="请输入" v-model='user.commercial.value1'>
-                    <span class="title">万元</span>
-                </div>
-                <div>
-                    <span class="sub_name">连续缴费</span>
-                    <input type="" name="" placeholder="请输入" v-model='user.commercial.value2'>
-                    <span class="title">个月</span>
-                </div>
-            </article>
         </li>
         <li>
             <i class="count">9</i>
