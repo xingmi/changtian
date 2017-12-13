@@ -60,7 +60,7 @@ new Vue({
         $("body").on('click',".jump_to_new_link",function(){
             var id = $(this).attr('data-id');
             var type = $(this).attr('data-type');
-            window.location.href = "https://api.toudaiworld.com/jump?type="+type+"&dataId=" + id + "&city="+ that.usercityId
+            window.location.href = Config.api + "jump?type="+type+"&dataId=" + id + "&city="+ that.usercityId
         })
     },
     methods : {
