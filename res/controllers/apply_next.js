@@ -165,15 +165,12 @@ new Vue({
             }
           }
 
-
-          console.log(data_result)
-
           if(!iscomplate){
             Toast.show('请填写完整的数据')
           }else{
-            Toast.show('提交成功，请耐心等待')
+            sessionStorage['user_post_data'] = JSON.stringify(data_result)
+            window.location.href = '/register.html?applySource=apply2';
           }
-          
           
         }
     }

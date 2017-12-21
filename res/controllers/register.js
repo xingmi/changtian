@@ -5,6 +5,7 @@
 var Vue      = require('vue');
 var Config = require('../config/globalMain');
 var Toast = require('../widget/toast');
+var utility = require('../config/utility');
 
 new Vue({
     el : '.register',
@@ -30,15 +31,19 @@ new Vue({
                 Toast.show('请填写手机验证码',1000);
                 return;
             }
-            var self = this;
-            self.$http.post(Config.api+ 'quick/personal',{
-                    'openid' : Config.openId,
-                    'mobile' : self.user.phone,
-                    'code'   : self.user.code,
-                    'name'   : self.user.name,
-                    'amount' : self.user.amount || 100,
-                    'source' : localStorage['source']
-                }).then(function(res){
+
+            var userData = {
+                'openid' : Config.openId,
+                'mobile' : this.user.phone,
+                'code'   : this.user.code,
+                'name'   : this.user.name,
+                'amount' : this.user.amount || 100,
+                'source' : localStorage['source']
+            }
+            if(utility.getUrlParam('applySource')){
+               userData = Object.assign({},userData,JSON.parse(sessionStorage['user_post_data']))
+            }
+            this.$http.post(Config.api+ 'quick/personal',userData).then(function(res){
                     if(res.body.code == 0){
                         window.location.href= "/applySuccess.html"
                     }else{
