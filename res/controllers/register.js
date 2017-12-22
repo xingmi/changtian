@@ -7,6 +7,8 @@ var Config = require('../config/globalMain');
 var Toast = require('../widget/toast');
 var utility = require('../config/utility');
 
+Vue.http.options.emulateJSON = false;
+
 new Vue({
     el : '.register',
     data : {

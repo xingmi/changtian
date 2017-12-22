@@ -368,11 +368,11 @@ new Vue({
             Toast.show('请填写完整的数据')
           }else{
             sessionStorage['userForm'] = JSON.stringify(data_result)
-            if(data_result.house.name == '自建房/宅基地'|| data_result.house.name == '划拨土地房' || data_result.house.name == '厂房' || data_result.house.name == '无房'){
-              Toast.show('没有补充信息，直接提交')
-            }else{
+            // if(data_result.house.name == '自建房/宅基地'|| data_result.house.name == '划拨土地房' || data_result.house.name == '厂房' || data_result.house.name == '无房'){
+            //   Toast.show('没有补充信息，直接提交')
+            // }else{
               window.location.href = '/apply2_next.html'
-            }
+            // }
             
           }
 
