@@ -7,7 +7,7 @@ var Config = require('../config/globalMain');
 var Toast = require('../widget/toast');
 var utility = require('../config/utility');
 
-Vue.http.options.emulateJSON = false;
+// Vue.http.options.emulateJSON = false;
 
 new Vue({
     el : '.register',
@@ -33,7 +33,7 @@ new Vue({
                 Toast.show('请填写手机验证码',1000);
                 return;
             }
-
+            var postUrl = Config.api+ 'quick/personal';
             var userData = {
                 'openid' : Config.openId,
                 'mobile' : this.user.phone,
@@ -43,9 +43,12 @@ new Vue({
                 'source' : localStorage['source']
             }
             if(utility.getUrlParam('applySource')){
+               Vue.http.options.emulateJSON = false;
                userData = Object.assign({},userData,JSON.parse(sessionStorage['user_post_data']))
+               postUrl = Config.api+ 'distributor/data';
+                
             }
-            this.$http.post(Config.api+ 'quick/personal',userData).then(function(res){
+            this.$http.post(postUrl,userData).then(function(res){
                     if(res.body.code == 0){
                         window.location.href= "/applySuccess.html"
                     }else{
